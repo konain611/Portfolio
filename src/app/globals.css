@@ -1,15 +1,75 @@
 @import "tailwindcss";
 
 :root {
+  --background: #ffffff;
+  --foreground: #09090b;
+  --card: #ffffff;
+  --card-foreground: #09090b;
+  --popover: #ffffff;
+  --popover-foreground: #09090b;
+  --primary: #0891b2;
+  --primary-foreground: #ffffff;
+  --secondary: #f0f9ff;
+  --secondary-foreground: #0c4a6e;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  --accent: #e0f2fe;
+  --accent-foreground: #075985;
+  --destructive: #ef4444;
+  --destructive-foreground: #fef2f2;
+  --border: #bae6fd;
+  --input: #bae6fd;
+  --ring: #0891b2;
+  --radius: 0.75rem;
+}
+
+.dark {
   --background: #09090b;
   --foreground: #fafafa;
+  --card: #0f172a;
+  --card-foreground: #fafafa;
+  --popover: #0f172a;
+  --popover-foreground: #fafafa;
+  --primary: #22d3ee;
+  --primary-foreground: #082f49;
+  --secondary: #0c4a6e;
+  --secondary-foreground: #ecfeff;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --accent: #164e63;
+  --accent-foreground: #cffafe;
+  --destructive: #7f1d1d;
+  --destructive-foreground: #fef2f2;
+  --border: #1e40af;
+  --input: #1e40af;
+  --ring: #22d3ee;
+  --radius: 0.75rem;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
 body {
@@ -25,22 +85,22 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #18181b;
+  background: var(--secondary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3f3f46;
+  background: var(--muted-foreground);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #52525b;
+  background: var(--foreground);
 }
 
 /* Selection color */
 ::selection {
-  background: rgba(34, 211, 238, 0.3);
-  color: #fafafa;
+  background: rgba(6, 182, 212, 0.3);
+  color: var(--foreground);
 }
 
 /* Smooth scrolling */
@@ -69,6 +129,15 @@ html {
   }
 }
 
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
 .animate-fade-in {
   animation: fadeIn 0.6s ease-out forwards;
 }
@@ -77,9 +146,13 @@ html {
   animation: float 3s ease-in-out infinite;
 }
 
+.animate-shimmer {
+  animation: shimmer 2s linear infinite;
+}
+
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%);
+  background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 50%, #60a5fa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -87,17 +160,18 @@ html {
 
 /* Card hover effect */
 .card-hover {
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-hover:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(34, 211, 238, 0.1);
+  box-shadow: 0 12px 24px rgba(6, 182, 212, 0.15);
 }
 
 /* Button glow effect */
 .btn-glow {
   position: relative;
+  overflow: hidden;
 }
 
 .btn-glow::before {
@@ -106,10 +180,69 @@ html {
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(34, 211, 238, 0.5), rgba(59, 130, 246, 0.5));
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.5), rgba(59, 130, 246, 0.5));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
+}
+
+.btn-glow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-glow:hover::after {
+  left: 100%;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark .glass {
+  background: rgba(9, 9, 11, 0.8);
+}
+
+/* Line clamp utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Focus visible styles */
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
 }

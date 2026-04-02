@@ -1,5 +1,5 @@
 import { skills } from "@/lib/data";
-import { Code, Layers, Server, Database, Wrench, Cloud } from "lucide-react";
+import { Code, Layers, Server, Database, Wrench, Cloud, ChevronRight } from "lucide-react";
 
 export const metadata = {
   title: "Skills | Syed Konain Nasir",
@@ -11,49 +11,37 @@ const skillCategories = [
     key: "languages",
     name: "Languages",
     icon: Code,
-    color: "text-blue-400",
-    bgColor: "bg-blue-400/10",
-    borderColor: "border-blue-400/30",
+    description: "Programming languages I code in daily",
   },
   {
     key: "frontend",
     name: "Frontend",
     icon: Layers,
-    color: "text-cyan-400",
-    bgColor: "bg-cyan-400/10",
-    borderColor: "border-cyan-400/30",
+    description: "Technologies for building user interfaces",
   },
   {
     key: "backend",
     name: "Backend",
     icon: Server,
-    color: "text-green-400",
-    bgColor: "bg-green-400/10",
-    borderColor: "border-green-400/30",
+    description: "Server-side technologies and frameworks",
   },
   {
     key: "database",
     name: "Database",
     icon: Database,
-    color: "text-yellow-400",
-    bgColor: "bg-yellow-400/10",
-    borderColor: "border-yellow-400/30",
+    description: "Data storage and management systems",
   },
   {
     key: "tools",
     name: "Tools & Technologies",
     icon: Wrench,
-    color: "text-purple-400",
-    bgColor: "bg-purple-400/10",
-    borderColor: "border-purple-400/30",
+    description: "Development tools and utilities",
   },
   {
     key: "cloudDevOps",
     name: "Cloud & DevOps",
     icon: Cloud,
-    color: "text-orange-400",
-    bgColor: "bg-orange-400/10",
-    borderColor: "border-orange-400/30",
+    description: "Cloud services and deployment practices",
   },
 ];
 
@@ -66,13 +54,13 @@ export default function Skills() {
           <h1 className="text-3xl md:text-4xl font-bold mb-4">
             Technical <span className="gradient-text">Skills</span>
           </h1>
-          <p className="text-zinc-500 text-lg">
+          <p className="text-muted-foreground text-lg">
             Technologies and tools I work with
           </p>
         </div>
 
-        {/* Skills Grid */}
-        <div className="grid md:grid-cols-2 gap-6 mb-12">
+        {/* Skills Overview */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {skillCategories.map((category) => {
             const Icon = category.icon;
             const skillList = skills[category.key] || [];
@@ -80,20 +68,20 @@ export default function Skills() {
             return (
               <div
                 key={category.key}
-                className={`p-6 rounded-xl bg-zinc-900 border ${category.borderColor} card-hover group`}
+                className="p-6 rounded-xl bg-card border border-border card-hover group"
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className={`p-2 rounded-lg ${category.bgColor}`}>
-                    <Icon className={`w-6 h-6 ${category.color}`} />
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="p-2 rounded-lg bg-secondary">
+                    <Icon className="w-5 h-5 text-primary" />
                   </div>
-                  <h2 className="text-xl font-semibold">{category.name}</h2>
+                  <h2 className="text-lg font-semibold">{category.name}</h2>
                 </div>
-
+                <p className="text-muted-foreground text-sm mb-4">{category.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {skillList.map((skill) => (
                     <span
                       key={skill}
-                      className="px-4 py-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 hover:text-zinc-100 transition-colors cursor-default"
+                      className="px-3 py-1.5 rounded-lg bg-secondary text-foreground text-sm hover:bg-primary hover:text-primary-foreground transition-colors cursor-default"
                     >
                       {skill}
                     </span>
@@ -105,17 +93,17 @@ export default function Skills() {
         </div>
 
         {/* Concepts Section */}
-        <section className="mb-12">
-          <div className="p-6 md:p-8 rounded-2xl bg-zinc-900 border border-zinc-800">
+        <section className="mb-16">
+          <div className="p-6 md:p-8 rounded-2xl bg-card border border-border">
             <h2 className="text-2xl font-semibold mb-6">Concepts & Expertise</h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {skills.concepts.map((concept) => (
                 <div
                   key={concept}
-                  className="flex items-center gap-3 p-4 rounded-xl bg-zinc-800/50 hover:bg-zinc-800 transition-colors"
+                  className="flex items-center gap-3 p-4 rounded-xl bg-secondary hover:bg-secondary/80 transition-colors"
                 >
-                  <div className="w-2 h-2 rounded-full bg-cyan-400" />
-                  <span className="text-zinc-300">{concept}</span>
+                  <ChevronRight className="w-4 h-4 text-primary" />
+                  <span className="text-foreground">{concept}</span>
                 </div>
               ))}
             </div>
@@ -124,31 +112,33 @@ export default function Skills() {
 
         {/* Learning Path */}
         <section>
-          <div className="p-6 md:p-8 rounded-2xl bg-gradient-to-br from-zinc-900 to-zinc-950 border border-zinc-800">
+          <div className="p-6 md:p-8 rounded-2xl bg-secondary border border-border">
             <h2 className="text-2xl font-semibold mb-4">Currently Learning</h2>
-            <p className="text-zinc-400 mb-6">
+            <p className="text-muted-foreground mb-6">
               I&apos;m always expanding my skill set. Currently focusing on:
             </p>
             <div className="space-y-4">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center flex-shrink-0">
-                  <Cloud className="w-5 h-5 text-cyan-400" />
+              <div className="flex items-start gap-4 p-4 rounded-xl bg-card border border-border">
+                <div className="p-3 rounded-lg bg-primary/10 flex-shrink-0">
+                  <Cloud className="w-5 h-5 text-primary" />
                 </div>
-                <div>
-                  <h3 className="font-medium text-zinc-200">DevOps Practices</h3>
-                  <p className="text-zinc-500 text-sm">
-                    CI/CD pipelines, containerization, infrastructure as code, and cloud deployment strategies
+                <div className="flex-1">
+                  <h3 className="font-semibold text-foreground mb-1">DevOps Practices</h3>
+                  <p className="text-muted-foreground text-sm">
+                    CI/CD pipelines, containerization with Docker, Kubernetes orchestration, 
+                    infrastructure as code, and cloud deployment strategies
                   </p>
                 </div>
               </div>
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center flex-shrink-0">
-                  <Code className="w-5 h-5 text-purple-400" />
+              <div className="flex items-start gap-4 p-4 rounded-xl bg-card border border-border">
+                <div className="p-3 rounded-lg bg-primary/10 flex-shrink-0">
+                  <Code className="w-5 h-5 text-primary" />
                 </div>
-                <div>
-                  <h3 className="font-medium text-zinc-200">AI & Agent Development</h3>
-                  <p className="text-zinc-500 text-sm">
-                    Building autonomous AI agents, RAG systems, and integrating LLMs into applications
+                <div className="flex-1">
+                  <h3 className="font-semibold text-foreground mb-1">AI & Agent Development</h3>
+                  <p className="text-muted-foreground text-sm">
+                    Building autonomous AI agents, RAG systems, LLM integration, 
+                    and context engineering for intelligent applications
                   </p>
                 </div>
               </div>

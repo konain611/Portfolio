@@ -1,5 +1,5 @@
 import { personalInfo, socialLinks } from "@/lib/data";
-import { Mail, Phone, MapPin, Github, Linkedin, Send, MessageSquare } from "lucide-react";
+import { Mail, Phone, MapPin, Github, Linkedin, Send, MessageSquare, Clock, CheckCircle } from "lucide-react";
 
 export const metadata = {
   title: "Contact | Syed Konain Nasir",
@@ -7,6 +7,45 @@ export const metadata = {
 };
 
 export default function Contact() {
+  const contactMethods = [
+    {
+      icon: Mail,
+      label: "Email",
+      value: personalInfo.email,
+      href: socialLinks.email,
+      description: "Best for detailed inquiries",
+      color: "text-primary",
+      bgColor: "bg-primary/10",
+    },
+    {
+      icon: Phone,
+      label: "Phone",
+      value: personalInfo.phone,
+      href: `tel:${personalInfo.phone}`,
+      description: "Available during business hours",
+      color: "text-primary",
+      bgColor: "bg-primary/10",
+    },
+    {
+      icon: MapPin,
+      label: "Location",
+      value: personalInfo.location,
+      href: null,
+      description: "Open to remote work",
+      color: "text-primary",
+      bgColor: "bg-primary/10",
+    },
+  ];
+
+  const services = [
+    "Full-stack web development",
+    "Next.js & React projects",
+    "API design & integration",
+    "Database architecture",
+    "DevOps & deployment",
+    "AI-powered solutions",
+  ];
+
   return (
     <div className="container mx-auto px-4 py-12 md:py-20">
       <div className="max-w-4xl mx-auto">
@@ -15,7 +54,7 @@ export default function Contact() {
           <h1 className="text-3xl md:text-4xl font-bold mb-4">
             Get In <span className="gradient-text">Touch</span>
           </h1>
-          <p className="text-zinc-500 text-lg">
+          <p className="text-muted-foreground text-lg">
             Have a question or want to work together? I&apos;d love to hear from you.
           </p>
         </div>
@@ -23,97 +62,80 @@ export default function Contact() {
         <div className="grid md:grid-cols-2 gap-8">
           {/* Contact Info */}
           <div className="space-y-6">
-            <div className="p-6 rounded-xl bg-zinc-900 border border-zinc-800 card-hover">
+            <div className="p-6 rounded-xl bg-card border border-border">
               <h2 className="text-xl font-semibold mb-6">Contact Information</h2>
-              
+
               <div className="space-y-4">
-                <a
-                  href={socialLinks.email}
-                  className="flex items-center gap-4 p-4 rounded-lg bg-zinc-800/50 hover:bg-zinc-800 transition-colors group"
-                >
-                  <div className="p-2 rounded-lg bg-cyan-500/10 group-hover:bg-cyan-500/20 transition-colors">
-                    <Mail className="w-5 h-5 text-cyan-400" />
+                {contactMethods.map((method) => (
+                  <div
+                    key={method.label}
+                    className={`flex items-center gap-4 p-4 rounded-lg bg-secondary transition-colors ${
+                      method.href ? "hover:bg-secondary/80 cursor-pointer" : ""
+                    }`}
+                    {...(method.href ? { href: method.href, target: method.href.startsWith("http") ? "_blank" : undefined } : {})}
+                  >
+                    <div className={`p-2 rounded-lg ${method.bgColor}`}>
+                      <method.icon className={`w-5 h-5 ${method.color}`} />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-muted-foreground text-sm">{method.label}</p>
+                      <p className="text-foreground font-medium">{method.value}</p>
+                      <p className="text-muted-foreground text-xs">{method.description}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-zinc-500 text-sm">Email</p>
-                    <p className="text-zinc-200">{personalInfo.email}</p>
-                  </div>
-                </a>
-
-                <a
-                  href={`tel:${personalInfo.phone}`}
-                  className="flex items-center gap-4 p-4 rounded-lg bg-zinc-800/50 hover:bg-zinc-800 transition-colors group"
-                >
-                  <div className="p-2 rounded-lg bg-cyan-500/10 group-hover:bg-cyan-500/20 transition-colors">
-                    <Phone className="w-5 h-5 text-cyan-400" />
-                  </div>
-                  <div>
-                    <p className="text-zinc-500 text-sm">Phone</p>
-                    <p className="text-zinc-200">{personalInfo.phone}</p>
-                  </div>
-                </a>
-
-                <div className="flex items-center gap-4 p-4 rounded-lg bg-zinc-800/50">
-                  <div className="p-2 rounded-lg bg-cyan-500/10">
-                    <MapPin className="w-5 h-5 text-cyan-400" />
-                  </div>
-                  <div>
-                    <p className="text-zinc-500 text-sm">Location</p>
-                    <p className="text-zinc-200">{personalInfo.location}</p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
 
             {/* Social Links */}
-            <div className="p-6 rounded-xl bg-zinc-900 border border-zinc-800">
+            <div className="p-6 rounded-xl bg-card border border-border">
               <h2 className="text-xl font-semibold mb-6">Connect With Me</h2>
-              
+
               <div className="space-y-3">
                 <a
                   href={socialLinks.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 rounded-lg bg-zinc-800/50 hover:bg-zinc-800 transition-colors group"
+                  className="flex items-center gap-4 p-4 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors group"
                 >
-                  <div className="p-2 rounded-lg bg-zinc-700 group-hover:bg-zinc-600 transition-colors">
-                    <Github className="w-5 h-5 text-zinc-300" />
+                  <div className="p-2 rounded-lg bg-secondary">
+                    <Github className="w-5 h-5 text-foreground" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-zinc-200">GitHub</p>
-                    <p className="text-zinc-500 text-sm">Check out my code</p>
+                    <p className="text-foreground">GitHub</p>
+                    <p className="text-muted-foreground text-sm">Check out my code</p>
                   </div>
-                  <Send className="w-4 h-4 text-zinc-500 group-hover:text-zinc-300 transition-colors" />
+                  <Send className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
                 </a>
 
                 <a
                   href={socialLinks.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 rounded-lg bg-zinc-800/50 hover:bg-zinc-800 transition-colors group"
+                  className="flex items-center gap-4 p-4 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors group"
                 >
-                  <div className="p-2 rounded-lg bg-blue-500/10 group-hover:bg-blue-500/20 transition-colors">
-                    <Linkedin className="w-5 h-5 text-blue-400" />
+                  <div className="p-2 rounded-lg bg-blue-500/10">
+                    <Linkedin className="w-5 h-5 text-blue-500" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-zinc-200">LinkedIn</p>
-                    <p className="text-zinc-500 text-sm">Professional network</p>
+                    <p className="text-foreground">LinkedIn</p>
+                    <p className="text-muted-foreground text-sm">Professional network</p>
                   </div>
-                  <Send className="w-4 h-4 text-zinc-500 group-hover:text-zinc-300 transition-colors" />
+                  <Send className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
                 </a>
 
                 <a
                   href={socialLinks.email}
-                  className="flex items-center gap-4 p-4 rounded-lg bg-zinc-800/50 hover:bg-zinc-800 transition-colors group"
+                  className="flex items-center gap-4 p-4 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors group"
                 >
-                  <div className="p-2 rounded-lg bg-cyan-500/10 group-hover:bg-cyan-500/20 transition-colors">
-                    <MessageSquare className="w-5 h-5 text-cyan-400" />
+                  <div className="p-2 rounded-lg bg-primary/10">
+                    <MessageSquare className="w-5 h-5 text-primary" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-zinc-200">Send a Message</p>
-                    <p className="text-zinc-500 text-sm">I&apos;ll get back to you</p>
+                    <p className="text-foreground">Send a Message</p>
+                    <p className="text-muted-foreground text-sm">I&apos;ll get back to you</p>
                   </div>
-                  <Send className="w-4 h-4 text-zinc-500 group-hover:text-zinc-300 transition-colors" />
+                  <Send className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
                 </a>
               </div>
             </div>
@@ -121,41 +143,35 @@ export default function Contact() {
 
           {/* Contact Form / CTA */}
           <div className="space-y-6">
-            <div className="p-6 md:p-8 rounded-2xl bg-gradient-to-br from-zinc-900 to-zinc-950 border border-zinc-800">
+            <div className="p-6 md:p-8 rounded-2xl bg-secondary border border-border">
               <h2 className="text-2xl font-semibold mb-4">Let&apos;s Talk</h2>
-              <p className="text-zinc-400 mb-6">
-                I&apos;m always open to discussing new projects, creative ideas, or 
-                opportunities to be part of your visions. Whether you have a question, 
+              <p className="text-muted-foreground mb-6">
+                I&apos;m always open to discussing new projects, creative ideas, or
+                opportunities to be part of your visions. Whether you have a question,
                 a project idea, or just want to say hi, feel free to reach out!
               </p>
 
               <div className="space-y-4">
                 <div>
-                  <h3 className="font-medium text-zinc-200 mb-2">What I can help with:</h3>
+                  <h3 className="font-medium text-foreground mb-2">What I can help with:</h3>
                   <ul className="space-y-2">
-                    {[
-                      "Full-stack web development",
-                      "Next.js & React projects",
-                      "API design & integration",
-                      "Database architecture",
-                      "DevOps & deployment",
-                      "AI-powered solutions",
-                    ].map((item) => (
-                      <li key={item} className="flex items-center gap-2 text-zinc-400 text-sm">
-                        <div className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+                    {services.map((item) => (
+                      <li key={item} className="flex items-center gap-2 text-muted-foreground text-sm">
+                        <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
                         {item}
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="pt-4 border-t border-zinc-800">
-                  <p className="text-zinc-500 text-sm mb-4">
-                    Average response time: <span className="text-cyan-400">Within 24 hours</span>
-                  </p>
+                <div className="pt-4 border-t border-border">
+                  <div className="flex items-center gap-2 text-muted-foreground text-sm mb-4">
+                    <Clock className="w-4 h-4" />
+                    Average response time: <span className="text-primary font-medium">Within 24 hours</span>
+                  </div>
                   <a
                     href={socialLinks.email}
-                    className="btn-glow w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-cyan-500 hover:bg-cyan-600 text-zinc-950 font-semibold transition-all"
+                    className="btn-glow w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary hover:bg-primary/90 text-primary-foreground font-semibold transition-all"
                   >
                     <Mail className="w-5 h-5" />
                     Send Email
@@ -165,13 +181,13 @@ export default function Contact() {
             </div>
 
             {/* Availability Card */}
-            <div className="p-6 rounded-xl bg-zinc-900 border border-zinc-800">
+            <div className="p-6 rounded-xl bg-card border border-border">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
                 <h3 className="font-semibold">Currently Available</h3>
               </div>
-              <p className="text-zinc-400 text-sm">
-                I&apos;m open to freelance projects, contract work, and full-time opportunities. 
+              <p className="text-muted-foreground text-sm">
+                I&apos;m open to freelance projects, contract work, and full-time opportunities.
                 Let&apos;s discuss how I can contribute to your team or project.
               </p>
             </div>

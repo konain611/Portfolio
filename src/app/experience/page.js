@@ -1,5 +1,5 @@
 import { experience } from "@/lib/data";
-import { Briefcase, Building, Calendar, ExternalLink, CheckCircle } from "lucide-react";
+import { Briefcase, Building, Calendar, ExternalLink, CheckCircle, ArrowRight } from "lucide-react";
 
 export const metadata = {
   title: "Experience | Syed Konain Nasir",
@@ -15,7 +15,7 @@ export default function Experience() {
           <h1 className="text-3xl md:text-4xl font-bold mb-4">
             Work <span className="gradient-text">Experience</span>
           </h1>
-          <p className="text-zinc-500 text-lg">
+          <p className="text-muted-foreground text-lg">
             My professional journey and career highlights
           </p>
         </div>
@@ -23,7 +23,7 @@ export default function Experience() {
         {/* Experience Timeline */}
         <div className="relative">
           {/* Timeline Line */}
-          <div className="absolute left-0 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-px bg-zinc-800 hidden md:block" />
+          <div className="absolute left-0 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-px bg-border hidden md:block" />
 
           <div className="space-y-8">
             {experience.map((job, index) => (
@@ -34,49 +34,61 @@ export default function Experience() {
                 }`}
               >
                 {/* Timeline Dot */}
-                <div className="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-cyan-500 border-4 border-zinc-950 hidden md:block" />
+                <div className="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background hidden md:block z-10" />
 
                 {/* Content */}
                 <div className={`md:w-1/2 ${index % 2 === 0 ? "md:pr-12" : "md:pl-12"}`}>
-                  <div className="p-6 rounded-xl bg-zinc-900 border border-zinc-800 card-hover">
+                  <div className="p-6 rounded-xl bg-card border border-border card-hover">
                     {/* Header */}
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="flex items-center gap-3">
-                        <div className="p-2 rounded-lg bg-cyan-500/10">
-                          <Building className="w-5 h-5 text-cyan-400" />
-                        </div>
-                        <div>
-                          <h3 className="text-lg font-semibold text-zinc-100">
-                            {job.title}
-                          </h3>
-                          <p className="text-zinc-400 text-sm">{job.company}</p>
-                        </div>
+                    <div className="flex items-start gap-3 mb-4">
+                      <div className="p-2 rounded-lg bg-primary/10 flex-shrink-0">
+                        <Building className="w-5 h-5 text-primary" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-semibold text-foreground">
+                          {job.title}
+                        </h3>
+                        <p className="text-muted-foreground text-sm">{job.company}</p>
                       </div>
                     </div>
 
                     {/* Period */}
-                    <div className="flex items-center gap-2 text-zinc-500 text-sm mb-4">
+                    <div className="flex items-center gap-2 text-muted-foreground text-sm mb-4">
                       <Calendar className="w-4 h-4" />
                       <span>{job.period}</span>
                     </div>
 
                     {/* Description */}
-                    <p className="text-zinc-400 mb-4">{job.description}</p>
+                    <p className="text-muted-foreground mb-4">{job.description}</p>
 
                     {/* Achievements */}
                     <div className="space-y-2 mb-4">
                       {job.achievements.map((achievement, i) => (
                         <div key={i} className="flex items-start gap-2">
-                          <CheckCircle className="w-4 h-4 text-cyan-400 mt-0.5 flex-shrink-0" />
-                          <span className="text-zinc-400 text-sm">{achievement}</span>
+                          <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                          <span className="text-muted-foreground text-sm">{achievement}</span>
                         </div>
                       ))}
                     </div>
 
+                    {/* Technologies */}
+                    {job.technologies && (
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {job.technologies.map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-2.5 py-1 rounded-full bg-secondary text-muted-foreground text-xs"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+
                     {/* Projects */}
                     {job.projects && job.projects.length > 0 && (
-                      <div className="pt-4 border-t border-zinc-800">
-                        <div className="flex items-center gap-2 text-zinc-400 text-sm mb-3">
+                      <div className="pt-4 border-t border-border">
+                        <div className="flex items-center gap-2 text-muted-foreground text-sm mb-3">
                           <Briefcase className="w-4 h-4" />
                           <span>Projects Delivered</span>
                         </div>
@@ -87,7 +99,7 @@ export default function Experience() {
                               href={project.url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 hover:text-zinc-100 text-sm transition-colors"
+                              className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-secondary hover:bg-primary hover:text-primary-foreground text-muted-foreground text-sm transition-all"
                             >
                               {project.name}
                               <ExternalLink className="w-3 h-3" />
@@ -107,7 +119,7 @@ export default function Experience() {
         </div>
 
         {/* Additional Info */}
-        <div className="mt-16 p-6 md:p-8 rounded-2xl bg-gradient-to-br from-zinc-900 to-zinc-950 border border-zinc-800">
+        <div className="mt-16 p-6 md:p-8 rounded-2xl bg-secondary border border-border">
           <h2 className="text-2xl font-semibold mb-4">What I&apos;ve Learned</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {[
@@ -119,8 +131,8 @@ export default function Experience() {
               "Balancing technical debt with feature development",
             ].map((item, index) => (
               <div key={index} className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-cyan-400 mt-2" />
-                <span className="text-zinc-400">{item}</span>
+                <ArrowRight className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                <span className="text-muted-foreground">{item}</span>
               </div>
             ))}
           </div>

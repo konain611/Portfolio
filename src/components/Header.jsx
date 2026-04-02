@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "./ui/ThemeToggle";
 import { Github, Linkedin, Mail } from "lucide-react";
+import { MobileMenu } from "./MobileMenu";
 import { socialLinks } from "@/lib/data";
 
 const navItems = [
@@ -19,12 +20,15 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-zinc-800 bg-zinc-950/80 backdrop-blur supports-[backdrop-filter]:bg-zinc-950/60">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/70">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href="/" className="text-xl font-bold text-zinc-100 hover:text-zinc-300 transition-colors">
-          <span className="text-cyan-400">&lt;</span>
-          Konain
-          <span className="text-cyan-400">/&gt;</span>
+        <Link 
+          href="/" 
+          className="text-xl font-bold text-foreground hover:text-primary transition-colors"
+        >
+          <span className="text-primary">&lt;</span>
+          &nbsp;Konain&nbsp;
+          <span className="text-primary">/&gt;</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-1">
@@ -32,10 +36,10 @@ export function Header() {
             <Link
               key={item.name}
               href={item.href}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                 pathname === item.href
-                  ? "text-cyan-400 bg-zinc-800"
-                  : "text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800"
+                  ? "text-primary bg-secondary"
+                  : "text-muted-foreground hover:text-foreground hover:bg-secondary"
               }`}
             >
               {item.name}
@@ -44,12 +48,12 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <div className="hidden sm:flex items-center gap-2 mr-2">
+          <div className="hidden sm:flex items-center gap-1 mr-2">
             <a
               href={socialLinks.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800 transition-colors"
+              className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
               aria-label="GitHub"
             >
               <Github className="w-5 h-5" />
@@ -58,20 +62,21 @@ export function Header() {
               href={socialLinks.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800 transition-colors"
+              className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
               aria-label="LinkedIn"
             >
               <Linkedin className="w-5 h-5" />
             </a>
             <a
               href={socialLinks.email}
-              className="p-2 rounded-lg text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800 transition-colors"
+              className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
               aria-label="Email"
             >
               <Mail className="w-5 h-5" />
             </a>
           </div>
           <ThemeToggle />
+          <MobileMenu />
         </div>
       </div>
     </header>
