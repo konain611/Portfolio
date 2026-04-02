@@ -1,21 +1,22 @@
 import Link from "next/link";
 import { ArrowRight, Github, Linkedin, Mail, Download, Code, Database, Cloud, Layers } from "lucide-react";
 import { personalInfo, socialLinks, stats } from "@/lib/data";
+import { RiNextjsLine, RiReactjsLine, RiJavascriptLine, RiNodejsLine, RiDatabase2Line, RiTailwindCssLine } from "react-icons/ri";
 
 export default function Home() {
   const topSkills = [
-    { name: "Next.js", icon: Code },
-    { name: "React", icon: Layers },
-    { name: "TypeScript", icon: Code },
-    { name: "Node.js", icon: Database },
-    { name: "PostgreSQL", icon: Database },
-    { name: "Tailwind", icon: Code },
+    { name: "Next.js", icon: RiNextjsLine },
+    { name: "React", icon: RiReactjsLine },
+    { name: "TypeScript", icon: RiJavascriptLine },
+    { name: "Node.js", icon: RiNodejsLine },
+    { name: "PostgreSQL", icon: RiDatabase2Line },
+    { name: "Tailwind", icon: RiTailwindCssLine },
   ];
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-5 md:py-8">
+      <section className="container mx-auto px-4 py-5 mb-20 md:py-8">
         <div className="max-w-4xl mx-auto text-center">
           {/* Availability Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border-2 border-border text-muted-foreground text-sm mb-8">
@@ -163,13 +164,26 @@ export default function Home() {
             {[
               {
                 name: "Autoverse (FYP)",
-                description: "A plug-and-play RAG chatbot npm package for React/Next.js applications",
-                tags: ["npm", "RAG", "AI"],
+                description: "A RAG chatbot npm package for React and Next.js applications that delivers not only intelligent conversational AI but also automates workflows.",
+                tags: ["npm", "RAG", "Agentic AI"],
               },
               {
-                name: "Dynamic Resume Builder",
-                description: "Interactive resume builder with export functionality",
-                tags: ["Next.js", "TypeScript"],
+                name: "Personal AI Employee",
+                description: "An AI-powered assistant for managing personal tasks and schedules",
+                tags: ["Obsidian", "Spec-driven", "Reusable Skills", "MCP"],
+                link: "https://github.com/konain611/Personal-AI-Employee"
+              },
+              {
+                name: "DGMagazine",
+                description: "Web application that  that provides news, expert insights, research, and awareness content to educate and empower the cybersecurity community.",
+                tags: ["Next.js", "Node.js", "Prisma", "PostgreSQL"],
+                link: "https://dgmagazine.net",
+              },
+              {
+                name: "NS Engineering Works",
+                description: "A corporate website for showcasing engineering projects and services offered by the company.",
+                tags: ["Next.js", "TailwindCSS", "CDN"],
+                link: "https://nsengineeringworks.pk",
               },
             ].map((project, index) => (
               <div
@@ -180,6 +194,17 @@ export default function Home() {
                   {project.name}
                 </h3>
                 <p className="text-muted-foreground mb-4">{project.description}</p>
+                {project.link && (
+                  <Link
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:text-primary/80 font-medium inline-flex items-center gap-2 transition-colors mb-4"
+                  >
+                    Visit Project
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                )}
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <span
@@ -260,7 +285,7 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="container mx-auto px-4 py-20">
-        <div className="max-w-3xl mx-auto text-center p-8 md:p-12 rounded-2xl bg-secondary border border-border">
+        <div className="max-w-3xl mx-auto text-center p-8 md:p-12 rounded-2xl bg-secondary/50 border border-border">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Let&apos;s Work Together
           </h2>
