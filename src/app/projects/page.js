@@ -26,7 +26,7 @@ export default function Projects() {
         {/* CLI Projects Section */}
         <section className="mb-12">
           <div className="p-6 md:p-8 rounded-2xl bg-card border border-border">
-            <h2 className="text-2xl font-semibold mb-2">CLI-Based TypeScript Projects</h2>
+            <h2 className="text-2xl font-semibold mb-2">CLI-Based TypeScript Projects deployed on npm</h2>
             <p className="text-muted-foreground mb-6">
               Small utilities and practice projects built with TypeScript
             </p>

@@ -151,17 +151,17 @@ export const education = [
     details: ["CI/CD Pipelines", "Docker", "Kubernetes", "Linux Administration", "Cloud Infrastructure"],
   },
   {
-    degree: "DG NSOS Secure OS Training Program (Linux)",
-    institution: "DG Academy",
-    period: "2023",
-    details: ["Linux Security", "System Administration", "Network Configuration"],
-  },
-  {
     degree: "Tailwind CSS Workshop",
     institution: "YoungDev Interns",
     period: "2024",
     details: ["Utility-first CSS", "Responsive Design", "Component Patterns"],
   },
+  {
+    degree: "DG NSOS Secure OS Training Program (Linux)",
+    institution: "DG Academy",
+    period: "2023",
+    details: ["Linux Security", "System Administration", "Network Configuration"],
+  }
 ];
 
 export const certifications = [
