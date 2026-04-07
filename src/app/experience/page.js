@@ -34,7 +34,7 @@ export default function Experience() {
                 }`}
               >
                 {/* Timeline Dot */}
-                <div className="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background hidden md:block z-10" />
+                <div className="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-primary border-4 border-background hidden md:block z-10" />
 
                 {/* Content */}
                 <div className={`md:w-1/2 ${index % 2 === 0 ? "md:pr-12" : "md:pl-12"}`}>
