@@ -13,8 +13,11 @@ export const personalInfo = {
 
 export const socialLinks = {
   github: "https://github.com/konain611",
+  npm: "https://www.npmjs.com/~syedkonainnasir",
   linkedin: "https://www.linkedin.com/in/syedkonainnasir/",
   email: "mailto:konain611@gmail.com",
+  x: "https://x.com/syedkonain_7",
+  insta: "https://www.instagram.com/syedkonainnasir/",
 };
 
 export const skills = {

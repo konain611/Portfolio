@@ -1,5 +1,10 @@
 import { personalInfo, socialLinks } from "@/lib/data";
 import { Mail, Phone, MapPin, Github, Linkedin, Send, MessageSquare, Clock, CheckCircle } from "lucide-react";
+import { BsTwitterX } from "react-icons/bs";
+import { CgNpm } from "react-icons/cg";
+import { FaLinkedin } from "react-icons/fa";
+import { IoLogoInstagram } from "react-icons/io";
+import { RiNpmjsFill } from "react-icons/ri";
 
 export const metadata = {
   title: "Contact | Syed Konain Nasir",
@@ -80,7 +85,7 @@ export default function Contact() {
                     <div className="flex-1">
                       <p className="text-muted-foreground text-sm">{method.label}</p>
                       <p className="text-foreground font-medium">{method.value}</p>
-                      <p className="text-muted-foreground text-xs">{method.description}</p>
+                      {/* <p className="text-muted-foreground text-xs">{method.description}</p> */}
                     </div>
                   </div>
                 ))}
@@ -109,17 +114,64 @@ export default function Contact() {
                 </a>
 
                 <a
+                  href={socialLinks.npm}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-4 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors group"
+                >
+                  <div className="p-2 rounded-lg bg-secondary">
+                    <RiNpmjsFill className="w-5 h-5 text-red-600" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-foreground">Npm</p>
+                    <p className="text-muted-foreground text-sm">Check out my packages</p>
+                  </div>
+                  <Send className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+                </a>
+
+                <a
                   href={socialLinks.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors group"
                 >
                   <div className="p-2 rounded-lg bg-blue-500/10">
-                    <Linkedin className="w-5 h-5 text-blue-500" />
+                    <FaLinkedin className="w-5 h-5 text-blue-500" />
                   </div>
                   <div className="flex-1">
                     <p className="text-foreground">LinkedIn</p>
                     <p className="text-muted-foreground text-sm">Professional network</p>
+                  </div>
+                  <Send className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+                </a>
+                <a
+                  href={socialLinks.x}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-4 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors group"
+                >
+                  <div className="p-2 rounded-lg bg-blue-500/10">
+                    <BsTwitterX className="w-5 h-5 text-black" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-foreground">X (Twitter)</p>
+                    <p className="text-muted-foreground text-sm">Social media</p>
+                  </div>
+                  <Send className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+                </a>
+
+                <a
+                  href={socialLinks.insta}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-4 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors group"
+                >
+                  <div className="p-2 rounded-lg bg-blue-500/10">
+                    <IoLogoInstagram className="w-5 h-5 text-pink-500" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-foreground">Instagram</p>
+                    <p className="text-muted-foreground text-sm">Social media</p>
                   </div>
                   <Send className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
                 </a>
