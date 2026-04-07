@@ -6,15 +6,15 @@ export function Footer() {
 
   return (
     <footer className="border-t border-border bg-background">
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-8 py-4">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-center md:text-left">
             <p className="text-muted-foreground text-sm">
-              &copy; {currentYear} {personalInfo.name}. All rights reserved.
+              {personalInfo.name} | Full-Stack Developer | AI Enthusiast
             </p>
-            <p className="text-muted-foreground text-xs mt-1 flex items-center justify-center md:justify-start gap-1">
+            {/* <p className="text-muted-foreground text-xs mt-1 flex items-center justify-center md:justify-start gap-1">
               Built with <Heart className="w-3 h-3 text-red-500" /> using Next.js &amp; Tailwind CSS
-            </p>
+            </p> */}
           </div>
 
           <div className="flex items-center gap-4">
