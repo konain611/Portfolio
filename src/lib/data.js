@@ -54,18 +54,6 @@ export const experience = [
     technologies: ["Next.js", "React", "PostgreSQL", "Prisma", "Nginx", "Cloudflare"],
   },
   {
-    title: "Frontend Developer Intern",
-    company: "YoungDev Interns (Remote)",
-    period: "Aug 2024 - Sep 2024",
-    description: "Developed responsive UI components and collaborated on frontend architecture.",
-    achievements: [
-      "Developed responsive UI components using modern frontend practices and Tailwind CSS",
-      "Improved design consistency and usability across the application",
-      "Collaborated with designers to implement pixel-perfect interfaces",
-    ],
-    technologies: ["React", "Tailwind CSS", "JavaScript"],
-  },
-  {
     title: "Freelance / Part-Time Web Developer",
     company: "NS Engineering Works & N N Power Engineering",
     period: "Freelance",
@@ -78,6 +66,30 @@ export const experience = [
     ],
     technologies: ["Next.js", "Vercel", "SEO"],
   },
+  {
+    title: "Frontend Developer Intern",
+    company: "YoungDev Interns (Remote)",
+    period: "Aug 2024 - Sep 2024",
+    description: "Developed responsive UI components and collaborated on frontend architecture.",
+    achievements: [
+      "Developed responsive UI components using modern frontend practices and Tailwind CSS",
+      "Improved design consistency and usability across the application",
+      "Collaborated with designers to implement pixel-perfect interfaces",
+    ],
+    technologies: ["React", "Tailwind CSS", "JavaScript"],
+  },
+  // {
+  //   title: "Frontend Developer",
+  //   company: "Upwork (Freelance)",
+  //   period: "Dec 2023 - Sep 2024",
+  //   description: "Developed responsive UI components and collaborated on frontend architecture.",
+  //   achievements: [
+  //     "Developed responsive UI components using modern frontend practices and Tailwind CSS",
+  //     "Improved design consistency and usability across the application",
+  //     "Collaborated with designers to implement pixel-perfect interfaces",
+  //   ],
+  //   technologies: ["React", "Tailwind CSS", "JavaScript"],
+  // },
 ];
 
 export const projects = [
