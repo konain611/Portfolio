@@ -3,7 +3,7 @@ export const personalInfo = {
   title: "Full-Stack Developer",
   email: "konain611@gmail.com",
   phone: "+92 3333368339",
-  location: "Pakistan",
+  location: "Karachi, Pakistan",
   bio: "Full-Stack Developer specializing in Next.js, TypeScript, and modern web architectures. I build scalable production applications with clean, maintainable code. Passionate about creating seamless user experiences and robust backend systems.",
   detailedBio: "I'm a passionate Full-Stack Developer with over 3 years of experience building modern web applications. My journey in software development started with a curiosity about how things work on the internet, and it has evolved into a career where I get to solve complex problems and create impactful digital solutions.\n\nCurrently, I work as a Full-Stack Software Engineer at Diginfo, where I've had the opportunity to lead the development of enterprise-level applications including dashboards, e-commerce platforms, and AI-powered solutions. I take pride in writing clean, efficient code and building systems that are both scalable and maintainable.\n\nBeyond my professional work, I'm deeply interested in DevOps practices, AI agent development, and exploring how autonomous systems can enhance modern applications. I believe in continuous learning and regularly contribute to open-source projects while staying updated with the latest industry trends.",
   avatar: "/avatar.png",
@@ -139,14 +139,44 @@ export const education = [
   },
   {
     degree: "Governor Sindh Initiative (Gen AI, Web3, Metaverse)",
-    institution: "Sindh Government",
+    institution: "GIAIC",
     period: "March 2024 - Present",
+    status: "In Progress",
     details: ["TypeScript", "Next.js", "Python", "OpenAI Agents SDK", "Prompt Engineering", "Context Engineering", "AI-driven Development"],
+  },
+  {
+    degree: "OpenClaw for Business Professionals",
+    institution: "Panaversity",
+    period: "April 2026 - Present",
+    status: "In Progress",
+    details: [
+      "Agentic AI Fundamentals",
+      "Building AI Employees (Agents)",
+      "WhatsApp & Telegram AI Integration",
+      "Workflow Automation with AI",
+      "AI Tool & API Integration",
+      "Multi-Agent Systems",
+      "AI System Deployment Basics"
+    ],
+  },
+  {
+    degree: "Google AI Fundamentals",
+    institution: "Coursera",
+    period: "March 2026 - Present",
+    status: "In Progress",
+    details: [
+      "AI & Generative AI Basics",
+      "Prompt Engineering",
+      "Prompt Chaining",
+      "Using AI as a Work Assistant",
+      "AI Tools (Gemini)",
+      "Responsible AI & Bias Handling"
+    ],
   },
   {
     degree: "DevOps Course",
     institution: "Zynex Solutions",
-    period: "April 2026 - July 2026",
+    period: "April 2026 - Present",
     status: "In Progress",
     details: ["CI/CD Pipelines", "Docker", "Kubernetes", "Linux Administration", "Cloud Infrastructure"],
   },
@@ -167,7 +197,7 @@ export const education = [
 export const certifications = [
   {
     name: "Governor Sindh Initiative",
-    issuer: "Sindh Government",
+    issuer: "GIAIC",
     year: "2024",
     focus: "Gen AI, Web3, Metaverse",
   },

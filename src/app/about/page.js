@@ -109,7 +109,7 @@ export default function About() {
                   </div>
                 )}
                 {edu.status && (
-                  <span className="inline-block mt-3 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">
+                  <span className="inline-block mt-5 px-3 py-1 font-semibold rounded-full bg-primary/10 text-primary text-xs font-medium">
                     {edu.status}
                   </span>
                 )}
