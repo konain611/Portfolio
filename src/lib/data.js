@@ -96,16 +96,31 @@ export const projects = [
   {
     name: "Autoverse (FYP)",
     description: "A plug-and-play RAG chatbot npm package for React/Next.js applications. Enables both conversational responses and task automation with easy integration.",
-    tech: ["npm Package", "RAG", "React", "Next.js", "AI", "TypeScript"],
-    type: "npm Package",
+    tech: ["npm Package", "RAG", "React", "Next.js", "Agentic AI", "TypeScript"],
+    type: ["npm Package"],
     features: ["Easy integration", "RAG-powered responses", "Task automation", "Customizable UI"],
+  },
+  {
+    name: "Personal AI Employee",
+    description: "An AI agent that acts as a personal assistant, capable of handling tasks like scheduling, email management, and information retrieval.",
+    tech: ["AI Agent", "Reuseable Skills", "Qwen", "Obsidian"],
+    type: "Hackathon",
+    features: ["Task automation", "Calendar integration", "Email management"],
+  },
+  {
+    name: "Physical AI & Humanoid Robotics Book",
+    description: "Book project exploring the intersection of physical AI and humanoid robotics, built with Docasurus for interactive documentation and learning.",
+    tech: ["CCR", "Docasaurus", "Speckit-plus", "Next.js", "AI", "TypeScript"],
+    type: "Hackathon",
+    url: "https://ai-native-book-writing.vercel.app/",
+    features: ["Interactive documentation", "AI Native Development", "Spec-Driven Content",],
   },
   {
     name: "Dynamic Resume Builder",
     description: "An interactive resume builder with real-time preview and multiple export formats. Features drag-and-drop sections and professional templates.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS"],
     url: "https://dynamic-resume-builder-six-liart.vercel.app/",
-    type: "Web App",
+    type: "Hackathon",
     features: ["Real-time preview", "Multiple templates", "PDF export", "Drag-and-drop"],
   },
   {
@@ -129,20 +144,7 @@ export const projects = [
     type: "Web App",
     features: ["Workflow automation", "Document management", "Approval tracking", "Notifications"],
   },
-  {
-    name: "Currency Converter",
-    description: "Real-time currency conversion tool with historical rates and multiple currency support.",
-    tech: ["TypeScript", "Node.js", "API Integration"],
-    type: "CLI",
-    features: ["Real-time rates", "Multiple currencies", "Historical data"],
-  },
-  {
-    name: "ATM Simulation System",
-    description: "CLI-based ATM simulator with balance inquiry, withdrawal, deposit, and transaction history features.",
-    tech: ["TypeScript", "Node.js"],
-    type: "CLI",
-    features: ["Balance management", "Transaction history", "PIN security"],
-  },
+  
 ];
 
 export const education = [

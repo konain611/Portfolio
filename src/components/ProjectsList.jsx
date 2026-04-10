@@ -10,7 +10,7 @@ const projectIcons = {
   "CLI": Cpu,
 };
 
-const projectTypes = ["All", "Web App", "npm Package", "CLI"];
+const projectTypes = ["All", "Web App", "npm Package", "Hackathon"];
 
 export function ProjectsList() {
   const [selectedType, setSelectedType] = useState("All");
