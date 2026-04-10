@@ -206,6 +206,7 @@ export const projects = [
     name: "Currency Converter",
     description: "A CLI based currency converter supports conversion between 10 most commonly used currencies.",
     tech: ["TypeScript", "npm"],
+    url: "https://www.npmjs.com/package/skan_currencyconvertor",
     type: "CLI",
     features: ["Multiple currency support", "Extremely fast conversion"],
   },
@@ -213,6 +214,7 @@ export const projects = [
     name: "ATM Simulation System",
     description: "A CLI-based ATM simulation system that allows users to perform banking operations such as withdrawals, deposits, and balance inquiries.",
     tech: ["TypeScript", "npm"],
+    url: "https://www.npmjs.com/package/skan_simple_atm",
     type: "CLI",
     features: ["Banking operations", "User authentication", "Transaction history"],
   },
@@ -220,6 +222,7 @@ export const projects = [
     name: "Word Counter",
     description: "A CLI tool that counts the number of words in a given text input, providing insights into word frequency and readability.",
     tech: ["TypeScript", "npm"],
+    url: "https://www.npmjs.com/package/skan_wordcounter",
     type: "CLI",
     features: ["Word counting", "Frequency analysis", "Readability metrics"],
   },
@@ -227,6 +230,7 @@ export const projects = [
     name: "To-Do List Manager",
     description: "A CLI-based to-do list manager that allows users to create, manage, and prioritize their tasks efficiently.",
     tech: ["TypeScript", "npm"],
+    url: "https://www.npmjs.com/package/skan_todolist",
     type: "CLI",
     features: ["Task management", "Prioritization", "Due date tracking"],
   },
@@ -235,6 +239,7 @@ export const projects = [
     description: "A simple CLI game where users try to guess a randomly generated number within a certain range.",
     tech: ["TypeScript", "npm"],
     type: "CLI",
+    url: "https://www.npmjs.com/package/skan_numberguessinggame",
     features: ["Random number generation", "User interaction", "Score tracking"],
   },{
     name: "Calculator",
@@ -242,6 +247,7 @@ export const projects = [
     tech: ["TypeScript", "npm"],
     type: "CLI",
     features: ["Arithmetic operations",],
+    url: "https://www.npmjs.com/package/skan_simplecalculator"
   },
  
 ];

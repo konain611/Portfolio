@@ -24,7 +24,7 @@ export default function Projects() {
         <ProjectsList />
 
         {/* CLI Projects Section */}
-        <section className="mb-12">
+        {/* <section className="mb-12">
           <div className="p-6 md:p-8 rounded-2xl bg-card border border-border">
             <h2 className="text-2xl font-semibold mb-2">CLI-Based TypeScript Projects deployed on npm</h2>
             <p className="text-muted-foreground mb-6">
@@ -49,7 +49,7 @@ export default function Projects() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* CTA Section */}
         <div className="text-center p-8 rounded-2xl bg-secondary border border-border">
