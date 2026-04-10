@@ -166,7 +166,7 @@ export const projects = [
   },
   {
     name: "Hekto E-commerce Platform",
-    description: "A UI?UX hackathon project focused on creating a visually appealing and user-friendly e-commerce platform.",
+    description: "A UI/UX hackathon project focused on creating a visually appealing and user-friendly e-commerce platform.",
     tech: ["Next.js", "Tailwind CSS", "TypeScript", "Figma"],
     url: "https://figma-to-nextjs-orpin.vercel.app/",
     type: "Hackathon",
@@ -202,7 +202,48 @@ export const projects = [
     type: "Web App",
     features: ["Workflow automation", "Document management", "Approval tracking", "Notifications"],
   },
-  
+  {
+    name: "Currency Converter",
+    description: "A CLI based currency converter supports conversion between 10 most commonly used currencies.",
+    tech: ["TypeScript", "npm"],
+    type: "CLI",
+    features: ["Multiple currency support", "Extremely fast conversion"],
+  },
+  {
+    name: "ATM Simulation System",
+    description: "A CLI-based ATM simulation system that allows users to perform banking operations such as withdrawals, deposits, and balance inquiries.",
+    tech: ["TypeScript", "npm"],
+    type: "CLI",
+    features: ["Banking operations", "User authentication", "Transaction history"],
+  },
+  {
+    name: "Word Counter",
+    description: "A CLI tool that counts the number of words in a given text input, providing insights into word frequency and readability.",
+    tech: ["TypeScript", "npm"],
+    type: "CLI",
+    features: ["Word counting", "Frequency analysis", "Readability metrics"],
+  },
+  {
+    name: "To-Do List Manager",
+    description: "A CLI-based to-do list manager that allows users to create, manage, and prioritize their tasks efficiently.",
+    tech: ["TypeScript", "npm"],
+    type: "CLI",
+    features: ["Task management", "Prioritization", "Due date tracking"],
+  },
+  {
+    name: "Number Guessing Game",
+    description: "A simple CLI game where users try to guess a randomly generated number within a certain range.",
+    tech: ["TypeScript", "npm"],
+    type: "CLI",
+    features: ["Random number generation", "User interaction", "Score tracking"],
+  },{
+    name: "Calculator",
+    description: "A CLI-based calculator that supports basic arithmetic operations and provides a simple interface for calculations.",
+    tech: ["TypeScript", "npm"],
+    type: "CLI",
+    features: ["Arithmetic operations",],
+  },
+ 
 ];
 
 export const education = [
