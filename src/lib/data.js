@@ -174,20 +174,20 @@ export const education = [
       "AI System Deployment Basics"
     ],
   },
-  {
-    degree: "Google AI Fundamentals",
-    institution: "Coursera",
-    period: "March 2026 - Present",
-    status: "In Progress",
-    details: [
-      "AI & Generative AI Basics",
-      "Prompt Engineering",
-      "Prompt Chaining",
-      "Using AI as a Work Assistant",
-      "AI Tools (Gemini)",
-      "Responsible AI & Bias Handling"
-    ],
-  },
+  // {
+  //   degree: "Google AI Fundamentals",
+  //   institution: "Coursera",
+  //   period: "March 2026 - Present",
+  //   status: "In Progress",
+  //   details: [
+  //     "AI & Generative AI Basics",
+  //     "Prompt Engineering",
+  //     "Prompt Chaining",
+  //     "Using AI as a Work Assistant",
+  //     "AI Tools (Gemini)",
+  //     "Responsible AI & Bias Handling"
+  //   ],
+  // },
   {
     degree: "DevOps Course",
     institution: "Zynex Solutions",
