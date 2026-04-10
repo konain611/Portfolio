@@ -97,9 +97,10 @@ export const projects = [
     name: "Autoverse (FYP)",
     description: "A plug-and-play RAG chatbot npm package for React/Next.js applications. Enables both conversational responses and task automation with easy integration.",
     tech: ["npm Package", "RAG", "React", "Next.js", "Agentic AI", "TypeScript"],
-    type: ["npm Package"],
+    type: "npm Package",
     features: ["Easy integration", "RAG-powered responses", "Task automation", "Customizable UI"],
   },
+
   {
     name: "Personal AI Employee",
     description: "An AI agent that acts as a personal assistant, capable of handling tasks like scheduling, email management, and information retrieval.",
@@ -122,6 +123,22 @@ export const projects = [
     url: "https://dynamic-resume-builder-six-liart.vercel.app/",
     type: "Hackathon",
     features: ["Real-time preview", "Multiple templates", "PDF export", "Drag-and-drop"],
+  },
+  {
+    name: "DG Magazine",
+    description: "A digital magazine platform for publishing and sharing articles on various topics.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL", "Cloudflare", "Nginx", "nssm"],
+    url: "https://dgmagazine.net",
+    type: "Web App",
+    features: ["Article publishing", "User interaction", "Search functionality", "Subscriptions"],
+  },
+  {
+    name: "DG Enterprise",
+    description: "A comprehensive enterprise dashboard for managing business operations, analytics, and reporting.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL", "Cloudflare", "Nginx", "nssm"],
+    url: "https://dgenterprise.diginfo.net",
+    type: "Web App",
+    features: ["Profile Management", "DGShop", "Interaction management", "Single Sign-On"],
   },
   {
     name: "Learning Management System",
