@@ -98,6 +98,7 @@ export const projects = [
     description: "A plug-and-play RAG chatbot npm package for React/Next.js applications. Enables both conversational responses and task automation with easy integration.",
     tech: ["npm Package", "RAG", "React", "Next.js", "Agentic AI", "TypeScript"],
     type: "npm Package",
+    url: "https://www.npmjs.com/package/autoverse-agent",
     features: ["Easy integration", "RAG-powered responses", "Task automation", "Customizable UI"],
   },
 

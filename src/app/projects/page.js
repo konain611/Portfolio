@@ -13,7 +13,7 @@ export default function Projects() {
         {/* Header */}
         <div className="mb-12">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">
-            Featured <span className="gradient-text">Projects</span>
+            My <span className="gradient-text">Projects</span>
           </h1>
           <p className="text-muted-foreground text-lg">
             A collection of my work and personal projects
