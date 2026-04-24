@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function CodeBackground() {
   const containerRef = useRef(null);
   const videoRef = useRef(null);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -15,27 +16,43 @@ export function CodeBackground() {
       document.documentElement.classList.contains("dark") ||
       window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-    if (!isDark) return;
+    setIsDarkMode(isDark);
 
-    // Slow down video playback
-    if (videoRef.current) {
-      videoRef.current.playbackRate = 0.2;
-    }
+    // Listen for theme changes
+    const observer = new MutationObserver(() => {
+      const darkMode = document.documentElement.classList.contains("dark");
+      setIsDarkMode(darkMode);
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
   }, []);
+
+  const handleVideoLoaded = () => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.3;
+    }
+  };
 
   return (
     <div ref={containerRef} className="code-bg">
-      <video
-        ref={videoRef}
-        autoPlay
-        loop
-        muted
-        className="absolute inset-0 w-full h-full
-         object-cover opacity-20 dark:block hidden"
-      >
-        <source src="/bg-5.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      {isDarkMode && (
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          onLoadedMetadata={handleVideoLoaded}
+          className="absolute inset-0 w-full h-full object-cover opacity-25"
+        >
+          <source src="/bg-5.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      )}
     </div>
   );
 }
