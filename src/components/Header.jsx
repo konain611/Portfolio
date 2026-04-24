@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useTheme } from "next-themes";
 import { ThemeToggle } from "./ui/ThemeToggle";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { MobileMenu } from "./MobileMenu";
@@ -18,6 +20,7 @@ const navItems = [
 
 export function Header() {
   const pathname = usePathname();
+  const { theme } = useTheme();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/70">
@@ -26,9 +29,23 @@ export function Header() {
           href="/" 
           className="text-xl font-bold text-foreground hover:text-primary transition-colors"
         >
-          <span className="text-primary">&lt;</span>
-          &nbsp;Konain&nbsp;
-          <span className="text-primary">/&gt;</span>
+          {/* Light theme - text logo */}
+          <span className="dark:hidden">
+            <span className="text-primary">&lt;</span>
+            &nbsp;Konain&nbsp;
+            <span className="text-primary">/&gt;</span>
+          </span>
+          
+          {/* Dark theme - logo image */}
+          <span className="hidden dark:inline">
+            <Image 
+              src="/logo.png" 
+              alt="Konain Logo" 
+              width={150} 
+              height={120}
+              className="inline"
+            />
+          </span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-1">
