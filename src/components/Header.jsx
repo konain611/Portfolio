@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useTheme } from "next-themes";
 import { ThemeToggle } from "./ui/ThemeToggle";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { MobileMenu } from "./MobileMenu";
@@ -20,7 +19,6 @@ const navItems = [
 
 export function Header() {
   const pathname = usePathname();
-  const { theme } = useTheme();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/70">

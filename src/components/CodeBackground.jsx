@@ -34,7 +34,7 @@ export function CodeBackground() {
 
   const handleVideoLoaded = () => {
     if (videoRef.current) {
-      videoRef.current.playbackRate = 0.3;
+      videoRef.current.playbackRate = 0.6;
     }
   };
 
@@ -47,7 +47,7 @@ export function CodeBackground() {
           loop
           muted
           onLoadedMetadata={handleVideoLoaded}
-          className="absolute inset-0 w-full h-full object-cover opacity-25"
+          className="absolute inset-0 w-full h-full object-cover opacity-45"
         >
           <source src="/bg-5.mp4" type="video/mp4" />
           Your browser does not support the video tag.
