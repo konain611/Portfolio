@@ -99,7 +99,6 @@ body::before {
 }
 
 html {
-  scroll-behavior: smooth;
   position: relative;
 }
 
@@ -172,11 +171,6 @@ main {
 ::selection {
   background: rgba(6, 182, 212, 0.3);
   color: var(--foreground);
-}
-
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
 }
 
 code, pre, .code-particle {
@@ -327,4 +321,17 @@ code, pre, .code-particle {
   .no-print {
     display: none !important;
   }
+}
+
+/* ===== Hide System Cursor ===== */
+* {
+  cursor: none !important;
+}
+
+html, body {
+  cursor: none !important;
+}
+
+a, button, [role="button"], input, textarea, select, img {
+  cursor: none !important;
 }
