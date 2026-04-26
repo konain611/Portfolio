@@ -28,14 +28,13 @@ export function Header() {
           className="text-xl font-bold text-foreground hover:text-primary transition-colors"
         >
           {/* Light theme - text logo */}
-          <span className="dark:hidden">
+      
             <span className="text-primary">&lt;</span>
             &nbsp;Konain&nbsp;
             <span className="text-primary">/&gt;</span>
-          </span>
           
           {/* Dark theme - logo image */}
-          <span className="hidden dark:inline">
+          {/* <span className="hidden dark:inline">
             <Image 
               src="/logo.png" 
               alt="Konain Logo" 
@@ -43,7 +42,7 @@ export function Header() {
               height={120}
               className="inline"
             />
-          </span>
+          </span> */}
         </Link>
 
         <nav className="hidden md:flex items-center gap-1">
