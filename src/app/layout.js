@@ -5,6 +5,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ScrollToTopButton } from "@/components/ScrollToTopButton";
 import { CodeBackground } from "@/components/CodeBackground";
+import ProCursor from "@/components/LinuxCursor";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}>
       <body id="top" className="min-h-full flex flex-col font-sans">
+        <ProCursor />
         <CodeBackground />
         <ThemeProvider>
           <Header />
