@@ -3,12 +3,12 @@ export default function About() {
     <div className="flex h-full flex-col gap-3 p-4">
       <div className="flex items-start justify-between">
         <h1 className="text-lg font-semibold uppercase">About me</h1>
-        <div className="mr-2 my-2 flex h-8 w-8 items-center justify-center text-(--accent) drop-shadow-[0_0_4px_var(--accent)] font-light">
+        <div className="mr-2 my-2 flex h-8 w-8 items-center justify-center text-(--accent) drop-shadow-[0_0_2px_var(--accent)] font-light">
           <i className="ri-user-line text-6xl" />
         </div>
       </div>
 
-      <div className="text-sm leading-6 max-w-2xl text-left text-gray-300">
+      <div className="text-sm leading-6 max-w-2xl text-left">
         <p className="mb-3">
           Full-Stack Developer with expertise in Next.js, TypeScript, and
           Node.js, focused on building scalable, production-ready web
