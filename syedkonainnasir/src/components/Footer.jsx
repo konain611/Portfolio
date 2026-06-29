@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { accentOptions, applyTheme, backgroundOptions, defaultTheme, persistTheme, publishTheme, readTheme } from "@/lib/theme";
 
 const links = [
   { href: "/", label: "Home", icon: "ri-home-3-line" },
@@ -11,99 +12,31 @@ const links = [
   { href: "/experience", label: "Experience", icon: "ri-briefcase-line" },
   { href: "/projects", label: "Projects", icon: "ri-folder-4-line" },
   { href: "/contact", label: "Contact", icon: "ri-mail-line" },
-];
-
-const accentOptions = [
-  {
-    name: "Red",
-    value: "#e00000",
-    accent: "#e00000",
-    border: "#d80000",
-  },
-  {
-    name: "Green",
-    value: "#22c55e",
-    accent: "#22c55e",
-    border: "#16a34a",
-  },
-  {
-    name: "Blue",
-    value: "#1e3a8a",
-    accent: "#1e3a8a",
-    border: "#172554",
-  },
-  {
-    name: "White",
-    value: "#f5f5f5",
-    accent: "#f5f5f5",
-    border: "#d4d4d4",
-  },
-  {
-    name: "Yellow",
-    value: "#facc15",
-    accent: "#facc15",
-    border: "#ca8a04",
-  },
-  {
-    name: "Cyan",
-    value: "#22d3ee",
-    accent: "#22d3ee",
-    border: "#0891b2",
-  },
-];
-
-const backgroundOptions = [
-  { name: "Black", value: "#06080d" },
-  { name: "White", value: "#f5f5f5" },
-];
-
-const textColorOptions = [
-  { name: "Light", value: "#ebebeb" },
-  { name: "Dark", value: "#111827" },
+  { href: "/playground", label: "Playground", icon: "ri-gamepad-line" },
 ];
 
 export default function Footer() {
   const pathname = usePathname() || "/";
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-  const [accentTheme, setAccentTheme] = useState("red");
-  const [backgroundTheme, setBackgroundTheme] = useState("black");
-  const [textTheme, setTextTheme] = useState("light");
+  const [theme, setTheme] = useState(readTheme);
   const settingsRef = useRef(null);
 
   useEffect(() => {
-    const savedAccent = window.localStorage.getItem("portfolio-accent-theme");
-    const savedBackground = window.localStorage.getItem("portfolio-background-theme");
-    const savedText = window.localStorage.getItem("portfolio-text-theme");
-
-    if (savedAccent) setAccentTheme(savedAccent);
-    if (savedBackground) setBackgroundTheme(savedBackground);
-    if (savedText) setTextTheme(savedText);
+    const initialTheme = readTheme();
+    setTheme(initialTheme);
+    applyTheme(initialTheme);
   }, []);
 
   useEffect(() => {
-    const selectedAccent = accentOptions.find((option) => option.name.toLowerCase() === accentTheme);
-    if (!selectedAccent) return;
+    const handleThemeChange = (event) => {
+      const nextTheme = event.detail || readTheme();
+      setTheme(nextTheme);
+      applyTheme(nextTheme);
+    };
 
-    const root = document.documentElement;
-    root.style.setProperty("--accent", selectedAccent.accent);
-    root.style.setProperty("--accent-strong", selectedAccent.accent);
-    root.style.setProperty("--border", selectedAccent.border);
-
-    window.localStorage.setItem("portfolio-accent-theme", accentTheme);
-  }, [accentTheme]);
-
-  useEffect(() => {
-    const root = document.documentElement;
-    root.style.setProperty("--background", backgroundTheme === "white" ? "#f5f5f5" : "#06080d");
-    window.localStorage.setItem("portfolio-background-theme", backgroundTheme);
-  }, [backgroundTheme]);
-
-  useEffect(() => {
-    const root = document.documentElement;
-    root.style.setProperty("--text", textTheme === "dark" ? "#111827" : "#ebebeb");
-    root.style.setProperty("--foreground", textTheme === "dark" ? "#111827" : "#b3b3b3");
-    window.localStorage.setItem("portfolio-text-theme", textTheme);
-  }, [textTheme]);
+    window.addEventListener("portfolio-theme-change", handleThemeChange);
+    return () => window.removeEventListener("portfolio-theme-change", handleThemeChange);
+  }, []);
 
   useEffect(() => {
     if (!isSettingsOpen) return;
@@ -118,7 +51,30 @@ export default function Footer() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isSettingsOpen]);
 
-  const now = useMemo(() => new Date(), []);
+  useEffect(() => {
+    if (typeof window === "undefined" || theme.background !== "system") return;
+
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const handleSystemThemeChange = () => {
+      const nextTheme = { ...theme, background: "system" };
+      applyTheme(nextTheme);
+      publishTheme(nextTheme);
+    };
+
+    mediaQuery.addEventListener?.("change", handleSystemThemeChange);
+    return () => mediaQuery.removeEventListener?.("change", handleSystemThemeChange);
+  }, [theme]);
+
+  const [now, setNow] = useState(() => new Date());
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setNow(new Date());
+    }, 1000);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
   const formattedTime = now.toLocaleTimeString([], {
     hour: "numeric",
     minute: "2-digit",
@@ -129,14 +85,23 @@ export default function Footer() {
     year: "numeric",
   });
 
+  const updateTheme = (nextTheme) => {
+    setTheme(nextTheme);
+    applyTheme(nextTheme);
+    persistTheme(nextTheme);
+    publishTheme(nextTheme);
+  };
+
   const applyAccentTheme = (themeName) => {
-    setAccentTheme(themeName.toLowerCase());
+    updateTheme({ ...theme, accent: themeName.toLowerCase() });
+  };
+
+  const applyBackgroundTheme = (themeName) => {
+    updateTheme({ ...theme, background: themeName.toLowerCase() });
   };
 
   const resetTheme = () => {
-    setAccentTheme("red");
-    setBackgroundTheme("black");
-    setTextTheme("light");
+    updateTheme(defaultTheme);
   };
 
   return (
@@ -172,33 +137,15 @@ export default function Footer() {
                 ))}
               </div>
 
-              <div className="mb-2 text-sm font-semibold">Background</div>
+              <div className="mb-2 text-sm font-semibold">Theme</div>
               <div className="mb-3 flex gap-2">
                 {backgroundOptions.map((option) => (
                   <button
                     key={option.name}
                     type="button"
-                    onClick={() => setBackgroundTheme(option.name.toLowerCase())}
+                    onClick={() => applyBackgroundTheme(option.name)}
                     className={`rounded-full border px-3 py-1 text-xs transition ${
-                      backgroundTheme === option.name.toLowerCase()
-                        ? "border-(--accent) bg-(--accent)/15"
-                        : "border-(--border)/40"
-                    }`}
-                  >
-                    {option.name}
-                  </button>
-                ))}
-              </div>
-
-              <div className="mb-2 text-sm font-semibold">Text</div>
-              <div className="flex gap-2">
-                {textColorOptions.map((option) => (
-                  <button
-                    key={option.name}
-                    type="button"
-                    onClick={() => setTextTheme(option.name.toLowerCase())}
-                    className={`rounded-full border px-3 py-1 text-xs transition ${
-                      textTheme === option.name.toLowerCase()
+                      theme.background === option.name.toLowerCase()
                         ? "border-(--accent) bg-(--accent)/15"
                         : "border-(--border)/40"
                     }`}
@@ -228,8 +175,9 @@ export default function Footer() {
                 key={link.href}
                 href={link.href}
                 aria-label={link.label}
+                // title={link.label}
                 aria-current={isActive ? "page" : undefined}
-                className={`relative flex h-8 w-8 items-center justify-center${
+                className={`group relative flex h-8 w-8 items-center justify-center${
                   isActive
                     ? " text-(--accent)"
                     : "text-(--foreground) hover:text-(--accent) transition"
@@ -239,6 +187,9 @@ export default function Footer() {
                 {isActive && (
                   <span className="absolute -bottom-1 h-1 w-2 rounded-full bg-(--accent)" />
                 )}
+                <span className="pointer-events-none absolute -top-8 rounded-full border border-(--border)/40 bg-background px-2 py-1 text-[10px] uppercase tracking-[0.2em] text-(--foreground) opacity-0 transition group-hover:opacity-100">
+                  {link.label}
+                </span>
               </Link>
             );
           })}
