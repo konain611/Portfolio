@@ -3,13 +3,13 @@ import Link from "next/link";
 const skills = [
   { name: "Next.js", icon: "ri-nextjs-line", level: 92 },
   { name: "React", icon: "ri-reactjs-line", level: 94 },
+  { name: "Tailwind CSS", icon: "ri-tailwind-css-fill", level: 90 },
   { name: "Node.js", icon: "ri-nodejs-line", level: 88 },
   { name: "PostgreSQL", icon: "ri-database-2-line", level: 84 },
   { name: "Git", icon: "ri-git-branch-line", level: 88 },
   { name: "Linux", icon: "ri-ubuntu-line", level: 76 },
   { name: "Nginx", icon: "ri-node-tree", level: 78 },
   { name: "Cloudflare", icon: "ri-cloud-line", level: 82 },
-  { name: "TypeScript", icon: "ri-braces-line", level: 90 },
 ];
 
 export default function Skills() {
@@ -31,9 +31,9 @@ export default function Skills() {
           {skills.slice(0, 9).map((skill) => (
             <div key={skill.name} className="flex flex-col items-center gap-1 rounded-2xl text-center">
               <div className="flex h-10 w-10 items-center justify-center rounded-2xl text-(--accent)">
-                <i className={`${skill.icon} text-xl`} />
+                <i className={`${skill.icon} text-2xl`} />
               </div>
-              <span className="text-xs text-foreground">{skill.name}</span>
+              <span className="text-[10px] text-foreground">{skill.name}</span>
             </div>
           ))}
         </div>
