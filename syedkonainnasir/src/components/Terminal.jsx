@@ -299,7 +299,7 @@ export default function Terminal() {
   const livePrompt = promptFor(pathname);
 
   return (
-    <div className="flex h-65 w-full max-w-full flex-col overflow-hidden rounded-lg  bg-[rgba(6,8,13,0.95)] shadow-[0_16px_40px_rgba(0,0,0,0.28)]">
+    <div className="flex h-70 w-full max-w-full flex-col overflow-hidden rounded-lg border border-(--border)/40 bg-[rgba(6,8,13,0.95)] shadow-[0_16px_40px_rgba(0,0,0,0.28)]">
       <div className="flex items-center justify-between border-b border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.04)] px-3 py-2">
         <div className="flex items-center gap-2">
           <span className="h-2.5 w-2.5 rounded-full bg-red-500" />
