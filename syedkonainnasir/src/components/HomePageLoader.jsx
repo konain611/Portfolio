@@ -72,10 +72,10 @@ export default function HomePageLoader() {
       firstRow={<Header />}
       secondRowBig={<About />}
       secondRowSmall1={<Skills />}
-      secondRowSmall2={<Experience />}
+      secondRowSmall2={<Education />}
       thirdRowLeft={<Terminal />}
       thirdRowMiddle={<GithubStats username="konain611" />}
-      thirdRowRight={<Education />}
+      thirdRowRight={<Experience />}
     />
   );
 }
