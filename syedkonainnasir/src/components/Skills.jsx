@@ -27,7 +27,7 @@ export default function Skills() {
           </button>
         </div>
 
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-3 gap-2">
           {skills.slice(0, 9).map((skill) => (
             <div key={skill.name} className="flex flex-col items-center gap-1 rounded-2xl text-center">
               <div className="flex h-10 w-10 items-center justify-center rounded-2xl text-(--accent)">
