@@ -8,11 +8,11 @@ export default function Experience() {
           <div>
             <div className="text-sm uppercase tracking-[0.4em]"><span><i className="ri-briefcase-line text-(--accent) text-lg" /></span> Experience</div>
           </div>
-          <button className="rounded-full border border-(--border)/40 px-3 py-1 text-xs text-foreground transition hover:border-(--border)/60 hover:text-(--accent)">
           <Link href="/experience">
+          <button className="rounded-full cursor-pointer border border-(--border)/40 px-3 py-1 text-xs text-foreground transition hover:border-(--border)/60 hover:text-(--accent)">
             View All
-            </Link>
           </button>
+            </Link>
         </div>
 
         {/* <div className="grid grid-cols-3 gap-3">
