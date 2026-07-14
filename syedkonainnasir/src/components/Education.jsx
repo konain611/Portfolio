@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Education() {
   const educationItems = [
     {
@@ -43,9 +45,11 @@ export default function Education() {
             Education
           </div>
         </div>
-        <button className="rounded-full border border-(--border)/40 px-3 py-1 text-xs text-foreground transition hover:border-(--border)/60 hover:text-(--accent)">
+        <Link href="/education">
+          <button className="rounded-full cursor-pointer border border-(--border)/40 px-3 py-1 text-xs text-foreground transition hover:border-(--border)/60 hover:text-(--accent)">
           View All
         </button>
+        </Link>
       </div>
       <div className="relative py-4 px-2">
         {/* line runs from the center of the first dot to the center of the last dot */}
