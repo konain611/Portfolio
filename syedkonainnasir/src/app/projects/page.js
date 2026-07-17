@@ -47,7 +47,7 @@ export default function ProjectsPage() {
              </div>
            </div>
       */}
-        <Footer />
+        {/* <Footer /> */}
       </div>
   );
 }
