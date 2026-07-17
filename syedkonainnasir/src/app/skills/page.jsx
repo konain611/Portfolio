@@ -84,7 +84,7 @@ export default function SkillsPage() {
         </div>
       </div>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
