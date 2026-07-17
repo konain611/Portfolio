@@ -47,7 +47,7 @@ export default function Playground() {
                </div>
              </div>
         */}
-          <Footer />
+          {/* <Footer /> */}
         </div>
   );
 }
