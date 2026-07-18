@@ -104,10 +104,9 @@ export default function Header() {
         <h1 className="text-left text-4xl font-bold uppercase">
           Syed Konain Nasir
         </h1>
-        <p className="text-left text-sm font-normal mt-2 max-w-4xl text-(--foreground)">
-          Full Stack Developer with a Bachelor's in Computer Science. Focused on
-          modern web development, system design, DevSecOps practices, and AI
-          agent development.
+        <p className="text-left text-sm font-semibold d mt-2 max-w-4xl text-(--foreground)">
+   Full-Stack Software Engineer • System Design • DevSecOps • AI Agent Engineering
+
         </p>
       </div>
 
