@@ -8,7 +8,7 @@ export default function HomepageLayout({
   thirdRowRight,
 }) {
   return (
-    <div className="flex  flex-col gap-2 p-1">
+    <div className="flex  flex-col gap-2 p-1 ">
       <div className="w-full flex-1">
         <div className="w-full text-center">
           {firstRow || (
@@ -41,8 +41,8 @@ export default function HomepageLayout({
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-2 w-full md:grid-cols-[40%_1fr_1fr] flex-1">
-        <div className="flex rounded-md ">
+      <div className="grid grid-cols-1 gap-2 w-full md:grid-cols-[1fr_40%_1fr] flex-1">
+        <div className="border border-(--border)/40 rounded-md hover:border-(--border)/60 ">
           <div className="w-full">
             {thirdRowLeft || (
               <div className="text-sm sm:text-base">Third Row - Left Block</div>
