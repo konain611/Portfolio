@@ -7,7 +7,6 @@ export default function NotFound() {
         <h1 className="text-xl font-semibold uppercase tracking-[0.2em] text-(--accent)">
           404 Page not found
         </h1>
-       
       </div>
       <Footer />
     </div>
