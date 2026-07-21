@@ -6,6 +6,9 @@ export default function HomepageLayout({
   thirdRowLeft,
   thirdRowMiddle,
   thirdRowRight,
+  fourthRowLeft,
+  fourthRowMiddle,
+  fourthRowRight,
 }) {
   return (
     <div className="flex  flex-col gap-2 p-1 ">
@@ -41,8 +44,8 @@ export default function HomepageLayout({
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-2 w-full md:grid-cols-[1fr_40%_1fr] flex-1">
-        <div className="border border-(--border)/40 rounded-md hover:border-(--border)/60 ">
+      <div className="grid grid-cols-1 gap-2 w-full md:grid-cols-3 flex-1">
+                <div className="border border-(--border)/40 rounded-md hover:border-(--border)/60 ">
           <div className="w-full">
             {thirdRowLeft || (
               <div className="text-sm sm:text-base">Third Row - Left Block</div>
@@ -67,11 +70,31 @@ export default function HomepageLayout({
         </div>
       </div>
 
-      {/* <div className="border border-(--border)/40 rounded-md h-20 flex items-center justify-center w-full">
-                <div className="w-full text-center">
-                    {fourthRow || <div className="text-sm sm:text-base">Fourth Row (Full Width)</div>}
-                </div>
-            </div> */}
+      <div className="grid grid-cols-1 gap-2 w-full md:grid-cols-[40%_29%_30%]">
+        <div className="border border-(--border)/40 rounded-md hover:border-(--border)/60 min-h-30">
+          <div className="w-full text-center">
+            {fourthRowLeft || (
+              <div className="text-sm sm:text-base">Fourth Row - Left Block</div>
+            )}
+          </div>
+        </div>
+
+        <div className="border border-(--border)/40 rounded-md hover:border-(--border)/60 min-h-30">
+          <div className="w-full text-center">
+            {fourthRowMiddle || (
+              <div className="text-sm sm:text-base">Fourth Row - Middle Block</div>
+            )}
+          </div>
+        </div>
+
+        <div className="border border-(--border)/40 rounded-md hover:border-(--border)/60 min-h-30">
+          <div className="w-full text-center">
+            {fourthRowRight || (
+              <div className="text-sm sm:text-base">Fourth Row - Right Block</div>
+            )}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
