@@ -5,18 +5,27 @@ export default function Experience() {
     {
       title: "Full-Stack Software Engineer",
       institution: "Diginfo",
-      status: "done",
+      duration: "March 2025 - Present",
+      type: "Full-time",
     },
-    {
-      title: "AI Agent Development",
-      institution: "GIAIC",
-      status: "progress",
-    },
-    {
-      title: "Certified AI Engineer",
-      institution: "PIAIC",
-      status: "progress",
-    },
+   {
+      title: "Full-Stack Developer",
+      institution: "NS Engineering Works",
+      duration: "Freelance",
+      type: "remote",
+   },
+  //  {
+  //     title: "Full-Stack Developer",
+  //     institution: "Intellecta Genius Fest",
+  //     duration: "Freelance",
+  //     type: "remote",
+  //  },
+   {
+      title: "Front-End Developer",
+      institution: "YoungDev Interns",
+      duration: "August 2024 - September 2024",
+      type: "Internship",
+   },
    
   ];
 
@@ -37,39 +46,32 @@ export default function Experience() {
         </button>
         </Link>
       </div>
-      <div className="relative py-4 px-2">
-        {/* line runs from the center of the first dot to the center of the last dot */}
-        <div className="absolute left-3.5 top-1.5 bottom-1.5 w-px bg-(--border)/40 " />
-
+      <div className="space-y-2.5">
         {experienceItems.map((item) => (
           <div
             key={item.title}
-            className="relative flex items-start pb-4 last:pb-0"
+            className="group hover:border-(--border)/25"
           >
-            {/* dot, centered on the line */}
-            <span className="absolute left-0 top-0 flex h-3.5 w-3.5 items-center justify-center">
-              {item.status === "progress" && (
-                <span className="absolute h-3.5 w-3.5 animate-ping rounded-full bg-(--accent)/40" />
-              )}
-              <span
-                className={`relative h-2 w-2 rounded-full ${
-                  item.status === "progress"
-                    ? "bg-(--accent)"
-                    : "bg-(--accent)/70 ring-2 ring-(--accent)/20"
-                }`}
-              />
-            </span>
+            <div className="relative border-l-2 border-(--accent)/40 pl-3 py-2.5 transition-all duration-200 group-hover:border-(--accent)">
+              <div className="flex items-center justify-between gap-2">
+                <h3 className="truncate text-[13px] font-semibold leading-5 text-foreground">
+                  {item.title}
+                </h3>
+                <span className="shrink-0 px-1.5 py-[1.5px] text-[10px] font-medium uppercase tracking-wider text-(--accent)">
+                  {item.institution}
+                </span>
+              </div>
 
-            <div className="flex w-full items-baseline justify-between gap-3 pl-4">
-              <span className="flex items-center gap-1.5 text-[13px] font-medium leading-4 text-foreground">
-                {item.title}
-                {item.status === "progress" && (
-                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-(--accent)" />
-                )}
-              </span>
-              <span className="shrink-0 text-[11px] leading-4 text-foreground/50">
-                {item.institution}
-              </span>
+              <div className="mt-0.75 flex items-center gap-2.5 text-[10px] leading-4 text-foreground/50">
+                <span className="inline-flex items-center gap-1">
+                  <i className="ri-calendar-line text-[9px]" />
+                  {item.duration}
+                </span>
+                <span className="inline-flex items-center gap-1">
+                  <i className="ri-briefcase-line text-[9px]" />
+                  {item.type}
+                </span>
+              </div>
             </div>
           </div>
         ))}
