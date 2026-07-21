@@ -9,6 +9,7 @@ import Skills from '@/components/Skills';
 import Experience from '@/components/Experience';
 import GithubStats from '@/components/GithubStats';
 import Education from '@/components/Education';
+import Social from './Social';
 
 const STORAGE_KEY = 'portfolio-home-loaded';
 const LOADING_DURATION = 2000;
@@ -71,11 +72,13 @@ export default function HomePageLoader() {
     <HomepageLayout
       firstRow={<Header />}
       secondRowBig={<About />}
-      secondRowSmall1={<Skills />}
-      secondRowSmall2={<Education />}
-      thirdRowLeft={<Experience />}
-      thirdRowMiddle={<Terminal />}
+      secondRowSmall1={<Social />}
+      secondRowSmall2={<Skills />}
+      thirdRowMiddle={<Experience />}
+      thirdRowLeft={<Education />}
       thirdRowRight={<GithubStats username="konain611" />}
+      fourthRowLeft={<Terminal />}
+      // fourthRowRight={<Social />}
     />
   );
 }
