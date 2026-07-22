@@ -76,7 +76,8 @@ export default function Header() {
     };
 
     mediaQuery.addEventListener?.("change", handleSystemThemeChange);
-    return () => mediaQuery.removeEventListener?.("change", handleSystemThemeChange);
+    return () =>
+      mediaQuery.removeEventListener?.("change", handleSystemThemeChange);
   }, [theme]);
 
   const updateTheme = (nextTheme) => {
@@ -99,14 +100,14 @@ export default function Header() {
   };
 
   return (
-    <div className="w-full max-w-[97%] mx-auto min-h-20 border-l-4 border-(--border) pl-2 md:pl-4 pt-2 pb-4 mt-2 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+    <div className="w-full my-3 max-w-[97%] mx-auto min-h-20 border-l-4 border-(--border) pl-2 md:pl-4 pt-2 pb-4 mt-2 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
       <div className="flex flex-col items-start">
         <h1 className="text-left text-4xl font-bold uppercase">
           Syed Konain Nasir
         </h1>
         <p className="text-left text-sm font-semibold d mt-2 max-w-4xl text-(--foreground)">
-   Full-Stack Software Engineer • System Design • DevSecOps • AI Agent Engineering
-
+          Full-Stack Software Engineer • System Design • DevSecOps • AI Agent
+          Engineering
         </p>
       </div>
 
@@ -170,7 +171,7 @@ export default function Header() {
           )}
         </div>
 
-        {socialLinks.map((link) => (
+        {/* {socialLinks.map((link) => (
           <a
             key={link.label}
             href={link.href}
@@ -181,15 +182,16 @@ export default function Header() {
           >
             <i className={`${link.icon} text-lg`} />
           </a>
-        ))}
+        ))} */}
 
         <a
           href="/resume.pdf"
           download
           aria-label="Download resume"
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-(--border)/60 text-(--accent) transition hover:bg-(--accent) hover:text-background"
+          className="flex h-10 px-3 py-1 items-center justify-center rounded-full border border-(--border)/60 text-(--accent) transition hover:bg-(--accent) hover:text-background"
         >
-          <i className="ri-download-line text-lg" />
+          Download Resume &nbsp;
+          <i className="ri-download-line " />
         </a>
       </div>
     </div>
