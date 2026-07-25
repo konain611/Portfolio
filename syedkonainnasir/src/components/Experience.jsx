@@ -54,15 +54,15 @@ export default function Experience() {
           >
             <div className="relative border-l-2 border-(--accent)/40 pl-3 py-2.5 transition-all duration-200 group-hover:border-(--accent)">
               <div className="flex items-center justify-between gap-2">
-                <h3 className="truncate text-[13px] font-semibold leading-5 text-foreground">
+                <h3 className="truncate text-[15px] font-medium leading-5 text-foreground">
                   {item.title}
                 </h3>
-                <span className="shrink-0 px-1.5 py-[1.5px] text-[10px] font-medium uppercase tracking-wider text-(--accent)">
+                <span className="shrink-0 px-1.5 py-[1.5px] text-[11px] font-medium uppercase tracking-wider text-(--accent)">
                   {item.institution}
                 </span>
               </div>
 
-              <div className="mt-0.75 flex items-center gap-2.5 text-[10px] leading-4 text-foreground/50">
+              <div className="mt-0.75 flex items-center gap-2.5 text-[12px] leading-4 text-foreground/50">
                 <span className="inline-flex items-center gap-1">
                   <i className="ri-calendar-line text-[9px]" />
                   {item.duration}
