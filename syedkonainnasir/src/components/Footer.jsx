@@ -105,14 +105,14 @@ export default function Footer() {
   };
 
   return (
-    <footer className="fixed inset-x-0 bottom-0 z-40 border-t-2 border-(--border)/40 bg-background py-2">
+    <footer className=" z-40 border-t-2 border-(--border)/40 bg-background py-2">
       <div className="mx-auto relative flex w-full items-center justify-between px-3 sm:px-4">
         <div className="relative hidden sm:block" ref={settingsRef}>
           <button
             type="button"
             aria-label="Settings"
             onClick={() => setIsSettingsOpen((prev) => !prev)}
-            className="flex h-8 w-8 items-center justify-center rounded-full border border-(--border)/40 text-(--foreground) transition hover:text-(--accent)"
+            className="flex h-8 w-8 items-center justify-center rounded-full border border-(--border)  transition hover:text-(--accent)"
           >
             <i className="ri-settings-3-line text-xl" />
           </button>
