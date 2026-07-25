@@ -40,9 +40,9 @@ export default function Education() {
         <div>
           <div className="text-sm uppercase tracking-[0.4em]">
             <span>
-              <i className="ri-briefcase-line text-(--accent) text-lg" />
+              <i className="ri-graduation-cap-line text-(--accent) text-lg" />
             </span>{" "}
-            Education
+            Education & certifications
           </div>
         </div>
         <Link href="/education">
@@ -75,7 +75,7 @@ export default function Education() {
             </span>
 
             <div className="flex w-full items-baseline justify-between gap-3 pl-4">
-              <span className="flex items-center gap-1.5 text-[13px] font-medium leading-4 text-foreground">
+              <span className="flex items-center gap-1.5 text-[15px] font-medium leading-4 text-foreground">
                 {item.title}
                 {item.status === "progress" && (
                   <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-(--accent)" />
