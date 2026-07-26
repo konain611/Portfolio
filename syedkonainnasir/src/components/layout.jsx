@@ -1,3 +1,5 @@
+import Footer from "./Footer";
+
 export default function HomepageLayout({
   firstRow,
   secondRowBig,
@@ -20,7 +22,7 @@ export default function HomepageLayout({
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-2 w-full md:grid-cols-[50%_1fr_1fr]">
+      <div className="grid grid-cols-1 gap-2 w-full md:grid-cols-[50%_0.5fr_1fr]">
         <div className="flex items-center justify-center border border-(--border)/40 hover:border-(--border)/60 rounded-md min-h-40 ">
           <div className="w-full text-center">
             {secondRowBig || (
@@ -70,7 +72,7 @@ export default function HomepageLayout({
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-2 w-full md:grid-cols-[40%_29%_30%]">
+      <div className="grid grid-cols-1 gap-2 w-full md:grid-cols-[40%_24%_35%]">
         <div className="border border-(--border)/40 rounded-md hover:border-(--border)/60 min-h-30">
           <div className="w-full text-center">
             {fourthRowLeft || (
@@ -94,6 +96,10 @@ export default function HomepageLayout({
             )}
           </div>
         </div>
+      </div>
+
+      <div>
+        <Footer />
       </div>
     </div>
   );
