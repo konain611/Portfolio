@@ -1,17 +1,19 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import About from '@/components/About';
-import Header from '@/components/Header';
-import HomepageLayout from '@/components/layout';
-import Terminal from '@/components/Terminal';
-import Skills from '@/components/Skills';
-import Experience from '@/components/Experience';
-import GithubStats from '@/components/GithubStats';
-import Education from '@/components/Education';
-import Social from './Social';
+import { useEffect, useState } from "react";
+import About from "@/components/About";
+import Header from "@/components/Header";
+import HomepageLayout from "@/components/layout";
+import Terminal from "@/components/Terminal";
+import Skills from "@/components/Skills";
+import Experience from "@/components/Experience";
+import GithubStats from "@/components/GithubStats";
+import Education from "@/components/Education";
+import Social from "./Social";
+import Footer from "./Footer";
+import Projects from "./Projects";
 
-const STORAGE_KEY = 'portfolio-home-loaded';
+const STORAGE_KEY = "portfolio-home-loaded";
 const LOADING_DURATION = 2000;
 
 export default function HomePageLoader() {
@@ -19,9 +21,9 @@ export default function HomePageLoader() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
+    if (typeof window === "undefined") return;
 
-    const hasSeenHome = window.localStorage.getItem(STORAGE_KEY) === 'true';
+    const hasSeenHome = window.localStorage.getItem(STORAGE_KEY) === "true";
 
     if (hasSeenHome) {
       setIsLoading(false);
@@ -33,14 +35,17 @@ export default function HomePageLoader() {
 
     const tick = (now) => {
       const elapsed = now - startedAt;
-      const nextProgress = Math.min(100, Math.round((elapsed / LOADING_DURATION) * 100));
+      const nextProgress = Math.min(
+        100,
+        Math.round((elapsed / LOADING_DURATION) * 100),
+      );
       setProgress(nextProgress);
 
       if (elapsed < LOADING_DURATION) {
         requestAnimationFrame(tick);
       } else {
         setProgress(100);
-        window.localStorage.setItem(STORAGE_KEY, 'true');
+        window.localStorage.setItem(STORAGE_KEY, "true");
         setIsLoading(false);
       }
     };
@@ -69,16 +74,18 @@ export default function HomePageLoader() {
   }
 
   return (
-    <HomepageLayout
-      firstRow={<Header />}
-      secondRowBig={<About />}
-      secondRowSmall1={<Social />}
-      secondRowSmall2={<Skills />}
-      thirdRowMiddle={<Experience />}
-      thirdRowLeft={<Education />}
-      thirdRowRight={<GithubStats username="konain611" />}
-      fourthRowLeft={<Terminal />}
-      // fourthRowRight={<Social />}
-    />
+    <>
+      <HomepageLayout
+        firstRow={<Header />}
+        secondRowBig={<About />}
+        secondRowSmall1={<Social />}
+        secondRowSmall2={<Skills />}
+        thirdRowMiddle={<Experience />}
+        thirdRowLeft={<Education />}
+        fourthRowRight={<GithubStats username="konain611" />}
+        fourthRowLeft={<Terminal />}
+        thirdRowRight={<Projects />}
+      />
+    </>
   );
 }
