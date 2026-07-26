@@ -42,11 +42,11 @@ export default function Social() {
         aria-label={link.label}
         target={link.href.startsWith("http") ? "_blank" : undefined}
         rel={link.href.startsWith("http") ? "noreferrer" : undefined}
-        className="group flex items-center justify-between gap-3 px-3 py-[0.5rem] text-(--foreground) transition-colors hover:bg-(--accent)/10 hover:text-(--accent) focus-visible:bg-(--accent)/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--accent)/50"
+        className="group flex items-center justify-between gap-3 px-3 py-2  transition-colors hover:bg-(--accent)/10 hover:text-(--accent) focus-visible:bg-(--accent)/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--accent)/50"
       >
         <div className="flex items-center gap-3">
           <i className={`${link.icon} text-lg text-(--accent) transition-colors group-hover:text-(--accent)`} />
-          <span className="text-sm font-medium">{link.label}</span>
+          <span className="text-sm font-medium ">{link.label}</span>
         </div>
         <i className="ri-arrow-right-up-line text-base opacity-0 transition-all -translate-x-1 group-hover:translate-x-0 group-hover:opacity-100" />
       </a>
