@@ -28,7 +28,7 @@ export default function About() {
           </div>
           <div className="flex items-center gap-2">
             <i className="ri-briefcase-4-line text-(--accent)" />
-            <span>3+ Years</span>
+            <span>2+ Years</span>
           </div>
           <div className="flex items-center gap-2">
             <i className="ri-mail-line text-(--accent)" />

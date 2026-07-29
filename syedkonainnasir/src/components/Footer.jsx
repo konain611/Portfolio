@@ -105,7 +105,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className=" z-40 border-t-2 border-(--border)/40 bg-background py-2">
+    <footer className="fixed inset-x-0 bottom-0 z-40 border-t-2 border-(--border)/40 bg-background py-2">
       <div className="mx-auto relative flex w-full items-center justify-between px-3 sm:px-4">
         <div className="relative hidden sm:block" ref={settingsRef}>
           <button

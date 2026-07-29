@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
       <body className="min-h-full relative">
         <div className="h-full">
           <main>{children}
-            {/* <Footer /> */}
+            <Footer />
           </main>
         </div>
       </body>

@@ -98,9 +98,9 @@ export default function HomepageLayout({
         </div>
       </div>
 
-      <div>
+      {/* <div>
         <Footer />
-      </div>
+      </div> */}
     </div>
   );
 }
