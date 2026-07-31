@@ -106,7 +106,7 @@ export default function Header() {
           Syed Konain Nasir
         </h1>
         <p className="text-left text-sm font-semibold d mt-2 max-w-4xl text-(--foreground)">
-          Full-Stack Software Engineer • System Design • DevSecOps • AI Agent
+          CS Grad • Full-Stack Software Engineer • Learning DevSecOps • Agentic AI Dev
           Engineering
         </p>
       </div>
