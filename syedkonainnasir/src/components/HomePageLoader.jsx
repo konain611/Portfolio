@@ -54,6 +54,12 @@ export default function HomePageLoader() {
     return () => cancelAnimationFrame(frame);
   }, []);
 
+  useEffect(() => {
+    if (!isLoading && typeof window !== "undefined") {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    }
+  }, [isLoading]);
+
   if (isLoading) {
     return (
       <div className="fixed inset-0 z-999 flex min-h-screen items-center justify-center bg-background text-foreground">
