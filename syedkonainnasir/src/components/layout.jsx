@@ -13,7 +13,7 @@ export default function HomepageLayout({
   fourthRowRight,
 }) {
   return (
-    <div className="flex  flex-col gap-2 p-1 ">
+    <div className="flex flex-col items-start gap-2 p-1 min-h-screen">
       <div className="w-full flex-1">
         <div className="w-full text-center">
           {firstRow || (
