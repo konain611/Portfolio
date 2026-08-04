@@ -6,7 +6,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { accentOptions, applyTheme, backgroundOptions, defaultTheme, persistTheme, publishTheme, readTheme } from "@/lib/theme";
 
 const links = [
-  { href: "/", label: "Home", icon: "ri-home-3-line" },
+  // { href: "/", label: "Home", icon: "ri-home-3-line" },
   { href: "/about", label: "About", icon: "ri-user-3-line" },
   { href: "/skills", label: "Skills", icon: "ri-tools-line" },
   { href: "/experience", label: "Experience", icon: "ri-briefcase-line" },
@@ -18,6 +18,7 @@ const links = [
 export default function Footer() {
   const pathname = usePathname() || "/";
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [theme, setTheme] = useState(readTheme);
   const settingsRef = useRef(null);
 
@@ -65,25 +66,7 @@ export default function Footer() {
     return () => mediaQuery.removeEventListener?.("change", handleSystemThemeChange);
   }, [theme]);
 
-  const [now, setNow] = useState(() => new Date());
-
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      setNow(new Date());
-    }, 1000);
-
-    return () => window.clearInterval(timer);
-  }, []);
-
-  const formattedTime = now.toLocaleTimeString([], {
-    hour: "numeric",
-    minute: "2-digit",
-  });
-  const formattedDate = now.toLocaleDateString([], {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
+  // No date/time displayed — removed per design.
 
   const updateTheme = (nextTheme) => {
     setTheme(nextTheme);
@@ -104,69 +87,83 @@ export default function Footer() {
     updateTheme(defaultTheme);
   };
 
-  return (
-    <footer className="w-full border-t-2 border-(--border)/40 bg-background py-2">
-      <div className="mx-auto relative flex w-full items-center justify-between px-3 sm:px-4">
-        <div className="relative hidden sm:block" ref={settingsRef}>
+  const renderSettingsControls = (mobile = false) => (
+    <div className={`${mobile ? "w-full mt-4" : "absolute left-12 bottom-0 w-60"} rounded-xl border border-(--border)/40 bg-background p-3 shadow-2xl`}>
+      <div className="mb-2 text-sm font-semibold">Accent</div>
+      <div className="mb-3 flex flex-wrap gap-2">
+        {accentOptions.map((option) => (
           <button
+            key={option.name}
             type="button"
-            aria-label="Settings"
-            onClick={() => setIsSettingsOpen((prev) => !prev)}
-            className="flex h-8 w-8 items-center justify-center rounded-full border border-(--border)  transition hover:text-(--accent)"
+            onClick={() => applyAccentTheme(option.name)}
+            className="flex h-7 w-7 items-center justify-center rounded-full border border-(--border)/40 p-0 transition hover:border-(--accent)"
+            aria-label={option.name}
           >
-            <i className="ri-settings-3-line text-xl" />
+            <span
+              className="h-4 w-4 rounded-full border border-white/20"
+              style={{ backgroundColor: option.value }}
+            />
           </button>
+        ))}
+      </div>
 
-          {isSettingsOpen && (
-            <div className="absolute bottom-12 left-0 w-60 rounded-xl border border-(--border)/40 bg-background p-3 shadow-2xl">
-              <div className="mb-2 text-sm font-semibold">Accent</div>
-              <div className="mb-3 flex flex-wrap gap-2">
-                {accentOptions.map((option) => (
-                  <button
-                    key={option.name}
-                    type="button"
-                    onClick={() => applyAccentTheme(option.name)}
-                    className="flex h-7 w-7 items-center justify-center rounded-full border border-(--border)/40 p-0 transition hover:border-(--accent)"
-                    aria-label={option.name}
-                  >
-                    <span
-                      className="h-4 w-4 rounded-full border border-white/20"
-                      style={{ backgroundColor: option.value }}
-                    />
-                  </button>
-                ))}
-              </div>
+      <div className="mb-2 text-sm font-semibold">Theme</div>
+      <div className="mb-3 flex gap-2">
+        {backgroundOptions.map((option) => (
+          <button
+            key={option.name}
+            type="button"
+            onClick={() => applyBackgroundTheme(option.name)}
+            className={`rounded-full border px-3 py-1 text-xs transition ${
+              theme.background === option.name.toLowerCase()
+                ? "border-(--accent) bg-(--accent)/15"
+                : "border-(--border)/40"
+            }`}
+          >
+            {option.name}
+          </button>
+        ))}
+      </div>
 
-              <div className="mb-2 text-sm font-semibold">Theme</div>
-              <div className="mb-3 flex gap-2">
-                {backgroundOptions.map((option) => (
-                  <button
-                    key={option.name}
-                    type="button"
-                    onClick={() => applyBackgroundTheme(option.name)}
-                    className={`rounded-full border px-3 py-1 text-xs transition ${
-                      theme.background === option.name.toLowerCase()
-                        ? "border-(--accent) bg-(--accent)/15"
-                        : "border-(--border)/40"
-                    }`}
-                  >
-                    {option.name}
-                  </button>
-                ))}
-              </div>
+      <button
+        type="button"
+        onClick={resetTheme}
+        className="mt-3 w-full rounded-lg border border-(--border)/40 px-3 py-2 text-sm transition hover:bg-(--accent) hover:text-background"
+      >
+        Reset
+      </button>
+    </div>
+  );
 
-              <button
-                type="button"
-                onClick={resetTheme}
-                className="mt-3 w-full rounded-lg border border-(--border)/40 px-3 py-2 text-sm transition hover:bg-(--accent) hover:text-background"
-              >
-                Reset
-              </button>
-            </div>
-          )}
+  return (
+    <>
+      <button
+        type="button"
+        className="fixed left-3 top-3 z-50 flex h-10 w-10 items-center justify-center rounded-md border border-(--border) bg-background md:hidden"
+        aria-label="Open menu"
+        onClick={() => setIsMobileOpen(true)}
+      >
+        <i className="ri-menu-line text-2xl" />
+      </button>
+
+      {/* Desktop sidebar */}
+      <aside className="hidden md:fixed md:left-0 md:top-0 md:h-screen md:w-15 md:z-40 md:border-r-2 md:border-(--border)/40 md:bg-background md:py-4 md:flex md:flex-col md:items-center md:justify-between">
+      <div className="flex h-full flex-col items-center justify-between">
+        {/* Top: Home button (used to be settings) */}
+        <div className="relative">
+          <Link
+            href="/"
+            aria-label="Home"
+            className="group relative flex h-8 w-8 items-center justify-center rounded-full border border-(--border) transition hover:text-(--accent)"
+          >
+            <i className="ri-home-3-line text-xl" />
+            <span className="pointer-events-none absolute left-12 rounded-full border border-(--border)/40 bg-background px-2 py-1 text-[10px] uppercase tracking-[0.2em] text-(--foreground) opacity-0 transition group-hover:opacity-100">
+              Home
+            </span>
+          </Link>
         </div>
 
-        <div className="absolute inset-x-0 mx-auto flex max-w-xs items-center justify-center gap-3">
+        <nav className="flex flex-col items-center gap-3">
           {links.map((link) => {
             const isActive = pathname === link.href || (link.href === "/" && pathname === "");
 
@@ -175,9 +172,8 @@ export default function Footer() {
                 key={link.href}
                 href={link.href}
                 aria-label={link.label}
-                // title={link.label}
                 aria-current={isActive ? "page" : undefined}
-                className={`group relative flex h-8 w-8 items-center justify-center${
+                className={`group relative flex h-10 w-10 items-center justify-center ${
                   isActive
                     ? " text-(--accent)"
                     : "text-(--foreground) hover:text-(--accent) transition"
@@ -185,21 +181,119 @@ export default function Footer() {
               >
                 <i className={`${link.icon} text-2xl`} />
                 {isActive && (
-                  <span className="absolute -bottom-1 h-1 w-2 rounded-full bg-(--accent)" />
+                  <span className="absolute -right-4 top-1/2 transform -translate-y-1/2" aria-hidden>
+                    <svg className="h-4 w-4 text-(--accent)" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                      <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
                 )}
-                <span className="pointer-events-none absolute -top-8 rounded-full border border-(--border)/40 bg-background px-2 py-1 text-[10px] uppercase tracking-[0.2em] text-(--foreground) opacity-0 transition group-hover:opacity-100">
+                <span className="pointer-events-none absolute left-12 rounded-full border border-(--border)/40 bg-background px-2 py-1 text-[10px] uppercase tracking-[0.2em] text-(--foreground) opacity-0 transition group-hover:opacity-100">
                   {link.label}
                 </span>
               </Link>
             );
           })}
-        </div>
 
-        <div className="hidden min-w-28 flex-col items-end text-[11px] leading-4 text-(--muted) sm:flex sm:min-w-34">
-          <span>{formattedTime}</span>
-          <span>{formattedDate}</span>
+          {/* Download resume button below Playground */}
+          <a
+            href="/resume.pdf"
+            download
+            aria-label="Download Resume"
+            className="group relative flex h-10 w-10 items-center justify-center text-(--foreground) hover:text-(--accent) transition"
+          >
+            <i className="ri-download-line text-2xl" />
+            <span className="pointer-events-none absolute left-12 rounded-full border border-(--border)/40 bg-background px-2 py-1 text-[10px] uppercase tracking-[0.2em] text-(--foreground) opacity-0 transition group-hover:opacity-100">
+              Download
+            </span>
+          </a>
+        </nav>
+
+        {/* Bottom: Settings button (used to be date/time) */}
+        <div className="relative" ref={settingsRef}>
+          <button
+            type="button"
+            aria-label="Settings"
+            onClick={() => setIsSettingsOpen((prev) => !prev)}
+            className="flex h-8 w-8 items-center justify-center rounded-full border border-(--border) transition hover:text-(--accent)"
+          >
+            <i className="ri-settings-3-line text-xl" />
+          </button>
+
+          {isSettingsOpen && renderSettingsControls(false)}
         </div>
       </div>
-    </footer>
+      </aside>
+
+      {/* Mobile slide-in panel */}
+      {isMobileOpen && (
+        <div className="fixed inset-0 z-50 flex">
+          <div className="absolute inset-0 bg-black/40" onClick={() => setIsMobileOpen(false)} />
+          <aside className="relative z-50 w-64 max-w-full border-r-2 border-(--border)/40 bg-background py-6">
+            <div className="flex h-full flex-col items-start justify-between px-4">
+              <div className="w-full">
+                <div className="flex items-center justify-between">
+                  <div />
+                  <button
+                    type="button"
+                    aria-label="Close menu"
+                    onClick={() => setIsMobileOpen(false)}
+                    className="flex h-8 w-8 items-center justify-center rounded-md border border-(--border)"
+                  >
+                    <i className="ri-close-line text-xl" />
+                  </button>
+                </div>
+
+                <div className="mt-6 flex flex-col items-start gap-3">
+                  {links.map((link) => {
+                    const isActive = pathname === link.href || (link.href === "/" && pathname === "");
+
+                    return (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        aria-label={link.label}
+                        aria-current={isActive ? "page" : undefined}
+                        onClick={() => setIsMobileOpen(false)}
+                        className={`flex items-center gap-3 rounded-md px-2 py-2 ${
+                          isActive ? "text-(--accent)" : "text-(--foreground) hover:text-(--accent)"
+                        }`}
+                      >
+                        <i className={`${link.icon} text-2xl`} />
+                        <span className="text-sm">{link.label}</span>
+                      </Link>
+                    );
+                  })}
+
+                  <a
+                    href="/resume.pdf"
+                    download
+                    onClick={() => setIsMobileOpen(false)}
+                    className="flex items-center gap-3 rounded-md px-2 py-2 text-(--foreground) hover:text-(--accent)"
+                  >
+                    <i className="ri-download-line text-2xl" />
+                    <span className="text-sm">Download</span>
+                  </a>
+                </div>
+              </div>
+
+              <div className="w-full">
+                <div className="mt-6 border-t border-(--border)/40 pt-4">
+                  <button
+                    type="button"
+                    aria-label="Settings"
+                    onClick={() => setIsSettingsOpen((prev) => !prev)}
+                    className="flex h-8 w-8 items-center justify-center rounded-md border border-(--border)"
+                  >
+                    <i className="ri-settings-3-line text-xl" />
+                  </button>
+
+                  {isSettingsOpen && renderSettingsControls(true)}
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      )}
+    </>
   );
 }
