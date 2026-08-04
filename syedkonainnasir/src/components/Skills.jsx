@@ -10,6 +10,9 @@ const skills = [
   { name: "Linux", icon: "ri-ubuntu-line", level: 76 },
   { name: "Nginx", icon: "ri-node-tree", level: 78 },
   { name: "Cloudflare", icon: "ri-cloud-line", level: 82 },
+  { name: "Linuxx", icon: "ri-ubuntu-line", level: 76 },
+  { name: "Nginxx", icon: "ri-node-tree", level: 78 },
+  { name: "Cloudflarex", icon: "ri-cloud-line", level: 82 },
 ];
 
 export default function Skills() {
@@ -32,8 +35,8 @@ export default function Skills() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-3 gap-2">
-          {skills.slice(0, 9).map((skill) => (
+        <div className="grid grid-cols-4 gap-2">
+          {skills.slice(0, 12).map((skill) => (
             <div
               key={skill.name}
               className="flex flex-col items-center gap-1 rounded-2xl text-center"
