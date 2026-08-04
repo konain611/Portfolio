@@ -67,7 +67,7 @@ export default function Experience() {
                   <i className="ri-calendar-line text-[9px]" />
                   {item.duration}
                 </span>
-                <span className="inline-flex items-center gap-1">
+                <span className="inline-flex text-foreground/80 items-center gap-1">
                   <i className="ri-briefcase-line text-[9px]" />
                   {item.type}
                 </span>
