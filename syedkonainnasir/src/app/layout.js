@@ -25,9 +25,9 @@ export default function RootLayout({ children }) {
       </head>
       <body className="min-h-full relative">
         <div className="h-full">
-          <main>{children}
-            <Footer />
-          </main>
+            <main className="grow md:ml-16">{children}
+              <Footer />
+            </main>
         </div>
       </body>
     </html>
