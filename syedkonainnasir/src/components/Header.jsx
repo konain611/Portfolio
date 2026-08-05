@@ -111,7 +111,7 @@ export default function Header() {
       </div>
 
       <div className="flex items-center gap-2">
-        <div className="relative" ref={settingsRef}>
+        {/* <div className="relative" ref={settingsRef}>
           <button
             type="button"
             aria-label="Settings"
@@ -168,7 +168,7 @@ export default function Header() {
               </button>
             </div>
           )}
-        </div>
+        </div> */}
 
         {/* {socialLinks.map((link) => (
           <a
