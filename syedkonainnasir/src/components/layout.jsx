@@ -46,7 +46,7 @@ export default function HomepageLayout({
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-2 w-full md:grid-cols-3 flex-1">
+      <div className="grid grid-cols-1 gap-2 w-full md:grid-cols-[40%_1fr_1fr]">
                 <div className="border border-(--border)/40 rounded-md hover:border-(--border)/60 ">
           <div className="w-full">
             {thirdRowLeft || (
