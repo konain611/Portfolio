@@ -10,15 +10,13 @@ export default function About() {
 
       <div className="text-sm leading-6 max-w-2xl text-left">
         <p className="mb-3">
-          Full-Stack Developer with expertise in Next.js, TypeScript, and
-          Node.js, focused on building scalable, production-ready web
-          {/* applications. Currently working as a Full-Stack Software Engineer at &nbsp;
-          <span className="italic">Digital Information Pvt Ltd</span>, where I develop enterprise dashboards, e-commerce platforms,
-          and AI-powered solutions across the full development lifecycle—from
-          frontend development and backend architecture to DevOps. Passionate
-          about DevOps, AI agents, and creating autonomous digital products,
-          with a strong commitment to continuous learning and adopting modern
-          technologies. */}
+          Full-Stack Developer specializing in Next.js, TypeScript, and Node.js,
+          focused on building scalable, production-ready web applications. I
+          currently work as a Full-Stack Software Engineer at &nbsp;
+          <span className="italic">Digital Information Systems Pvt Ltd</span>, where I
+          build enterprise dashboards, e-commerce platforms, and AI-powered
+          solutions, end to end, from frontend to backend to deployment. Always
+          learning, always experimenting with new tools.
         </p>
 
         <div className="flex flex-wrap items-center gap-6 mt-4 text-sm">
