@@ -3,16 +3,17 @@ import Link from "next/link";
 const skills = [
   { name: "Next.js", icon: "ri-nextjs-line", level: 92 },
   { name: "React", icon: "ri-reactjs-line", level: 94 },
+  { name: "TypeScript", icon: "ri-code-s-slash-line", level: 88 },
   { name: "Tailwind CSS", icon: "ri-tailwind-css-fill", level: 90 },
   { name: "Node.js", icon: "ri-nodejs-line", level: 88 },
   { name: "PostgreSQL", icon: "ri-database-2-line", level: 84 },
+  { name: "Prisma", icon: "ri-braces-line", level: 82 },
+  { name: "Python", icon: "ri-terminal-box-line", level: 70 },
+  { name: "Docker", icon: "ri-ship-line", level: 65 },
   { name: "Git", icon: "ri-git-branch-line", level: 88 },
   { name: "Linux", icon: "ri-ubuntu-line", level: 76 },
   { name: "Nginx", icon: "ri-node-tree", level: 78 },
   { name: "Cloudflare", icon: "ri-cloud-line", level: 82 },
-  { name: "Linuxx", icon: "ri-ubuntu-line", level: 76 },
-  { name: "Nginxx", icon: "ri-node-tree", level: 78 },
-  { name: "Cloudflarex", icon: "ri-cloud-line", level: 82 },
 ];
 
 export default function Skills() {
