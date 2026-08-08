@@ -22,6 +22,12 @@ export default function Education() {
     },
     {
       name: "Panaversity",
+      title: "Agentic AI Architect Program",
+      status: "in progress",
+      duration: "Aug 2026 - Sep 2026",
+    },
+    {
+      name: "Panaversity",
       title: "OpenClaw For Business Professionals",
       status: "completed",
       duration: "May 2026",
