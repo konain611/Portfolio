@@ -73,12 +73,14 @@ export default function ExperiencePage() {
 
           <section className="rounded-3xl p-6">
             <div className="relative">
-              <div className="absolute left-6 top-3 bottom-3 w-1 bg-(--border) rounded-full opacity-40" />
-              <div className="ml-14 space-y-6">
+              <div className="absolute left-[28px] top-3 bottom-3 w-1 bg-(--border) rounded-full opacity-40" />
+              <div className="space-y-6">
                 {experienceItems.map((item, idx) => (
-                  <article key={item.company} className="group relative flex items-start gap-5">
-                    <div className="-ml-14 flex h-10 w-10 items-center justify-center rounded-full bg-background/60 ring-2 ring-(--border) group-hover:scale-105 transition-transform">
-                      <div className="h-3 w-3 rounded-full bg-(--accent)" />
+                  <article key={item.company} className="group relative grid grid-cols-[56px_1fr] items-start gap-5">
+                    <div className="flex items-start justify-center">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-background/60 ring-2 ring-(--border) group-hover:scale-105 transition-transform">
+                        <div className="h-3 w-3 rounded-full bg-(--accent)" />
+                      </div>
                     </div>
 
                     <div className="flex-1 transform-gpu transition-all duration-300 group-hover:translate-x-2">
