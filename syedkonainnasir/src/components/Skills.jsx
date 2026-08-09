@@ -9,7 +9,7 @@ const skills = [
   { name: "Node.js", icon: "ri-nodejs-line", level: 88 },
   { name: "Prisma", icon: "ri-braces-line", level: 82 },
   { name: "PostgreSQL", icon: "ri-database-2-line", level: 84 },
-  { name: "Vercel", icon: "ri-triangle-line", level: 65 },
+  { name: "Vercel", icon: "ri-vercel-line", level: 65 },
   { name: "Git", icon: "ri-git-branch-line", level: 88 },
   { name: "Linux", icon: "ri-ubuntu-line", level: 76 },
   { name: "Nginx", icon: "ri-node-tree", level: 78 },
