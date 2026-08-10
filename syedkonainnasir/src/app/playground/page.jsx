@@ -1,5 +1,3 @@
-import Footer from "@/components/Footer";
-
 export default function Playground() {
   return (
         <div className="w-full max-w-[97%] mx-auto py-4 flex flex-col gap-2">
