@@ -2,7 +2,7 @@ const experienceItems = [
   {
     role: "Full-Stack Software Engineer",
     company: "Digital Information Pvt Ltd",
-    period: "2024 – Present",
+    period: "March 2024 – Present",
     location: "Karachi, Pakistan",
     summary:
       "Leading product development for enterprise dashboards and AI-driven features — from idea to production.",
@@ -15,7 +15,7 @@ const experienceItems = [
   {
     role: "Software Developer",
     company: "Freelance / Contract",
-    period: "2022 – 2024",
+    period: "2025 – Present",
     location: "Remote / Pakistan",
     summary:
       "Delivered polished web products for SMEs, prioritizing speed-to-value and maintainability.",
@@ -44,7 +44,7 @@ const impactPoints = [
 
 export default function ExperiencePage() {
   return (
-    <div className="w-full max-w-[97%] mx-auto py-6 flex flex-col gap-8">
+    <div className="w-full max-w-[97%] mx-auto py-4 flex flex-col gap-8">
       <div className="flex flex-col items-start border-l-4 border-(--border) py-2">
         <h1 className="text-left text-4xl font-bold uppercase ml-4">Experience</h1>
       </div>
@@ -52,7 +52,7 @@ export default function ExperiencePage() {
       <div className="grid gap-8 lg:grid-cols-[1.4fr_0.9fr]">
         {/* Left: creative timeline */}
         <main className="space-y-6">
-          <section className="relative overflow-hidden rounded-3xl border border-(--border)/30 bg-gradient-to-br from-background/60 to-background/40 p-6 backdrop-blur-sm">
+          <section className="relative overflow-hidden rounded-3xl border border-(--border)/30 bg-linear-to-br from-background/60 to-background/40 p-6 backdrop-blur-sm">
             <div className="flex items-start gap-6">
               <div className="flex-1">
                 <p className="text-xs uppercase tracking-[0.35em] text-(--accent)">Career overview</p>
@@ -66,14 +66,14 @@ export default function ExperiencePage() {
                 <p className="text-xs text-(--muted)">Key Projects</p>
               </div>
             </div>
-            <svg className="absolute -right-10 top-4 opacity-10" width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+            {/* <svg className="absolute -right-10 top-4 opacity-10" width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="110" cy="110" r="80" stroke="var(--accent)" strokeWidth="2" />
-            </svg>
+            </svg> */}
           </section>
 
           <section className="rounded-3xl p-6">
             <div className="relative">
-              <div className="absolute left-[28px] top-3 bottom-3 w-1 bg-(--border) rounded-full opacity-40" />
+              <div className="absolute left-6.5 top-3 bottom-3 w-1 bg-(--border) rounded-full opacity-40" />
               <div className="space-y-6">
                 {experienceItems.map((item, idx) => (
                   <article key={item.company} className="group relative grid grid-cols-[56px_1fr] items-start gap-5">
@@ -120,7 +120,7 @@ export default function ExperiencePage() {
             <h3 className="text-lg font-semibold text-(--accent)">Impact areas</h3>
             <div className="mt-5 grid grid-cols-1 gap-4">
               {impactPoints.map((point, i) => (
-                <div key={point} className={`relative overflow-hidden rounded-2xl p-4 ${i === 0 ? 'bg-gradient-to-r from-(--accent)/20 to-background/40' : 'bg-background'} border border-(--border)/30`}> 
+                <div key={point} className={`relative overflow-hidden rounded-2xl p-4 ${i === 0 ? 'bg-linear-to-r from-(--accent)/20 to-background/40' : 'bg-background'} border border-(--border)/30`}> 
                   <div className="absolute -right-8 -top-8 h-24 w-24 rotate-45 bg-(--accent)/10 blur-sm" />
                   <p className="text-sm leading-6 text-(--foreground)">{point}</p>
                 </div>
