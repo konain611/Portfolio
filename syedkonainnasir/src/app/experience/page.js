@@ -1,7 +1,7 @@
 const experienceItems = [
   {
     role: "Full-Stack Software Engineer",
-    company: "Digital Information Pvt Ltd",
+    company: "Digital Information Systems Pvt Ltd",
     period: "March 2024 – Present",
     location: "Full time - Karachi, Pakistan",
     summary:
@@ -25,6 +25,19 @@ const experienceItems = [
       "Maintained close client collaboration and iterative feature rollouts.",
     ],
   },
+  // {
+  //   role: "Full-Stack Developer",
+  //   company: "Intellecta Genius Fest",
+  //   period: "2025 – Present",
+  //   location: "Freelance / Contract - Remote",
+  //   summary:
+  //     "Delivered polished web products for SMEs, prioritizing speed-to-value and maintainability.",
+  //   highlights: [
+  //     "Shipped conversion-focused e-commerce and lead-gen apps with clear A/B learnings.",
+  //     "Implemented secure checkout and CI/CD workflows for several clients.",
+  //     "Maintained close client collaboration and iterative feature rollouts.",
+  //   ],
+  // },
   {
     role: "Front-End Developer",
     company: "YoungDev Interns",
@@ -57,10 +70,10 @@ export default function ExperiencePage() {
                 I design resilient, observable systems and elegant frontends. Below is a compact, interactive timeline that highlights outcomes and craft.
               </p>
             </div>
-            <div className="hidden sm:flex flex-col items-center justify-center gap-2">
+            {/* <div className="hidden sm:flex flex-col items-center justify-center gap-2">
               <div className="h-12 w-12 rounded-full bg-(--accent) flex items-center justify-center text-xs font-bold text-black">KP</div>
               <p className="text-xs text-(--muted)">Key Projects</p>
-            </div>
+            </div> */}
           </div>
         </section>
 
