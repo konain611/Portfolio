@@ -68,7 +68,7 @@ export default function Education() {
         <div className="absolute left-3.5 top-1.5 bottom-1.5 w-px bg-(--border)/40" />
 
         {educationItems.map((item) => (
-          <div key={`${item.title}-${item.name}`} className="relative flex items-start pb-2 last:pb-0">
+          <div key={`${item.title}-${item.name}`} className="relative flex items-start pb-6 last:pb-0">
             <span className="absolute left-0 top-0 flex h-3.5 w-3.5 items-center justify-center">
               {item.status === "in progress" && (
                 <span className="absolute h-3.5 w-3.5 animate-ping rounded-full bg-(--accent)/40" />
