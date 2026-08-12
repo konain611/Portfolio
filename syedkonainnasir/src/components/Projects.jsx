@@ -4,23 +4,31 @@ const projects = [
   {
     title: "Autoverse",
     description:
-      "AI-powered conversational shopping assistant — agentic product search, comparison, and checkout flow.",
-    stack: ["React", "Python", "LangChain", "ChromaDB"],
-    href: "https://github.com/konain611/autoverse-npm", // add your repo/demo link
+      "AI-powered conversational shopping assistant that understands natural-language queries, retrieves and compares products via vector search, and walks users through checkout.",
+    stack: [
+      "Javascript",
+      "Python",
+      "Cohere",
+      "Quadrant",
+      "ChromaDB",
+      "Next.js",
+      "TypeScript",
+    ],
+    href: "https://github.com/konain611/autoverse-npm",
   },
   {
     title: "DGMAGAZINE",
     description:
-      "Cyber intelligence platform built and maintained solo at Diginfo — dashboards, APIs, and data pipelines.",
+      "Full-fledged cyber intelligence web platform — publishes news, articles, and awareness content, with user interactions, dashboards, and backend APIs, built and maintained solo at Diginfo.",
     stack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma"],
-    href: "https://dgmagazine.net", // add link if you can share one publicly
+    href: "https://dgmagazine.net",
   },
   {
-    title: "autoverse-agent-cli",
+    title: "Personal AI Employee",
     description:
-      "Published npm CLI that scaffolds a protected dashboard into Next.js/React apps with framework auto-detection.",
-    stack: ["Node.js", "CLI", "npm"],
-    href: "https://www.npmjs.com/package/autoverse-agent-cli",
+      "Python automation agent that handles personal workflows like email and scheduling, using Obsidian as its knowledge and context layer.",
+    stack: ["Python", "Obsidian", "AI Driven", "Automation"],
+    href: "https://github.com/konain611/Personal-AI-Employee",
   },
 ];
 
@@ -33,7 +41,7 @@ export default function Projects() {
             <span>
               <i className="ri-file-code-line text-(--accent) text-lg" />
             </span>{" "}
-            Projects
+            Core Projects
           </div>
         </div>
         <Link href="/projects">
