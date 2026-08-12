@@ -7,10 +7,13 @@ const skillProfiles = {
     title: 'Languages',
     description: 'Core programming languages used in development work.',
     axes: [
+      { label: 'HTML', value: 4.5 },
+      { label: 'CSS', value: 4 },
       { label: 'TypeScript', value: 4 },
       { label: 'JavaScript', value: 4.5 },
-      { label: 'Python', value: 3 },
-      { label: 'C', value: 3.5 },
+      { label: 'Python', value: 3.5 },
+      { label: 'SQL', value: 4 },
+      { label: 'C', value: 3 },
     ],
   },
   frontend: {
@@ -21,7 +24,7 @@ const skillProfiles = {
       { label: 'React', value: 4 },
       { label: 'HTML', value: 4.5 },
       { label: 'CSS', value: 3 },
-      { label: 'Tailwind CSS', value: 4 },
+      { label: 'Tailwind CSS', value: 4.5 },
       { label: 'Bootstrap', value: 3.5 },
       { label: 'Shadcn', value: 4.5 },
     ],
@@ -32,7 +35,7 @@ const skillProfiles = {
     axes: [
       { label: 'Node.js', value: 4 },
       { label: 'Express', value: 4 },
-      { label: 'REST APIs', value: 5 },
+      { label: 'REST APIs', value: 4.8 },
       { label: 'Auth', value: 4 },
       { label: 'WebSockets', value: 3 },
     ],
@@ -53,10 +56,11 @@ const skillProfiles = {
     title: 'Tools',
     description: 'Developer utilities and delivery workflows.',
     axes: [
+      { label: 'Docusaurus', value: 4 },
       { label: 'Git', value: 4.5 },
       { label: 'Postman', value: 4 },
       { label: 'Nginx', value: 3.5 },
-      { label: 'npm', value: 5 },
+      { label: 'npm', value: 4.7 },
       { label: 'Yarn', value: 3 },
 
     ],
@@ -66,6 +70,7 @@ const skillProfiles = {
     description: 'Deployment, hosting, and automation practices.',
     axes: [
       { label: 'Cloudflare', value: 4 },
+      { label: 'Vercel', value: 4 },
       { label: 'SSL', value: 4 },
       { label: 'Linux', value: 4 },
       { label: 'CI/CD', value: 3.5 },
