@@ -5,11 +5,11 @@ const experienceItems = [
     period: "March 2024 – Present",
     location: "Full time - Karachi, Pakistan",
     summary:
-      "Leading product development for enterprise dashboards and AI-driven features — from idea to production.",
+      "Designing architecture and building centralized systems across Diginfo's product suite — dashboards, admin panels, and media apps, including DGMagazine.",
     highlights: [
-      "Built a component system that halved frontend onboarding time.",
-      "Designed APIs and data models focused on observability and scale.",
-      "Led cross-functional improvements that improved key workflows by 30%.",
+      "Designed system architecture and centralized dashboards and admin panels used across multiple Diginfo products.",
+      "Built and maintain DGMagazine, Diginfo's cyber intelligence platform, as part of a broader multi-product setup.",
+      "Explored a Turborepo/pnpm monorepo architecture to unify the product suite (DGMagazine, DGEnterprise, DGCloud).",
     ],
   },
   {
@@ -18,37 +18,23 @@ const experienceItems = [
     period: "2025 – Present",
     location: "Freelance / Contract - Remote",
     summary:
-      "Delivered polished web products for SMEs, prioritizing speed-to-value and maintainability.",
+      "End-to-end freelance web development — building, hosting, and deploying production apps for SME clients.",
     highlights: [
-      "Shipped conversion-focused e-commerce and lead-gen apps with clear A/B learnings.",
-      "Implemented secure checkout and CI/CD workflows for several clients.",
-      "Maintained close client collaboration and iterative feature rollouts.",
+      "Built and deployed client web apps on Vercel, managing hosting, domains, and CI/CD via GitHub.",
+      "Audited a Maldives-based staffing agency's site and delivered a rebuild proposal on Next.js, TypeScript, Prisma, and PostgreSQL.",
+      "Own ongoing maintenance and feature updates for deployed client projects.",
     ],
   },
-  // {
-  //   role: "Full-Stack Developer",
-  //   company: "Intellecta Genius Fest",
-  //   period: "2025 – Present",
-  //   location: "Freelance / Contract - Remote",
-  //   summary:
-  //     "Delivered polished web products for SMEs, prioritizing speed-to-value and maintainability.",
-  //   highlights: [
-  //     "Shipped conversion-focused e-commerce and lead-gen apps with clear A/B learnings.",
-  //     "Implemented secure checkout and CI/CD workflows for several clients.",
-  //     "Maintained close client collaboration and iterative feature rollouts.",
-  //   ],
-  // },
   {
     role: "Front-End Developer",
     company: "YoungDev Interns",
     period: "Aug 2024 - Sep 2024",
     location: "Internship - Remote",
     summary:
-      "Delivered polished web products for SMEs, prioritizing speed-to-value and maintainability.",
+      "Front-end internship focused on foundational UI development.",
     highlights: [
-      "Shipped conversion-focused e-commerce and lead-gen apps with clear A/B learnings.",
-      "Implemented secure checkout and CI/CD workflows for several clients.",
-      "Maintained close client collaboration and iterative feature rollouts.",
+      "Built responsive UI components using HTML, CSS, and JavaScript fundamentals.",
+      "Practiced core front-end workflows in a remote team setting.",
     ],
   },
 ];
