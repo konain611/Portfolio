@@ -45,12 +45,12 @@ export default function ContactPage() {
 
       <div className="grid gap-6 lg:grid-cols-[1.35fr_0.9fr]">
         <section className="rounded-3xl border border-(--border)/40 bg-background/50 p-6 sm:p-7">
-          <p className="text-xs uppercase tracking-[0.35em] text-(--accent)">Let&apos;s connect</p>
+          <p className="text-xs uppercase tracking-[0.35em] text-(--accent)">Get in touch</p>
           <h2 className="mt-3 max-w-2xl text-3xl font-semibold leading-tight">
-            Professional conversations, product discussions, and technical collaboration.
+            I build modern web experiences and am available for technical conversations.
           </h2>
           <p className="mt-4 max-w-xl text-sm leading-7 text-(--foreground)">
-            For software projects, product development, or technical consulting, reach out directly. I work with teams that value clarity, clean system design, and dependable execution.
+            If you want to discuss a project, ask about my work, or connect professionally, feel free to reach out.
           </p>
 
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
