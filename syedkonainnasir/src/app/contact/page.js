@@ -53,17 +53,6 @@ export default function ContactPage() {
             If you want to discuss a project, ask about my work, or connect professionally, feel free to reach out.
           </p>
 
-          <div className="mt-6">
-            <a
-              href="/resume.pdf"
-              download
-              className="inline-flex items-center gap-2 text-sm font-medium text-(--accent) transition hover:text-(--foreground)"
-            >
-              <i className="ri-download-line text-base" />
-              Download Resume
-            </a>
-          </div>
-
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
             {socialLinks.map((link) => (
               <a
@@ -104,6 +93,17 @@ export default function ContactPage() {
                   </span>
                 </a>
               ))}
+            </div>
+
+            <div className="py-5 border-y border-(--border)/35 mt-10 text-center">
+              <a
+                href="/resume.pdf"
+                download
+                className="inline-flex items-center justify-center gap-2 text-sm font-medium text-(--accent) transition hover:text-(--foreground)"
+              >
+                <i className="ri-download-line text-base" />
+                Download Resume
+              </a>
             </div>
           </section>
 
