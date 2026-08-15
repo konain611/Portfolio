@@ -50,6 +50,19 @@ body {
   color: var(--background);
 }
 
+.resume-icon {
+  animation: resumeAccent 2s ease-in-out infinite;
+}
+
+@keyframes resumeAccent {
+  0%, 100% {
+    color: var(--foreground);
+  }
+  50% {
+    color: var(--accent);
+  }
+}
+
 .theme-shell {
   min-height: 100vh;
   background: transparent;
