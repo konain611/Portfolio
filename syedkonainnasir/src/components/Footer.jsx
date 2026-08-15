@@ -201,7 +201,10 @@ export default function Footer() {
             aria-label="Download Resume"
             className="group relative flex h-10 w-10 items-center justify-center text-(--foreground) hover:text-(--accent) transition"
           >
-            <i className="ri-download-line text-2xl" />
+            <i
+              className="ri-download-line text-2xl no-bg resume-icon"
+              style={{ animation: "resumeAccent 2s ease-in-out infinite" }}
+            />
             <span className="pointer-events-none absolute left-12 rounded-full border border-(--border)/40 bg-background px-2 py-1 text-[10px] uppercase tracking-[0.2em] text-(--foreground) opacity-0 transition group-hover:opacity-100">
               Download
             </span>
