@@ -147,23 +147,23 @@ export default function Footer() {
       </button>
 
       {/* Desktop sidebar */}
-      <aside className="hidden md:fixed md:left-0 md:top-0 md:h-screen md:w-15 md:z-40 md:border-r-2 md:border-(--border)/40 md:bg-background md:py-4 md:flex md:flex-col md:items-center md:justify-between">
-      <div className="flex h-full flex-col items-center justify-between">
+      <aside className="hidden md:fixed md:left-0 md:top-0 md:z-40 md:h-screen md:w-15 md:overflow-hidden md:border-r-2 md:border-(--border)/40 md:bg-background md:py-4 md:transition-all md:duration-300 md:ease-out md:hover:w-56 md:group md:flex md:flex-col md:items-center md:justify-between">
+      <div className="flex h-full w-full flex-col items-center justify-between">
         {/* Top: Home button (used to be settings) */}
-        <div className="relative">
+        <div className="relative w-full flex justify-center md:hover:justify-start md:pl-3">
           <Link
             href="/"
             aria-label="Home"
             className="group relative flex h-8 w-8 items-center justify-center rounded-full border border-(--border) transition hover:text-(--accent)"
           >
             <i className="ri-home-3-line text-xl" />
-            <span className="pointer-events-none absolute left-12 rounded-full border border-(--border)/40 bg-background px-2 py-1 text-[10px] uppercase tracking-[0.2em] text-(--foreground) opacity-0 transition group-hover:opacity-100">
+            <span className="pointer-events-none hidden whitespace-nowrap text-[10px] uppercase tracking-[0.2em] text-(--foreground) md:group-hover:inline-block">
               Home
             </span>
           </Link>
         </div>
 
-        <nav className="flex flex-col items-center gap-3">
+        <nav className="flex w-full flex-col items-center gap-3 md:items-stretch">
           {links.map((link) => {
             const isActive = pathname === link.href || (link.href === "/" && pathname === "");
 
@@ -173,10 +173,10 @@ export default function Footer() {
                 href={link.href}
                 aria-label={link.label}
                 aria-current={isActive ? "page" : undefined}
-                className={`group relative flex h-10 w-10 items-center justify-center ${
+                className={`group relative flex h-10 w-10 items-center justify-center transition md:w-full md:justify-center md:gap-3 md:pl-3 md:group-hover:justify-start ${
                   isActive
                     ? " text-(--accent)"
-                    : "text-(--foreground) hover:text-(--accent) transition"
+                    : "text-(--foreground) hover:text-(--accent)"
                 }`}
               >
                 <i className={`${link.icon} text-2xl`} />
@@ -187,7 +187,7 @@ export default function Footer() {
                     </svg>
                   </span>
                 )}
-                <span className="pointer-events-none absolute left-12 rounded-full border border-(--border)/40 bg-background px-2 py-1 text-[10px] uppercase tracking-[0.2em] text-(--foreground) opacity-0 transition group-hover:opacity-100">
+                <span className="pointer-events-none hidden whitespace-nowrap text-[10px] uppercase tracking-[0.2em] text-(--foreground) md:group-hover:inline-block">
                   {link.label}
                 </span>
               </Link>
@@ -199,20 +199,20 @@ export default function Footer() {
             href="/resume.pdf"
             download
             aria-label="Download Resume"
-            className="group relative flex h-10 w-10 items-center justify-center text-(--foreground) hover:text-(--accent) transition"
+            className="group relative flex h-10 w-10 items-center justify-center text-(--foreground) transition hover:text-(--accent) md:w-full md:justify-center md:gap-3 md:pl-3 md:group-hover:justify-start"
           >
             <i
               className="ri-download-line text-2xl no-bg resume-icon"
               style={{ animation: "resumeAccent 2s ease-in-out infinite" }}
             />
-            <span className="pointer-events-none absolute left-12 rounded-full border border-(--border)/40 bg-background px-2 py-1 text-[10px] uppercase tracking-[0.2em] text-(--foreground) opacity-0 transition group-hover:opacity-100">
+            <span className="pointer-events-none hidden whitespace-nowrap text-[10px] uppercase tracking-[0.2em] text-(--foreground) md:group-hover:inline-block">
               Download
             </span>
           </a>
         </nav>
 
         {/* Bottom: Settings button (used to be date/time) */}
-        <div className="relative" ref={settingsRef}>
+        <div className="relative w-full flex justify-center md:justify-start md:pl-3" ref={settingsRef}>
           <button
             type="button"
             aria-label="Settings"
