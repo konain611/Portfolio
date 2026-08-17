@@ -147,17 +147,17 @@ export default function Footer() {
       </button>
 
       {/* Desktop sidebar */}
-      <aside className="hidden md:fixed md:left-0 md:top-0 md:z-40 md:h-screen md:w-15 md:overflow-hidden md:border-r-2 md:border-(--border)/40 md:bg-background md:py-4 md:transition-all md:duration-300 md:ease-out md:hover:w-56 md:group md:flex md:flex-col md:items-center md:justify-between">
+      <aside className="hidden md:fixed md:left-0 md:top-0 md:z-40 md:h-screen md:w-15 md:overflow-hidden md:border-r-2 md:border-(--border)/40 md:bg-background md:py-4 md:transition-all md:duration-300 md:ease-out md:hover:w-48 md:flex md:flex-col md:items-center md:justify-between">
       <div className="flex h-full w-full flex-col items-center justify-between">
         {/* Top: Home button (used to be settings) */}
-        <div className="relative w-full flex justify-center md:hover:justify-start md:pl-3">
+        <div className="relative flex w-full justify-center md:pl-3 md:justify-start">
           <Link
             href="/"
             aria-label="Home"
             className="group relative flex h-8 w-8 items-center justify-center rounded-full border border-(--border) transition hover:text-(--accent)"
           >
             <i className="ri-home-3-line text-xl" />
-            <span className="pointer-events-none hidden whitespace-nowrap text-[10px] uppercase tracking-[0.2em] text-(--foreground) md:group-hover:inline-block">
+            <span className="pointer-events-none whitespace-nowrap pl-2 text-[10px] uppercase tracking-[0.2em] text-(--foreground) opacity-100 md:opacity-100 md:group-hover:opacity-100">
               Home
             </span>
           </Link>
@@ -173,7 +173,7 @@ export default function Footer() {
                 href={link.href}
                 aria-label={link.label}
                 aria-current={isActive ? "page" : undefined}
-                className={`group relative flex h-10 w-10 items-center justify-center transition md:w-full md:justify-center md:gap-3 md:pl-3 md:group-hover:justify-start ${
+                className={`group relative flex h-10 w-10 items-center justify-center transition md:w-full md:justify-start md:gap-3 md:pl-3 ${
                   isActive
                     ? " text-(--accent)"
                     : "text-(--foreground) hover:text-(--accent)"
@@ -187,7 +187,7 @@ export default function Footer() {
                     </svg>
                   </span>
                 )}
-                <span className="pointer-events-none hidden whitespace-nowrap text-[10px] uppercase tracking-[0.2em] text-(--foreground) md:group-hover:inline-block">
+                <span className="pointer-events-none whitespace-nowrap text-[10px] uppercase tracking-[0.2em] text-(--foreground) opacity-100 md:opacity-100 md:group-hover:opacity-100">
                   {link.label}
                 </span>
               </Link>
@@ -199,20 +199,20 @@ export default function Footer() {
             href="/resume.pdf"
             download
             aria-label="Download Resume"
-            className="group relative flex h-10 w-10 items-center justify-center text-(--foreground) transition hover:text-(--accent) md:w-full md:justify-center md:gap-3 md:pl-3 md:group-hover:justify-start"
+            className="group relative flex h-10 w-10 items-center justify-center text-(--foreground) transition hover:text-(--accent) md:w-full md:justify-start md:gap-3 md:pl-3"
           >
             <i
               className="ri-download-line text-2xl no-bg resume-icon"
               style={{ animation: "resumeAccent 2s ease-in-out infinite" }}
             />
-            <span className="pointer-events-none hidden whitespace-nowrap text-[10px] uppercase tracking-[0.2em] text-(--foreground) md:group-hover:inline-block">
+            <span className="pointer-events-none whitespace-nowrap text-[10px] uppercase tracking-[0.2em] text-(--foreground) opacity-100 md:opacity-100 md:group-hover:opacity-100">
               Download
             </span>
           </a>
         </nav>
 
         {/* Bottom: Settings button (used to be date/time) */}
-        <div className="relative w-full flex justify-center md:justify-start md:pl-3" ref={settingsRef}>
+        <div className="relative flex w-full justify-center md:justify-start md:pl-3" ref={settingsRef}>
           <button
             type="button"
             aria-label="Settings"
