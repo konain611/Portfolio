@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { accentOptions, applyTheme, backgroundOptions, defaultTheme, persistTheme, publishTheme, readTheme } from "@/lib/theme";
 
 const links = [
@@ -20,7 +21,14 @@ export default function Footer() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [theme, setTheme] = useState(readTheme);
+  const [mounted, setMounted] = useState(false);
+  const [settingsPos, setSettingsPos] = useState({ left: 0, bottom: 0 });
   const settingsRef = useRef(null);
+  const settingsPanelRef = useRef(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const initialTheme = readTheme();
@@ -43,7 +51,10 @@ export default function Footer() {
     if (!isSettingsOpen) return;
 
     const handleClickOutside = (event) => {
-      if (settingsRef.current && !settingsRef.current.contains(event.target)) {
+      const clickedButton = settingsRef.current && settingsRef.current.contains(event.target);
+      const clickedPanel = settingsPanelRef.current && settingsPanelRef.current.contains(event.target);
+
+      if (!clickedButton && !clickedPanel) {
         setIsSettingsOpen(false);
       }
     };
@@ -87,8 +98,25 @@ export default function Footer() {
     updateTheme(defaultTheme);
   };
 
-  const renderSettingsControls = (mobile = false) => (
-    <div className={`${mobile ? "w-full mt-4" : "absolute left-12 bottom-0 w-60"} rounded-xl border border-(--border)/40 bg-background p-3 shadow-2xl`}>
+  // Opens the desktop settings panel, capturing the button's on-screen
+  // position so the portaled panel can anchor next to it.
+  const toggleDesktopSettings = () => {
+    if (!isSettingsOpen && settingsRef.current) {
+      const rect = settingsRef.current.getBoundingClientRect();
+      setSettingsPos({
+        left: rect.right + 12,
+        bottom: Math.max(12, window.innerHeight - rect.bottom),
+      });
+    }
+    setIsSettingsOpen((prev) => !prev);
+  };
+
+  const renderSettingsControls = (mobile = false, ref = null, style = null) => (
+    <div
+      ref={ref}
+      style={style || undefined}
+      className={`${mobile ? "w-full mt-4" : "w-60"} rounded-xl border border-(--border)/40 bg-background p-3 shadow-2xl`}
+    >
       <div className="mb-2 text-sm font-semibold">Accent</div>
       <div className="mb-3 flex flex-wrap gap-2">
         {accentOptions.map((option) => (
@@ -137,6 +165,18 @@ export default function Footer() {
 
   return (
     <>
+      {/* Minimal transition so accent/background theme swaps ease in
+          instead of snapping. Scoped to the elements that actually
+          carry theme colors. */}
+      <style jsx global>{`
+        a,
+        button,
+        i {
+          transition: color 200ms ease, background-color 200ms ease, border-color 200ms ease,
+            fill 200ms ease;
+        }
+      `}</style>
+
       <button
         type="button"
         className="fixed left-3 top-3 z-50 flex h-10 w-10 items-center justify-center rounded-md border border-(--border) bg-background md:hidden"
@@ -157,9 +197,6 @@ export default function Footer() {
             className="group relative flex h-8 w-8 items-center justify-center rounded-full border border-(--border) transition hover:text-(--accent) md:w-8 md:justify-center"
           >
             <i className="ri-home-3-line text-xl" />
-            {/* <span className="pointer-events-none hidden whitespace-nowrap text-[10px] uppercase tracking-[0.2em] text-(--foreground) md:hidden md:group-hover:inline-block">
-              Home
-            </span> */}
           </Link>
         </div>
 
@@ -173,21 +210,14 @@ export default function Footer() {
                 href={link.href}
                 aria-label={link.label}
                 aria-current={isActive ? "page" : undefined}
-                className={`group relative flex h-10 w-10 items-center justify-start transition ${
+                className={`group relative flex h-10 items-center justify-start transition ${
                   isActive
                     ? " text-(--accent)"
                     : "text-(--foreground) hover:text-(--accent)"
                 }`}
               >
                 <i className={`${link.icon} text-2xl`} />
-                {/* {isActive && (
-                  <span className="absolute -right-4 top-1/2 transform -translate-y-1/2" aria-hidden>
-                    <svg className="h-4 w-4 text-(--accent)" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-                      <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </span>
-                )} */}
-                <span className="pointer-events-none ml-6 hidden whitespace-nowrap text-[10px] uppercase tracking-[0.2em] text-(--foreground) md:inline-block md:group-hover:inline-block">
+                <span className="ml-6 hidden whitespace-nowrap text-[10px] uppercase tracking-[0.2em] text-(--foreground) md:inline-block md:group-hover:inline-block">
                   {link.label}
                 </span>
               </Link>
@@ -195,20 +225,20 @@ export default function Footer() {
           })}
 
           {/* Download resume button below Playground */}
-          <a
+          <Link
             href="/resume.pdf"
             download
             aria-label="Download Resume"
-            className="group relative flex h-10 w-10 items-center justify-start text-(--foreground) transition hover:text-(--accent)"
+            className="group relative flex h-10 items-center justify-start text-(--foreground) transition hover:text-(--accent)"
           >
             <i
               className="ri-download-line text-2xl no-bg resume-icon"
               style={{ animation: "resumeAccent 2s ease-in-out infinite" }}
             />
-            <span className="pointer-events-none ml-6 hidden whitespace-nowrap text-[10px] uppercase tracking-[0.2em] text-(--foreground) md:inline-block md:group-hover:inline-block">
+            <span className="ml-6 hidden whitespace-nowrap text-[10px] uppercase tracking-[0.2em] text-(--foreground) md:inline-block md:group-hover:inline-block">
               Download
             </span>
-          </a>
+          </Link>
         </nav>
 
         {/* Bottom: Settings button (used to be date/time) */}
@@ -216,16 +246,29 @@ export default function Footer() {
           <button
             type="button"
             aria-label="Settings"
-            onClick={() => setIsSettingsOpen((prev) => !prev)}
+            onClick={toggleDesktopSettings}
             className="flex h-8 w-8 items-center justify-center rounded-full border border-(--border) transition hover:text-(--accent)"
           >
             <i className="ri-settings-3-line text-xl" />
           </button>
-
-          {isSettingsOpen && renderSettingsControls(false)}
         </div>
       </div>
       </aside>
+
+      {/* Desktop settings panel — portaled to <body> so the collapsed
+          60px sidebar (overflow-hidden) never clips it. Positioned via
+          the button's live bounding rect, fixed, and above everything. */}
+      {mounted &&
+        isSettingsOpen &&
+        createPortal(
+          renderSettingsControls(false, settingsPanelRef, {
+            position: "fixed",
+            left: settingsPos.left,
+            bottom: settingsPos.bottom,
+            zIndex: 9999,
+          }),
+          document.body
+        )}
 
       {/* Mobile slide-in panel */}
       {isMobileOpen && (
@@ -267,7 +310,7 @@ export default function Footer() {
                     );
                   })}
 
-                  <a
+                  <Link
                     href="/resume.pdf"
                     download
                     onClick={() => setIsMobileOpen(false)}
@@ -275,7 +318,7 @@ export default function Footer() {
                   >
                     <i className="ri-download-line text-2xl" />
                     <span className="text-sm">Download</span>
-                  </a>
+                  </Link>
                 </div>
               </div>
 
