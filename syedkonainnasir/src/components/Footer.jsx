@@ -217,8 +217,9 @@ export default function Footer() {
                 }`}
               >
                 <i className={`${link.icon} text-2xl`} />
-                <span className="ml-6 hidden whitespace-nowrap text-[10px] uppercase tracking-[0.2em] text-(--foreground) md:inline-block md:group-hover:inline-block">
+                <span className="relative ml-6 hidden whitespace-nowrap text-[10px] uppercase tracking-[0.2em] text-(--foreground) md:inline-block md:group-hover:inline-block md:group-hover:text-(--accent)">
                   {link.label}
+                  <span className="absolute left-0 top-full mt-1 h-px origin-left scale-x-0 bg-(--accent) transition-transform duration-300 ease-out md:group-hover:scale-x-100" style={{ width: "100%" }} />
                 </span>
               </Link>
             );
@@ -235,8 +236,9 @@ export default function Footer() {
               className="ri-download-line text-2xl no-bg resume-icon"
               style={{ animation: "resumeAccent 2s ease-in-out infinite" }}
             />
-            <span className="ml-6 hidden whitespace-nowrap text-[10px] uppercase tracking-[0.2em] text-(--foreground) md:inline-block md:group-hover:inline-block">
+            <span className="relative ml-6 hidden whitespace-nowrap text-[10px] uppercase tracking-[0.2em] text-(--foreground) md:inline-block md:group-hover:inline-block md:group-hover:text-(--accent)">
               Download
+              <span className="absolute left-0 top-full mt-1 h-px origin-left scale-x-0 bg-(--accent) transition-transform duration-300 ease-out md:group-hover:scale-x-100" style={{ width: "100%" }} />
             </span>
           </Link>
         </nav>
