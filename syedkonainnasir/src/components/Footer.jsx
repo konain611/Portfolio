@@ -180,13 +180,13 @@ export default function Footer() {
                 }`}
               >
                 <i className={`${link.icon} text-2xl`} />
-                {isActive && (
+                {/* {isActive && (
                   <span className="absolute -right-4 top-1/2 transform -translate-y-1/2" aria-hidden>
                     <svg className="h-4 w-4 text-(--accent)" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
                       <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </span>
-                )}
+                )} */}
                 <span className="pointer-events-none ml-6 hidden whitespace-nowrap text-[10px] uppercase tracking-[0.2em] text-(--foreground) md:inline-block md:group-hover:inline-block">
                   {link.label}
                 </span>
@@ -205,14 +205,14 @@ export default function Footer() {
               className="ri-download-line text-2xl no-bg resume-icon"
               style={{ animation: "resumeAccent 2s ease-in-out infinite" }}
             />
-            <span className="pointer-events-none hidden whitespace-nowrap text-[10px] uppercase tracking-[0.2em] text-(--foreground) md:inline-block md:group-hover:inline-block">
+            <span className="pointer-events-none ml-6 hidden whitespace-nowrap text-[10px] uppercase tracking-[0.2em] text-(--foreground) md:inline-block md:group-hover:inline-block">
               Download
             </span>
           </a>
         </nav>
 
         {/* Bottom: Settings button (used to be date/time) */}
-        <div className="flex w-full justify-center md:justify-start md:pl-3" ref={settingsRef}>
+        <div className="flex z-50 w-full justify-center md:justify-start md:pl-3" ref={settingsRef}>
           <button
             type="button"
             aria-label="Settings"
