@@ -1,12 +1,16 @@
 export const THEME_STORAGE_KEY = "portfolio-theme-settings";
 
 export const accentOptions = [
-  { name: "Red", value: "#e00000", accent: "#e00000", border: "#d80000" },
-  { name: "Green", value: "#22c55e", accent: "#22c55e", border: "#16a34a" },
-  { name: "Blue", value: "#1e3a8a", accent: "#1e3a8a", border: "#172554" },
-  { name: "White", value: "#f5f5f5", accent: "#f5f5f5", border: "#d4d4d4" },
-  { name: "Yellow", value: "#facc15", accent: "#facc15", border: "#ca8a04" },
-  { name: "Cyan", value: "#22d3ee", accent: "#22d3ee", border: "#0891b2" },
+  { name: "Red", value: "#d10e2f", accent: "#d10e2f", border: "#a30a24" },
+  { name: "Green", value: "#39ff14", accent: "#39ff14", border: "#1ecc00" },
+  { name: "White", value: "#eaf7ff", accent: "#eaf7ff", border: "#cfe8ff" },
+  { name: "Blue", value: "#2541b2", accent: "#2541b2", border: "#1b2f80" },
+  { name: "Yellow", value: "#ffd400", accent: "#ffd400", border: "#e0b800" },
+  { name: "Cyan", value: "#1ef2ff", accent: "#1ef2ff", border: "#00c6d9" },
+  { name: "Magenta", value: "#ff4fd8", accent: "#ff4fd8", border: "#d700b7" },
+  { name: "Violet", value: "#b56dff", accent: "#b56dff", border: "#8b42f7" },
+  { name: "Orange", value: "#ff8f1f", accent: "#ff8f1f", border: "#ff6a00" },
+  { name: "Lime", value: "#b6ff00", accent: "#b6ff00", border: "#8ad100" },
 ];
 
 export const backgroundOptions = [
