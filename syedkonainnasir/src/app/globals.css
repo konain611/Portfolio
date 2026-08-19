@@ -116,3 +116,11 @@ body {
   letter-spacing: 0.08em;
   box-shadow: 0 8px 18px rgba(91, 140, 255, 0.16);
 }
+
+/* app/globals.css */
+a,
+button,
+i {
+  transition: color 200ms ease, background-color 200ms ease, border-color 200ms ease,
+    fill 200ms ease;
+}
