@@ -75,7 +75,7 @@ const skillProfiles = {
       { label: 'Linux', value: 4 },
       { label: 'CI/CD', value: 3.5 },
       { label: 'Docker', value: 3 },
-      { label: 'Vercel', value: 3.5 },
+      // { label: 'Vercel', value: 3.5 },
     ],
   },
   concepts: {
