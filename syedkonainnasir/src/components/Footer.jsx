@@ -20,6 +20,7 @@ export default function Footer() {
   const pathname = usePathname() || "/";
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isMobileSettingsOpen, setIsMobileSettingsOpen] = useState(false);
   const [theme, setTheme] = useState(readTheme);
   const [mounted, setMounted] = useState(false);
   const [settingsPos, setSettingsPos] = useState({ left: 0, bottom: 0 });
@@ -111,31 +112,53 @@ export default function Footer() {
     setIsSettingsOpen((prev) => !prev);
   };
 
-  const renderSettingsControls = (mobile = false, ref = null, style = null) => (
-    <div
-      ref={ref}
-      style={style || undefined}
-      className={`${mobile ? "w-full mt-4" : "w-60"} rounded-xl border border-(--border)/40 bg-background p-3 shadow-2xl`}
-    >
-      <div className="mb-2 text-sm font-semibold">Accent</div>
-      <div className="mb-3 flex flex-wrap gap-2">
-        {accentOptions.map((option) => (
-          <button
-            key={option.name}
-            type="button"
-            onClick={() => applyAccentTheme(option.name)}
-            className="flex h-7 w-7 items-center justify-center rounded-full border border-(--border)/40 p-0 transition hover:border-(--accent)"
-            aria-label={option.name}
-          >
-            <span
-              className="h-4 w-4 rounded-full border border-white/20"
-              style={{ backgroundColor: option.value }}
-            />
-          </button>
-        ))}
-      </div>
+  const renderSettingsControls = (mobile = false, ref = null, style = null) => {
+    const darkAccentOptions = accentOptions.slice(0, 5);
+    const neonAccentOptions = accentOptions.slice(5);
 
-      <div className="mb-2 text-sm font-semibold">Theme</div>
+    return (
+      <div
+        ref={ref}
+        style={style || undefined}
+        className={`${mobile ? "w-full mt-4" : "w-60"} rounded-xl border border-(--border)/40 bg-background p-3 shadow-2xl`}
+      >
+        <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-(--foreground)">Dark</div>
+        <div className="mb-3 flex flex-wrap gap-2">
+          {darkAccentOptions.map((option) => (
+            <button
+              key={option.name}
+              type="button"
+              onClick={() => applyAccentTheme(option.name)}
+              className="flex h-7 w-7 items-center justify-center rounded-full border border-(--border)/40 p-0 transition hover:border-(--accent)"
+              aria-label={option.name}
+            >
+              <span
+                className="h-4 w-4 rounded-full border border-white/20"
+                style={{ backgroundColor: option.value }}
+              />
+            </button>
+          ))}
+        </div>
+
+        <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-(--foreground)">Neon</div>
+        <div className="mb-3 flex flex-wrap gap-2">
+          {neonAccentOptions.map((option) => (
+            <button
+              key={option.name}
+              type="button"
+              onClick={() => applyAccentTheme(option.name)}
+              className="flex h-7 w-7 items-center justify-center rounded-full border border-(--border)/40 p-0 transition hover:border-(--accent)"
+              aria-label={option.name}
+            >
+              <span
+                className="h-4 w-4 rounded-full border border-white/20"
+                style={{ backgroundColor: option.value }}
+              />
+            </button>
+          ))}
+        </div>
+
+        <div className="mb-2 text-sm font-semibold">Theme</div>
       <div className="mb-3 flex gap-2">
         {backgroundOptions.map((option) => (
           <button
@@ -153,33 +176,31 @@ export default function Footer() {
         ))}
       </div>
 
-      <button
-        type="button"
-        onClick={resetTheme}
-        className="mt-3 w-full rounded-lg border border-(--border)/40 px-3 py-2 text-sm transition hover:bg-(--accent) hover:text-background"
-      >
-        Reset
-      </button>
-    </div>
-  );
+        <button
+          type="button"
+          onClick={resetTheme}
+          className="mt-3 w-full rounded-lg border border-(--border)/40 px-3 py-2 text-sm transition hover:bg-(--accent) hover:text-background"
+        >
+          Reset
+        </button>
+      </div>
+    );
+  };
 
   return (
     <>
-      {/* Minimal transition so accent/background theme swaps ease in
-          instead of snapping. Scoped to the elements that actually
-          carry theme colors. */}
-      <style jsx global>{`
+      {/* <style jsx global>{`
         a,
         button,
         i {
           transition: color 200ms ease, background-color 200ms ease, border-color 200ms ease,
             fill 200ms ease;
         }
-      `}</style>
+      `}</style> */}
 
       <button
         type="button"
-        className="fixed left-3 top-3 z-50 flex h-10 w-10 items-center justify-center rounded-md border border-(--border) bg-background md:hidden"
+        className="fixed right-3 top-3 z-50 flex h-10 w-10 items-center justify-center rounded-md border border-(--border) bg-background md:hidden"
         aria-label="Open menu"
         onClick={() => setIsMobileOpen(true)}
       >
@@ -274,9 +295,9 @@ export default function Footer() {
 
       {/* Mobile slide-in panel */}
       {isMobileOpen && (
-        <div className="fixed inset-0 z-50 flex">
+        <div className="fixed inset-0 z-50 flex justify-end">
           <div className="absolute inset-0 bg-black/40" onClick={() => setIsMobileOpen(false)} />
-          <aside className="relative z-50 w-64 max-w-full border-r-2 border-(--border)/40 bg-background py-6">
+          <aside className="relative z-50 w-64 max-w-full translate-x-0 border-l-2 border-(--border)/40 bg-background py-6 transition-transform duration-300 ease-out animate-in slide-in-from-right-full">
             <div className="flex h-full flex-col items-start justify-between px-4">
               <div className="w-full">
                 <div className="flex items-center justify-between">
@@ -284,7 +305,10 @@ export default function Footer() {
                   <button
                     type="button"
                     aria-label="Close menu"
-                    onClick={() => setIsMobileOpen(false)}
+                    onClick={() => {
+                      setIsMobileOpen(false);
+                      setIsMobileSettingsOpen(false);
+                    }}
                     className="flex h-8 w-8 items-center justify-center rounded-md border border-(--border)"
                   >
                     <i className="ri-close-line text-xl" />
@@ -292,6 +316,18 @@ export default function Footer() {
                 </div>
 
                 <div className="mt-6 flex flex-col items-start gap-3">
+                  <Link
+                    href="/"
+                    aria-label="Home"
+                    onClick={() => setIsMobileOpen(false)}
+                    className={`flex items-center gap-3 rounded-md px-2 py-2 ${
+                      pathname === "/" ? "text-(--accent)" : "text-(--foreground) hover:text-(--accent)"
+                    }`}
+                  >
+                    <i className="ri-home-3-line text-2xl" />
+                    <span className="text-sm">Home</span>
+                  </Link>
+
                   {links.map((link) => {
                     const isActive = pathname === link.href || (link.href === "/" && pathname === "");
 
@@ -329,13 +365,13 @@ export default function Footer() {
                   <button
                     type="button"
                     aria-label="Settings"
-                    onClick={() => setIsSettingsOpen((prev) => !prev)}
+                    onClick={() => setIsMobileSettingsOpen((prev) => !prev)}
                     className="flex h-8 w-8 items-center justify-center rounded-md border border-(--border)"
                   >
                     <i className="ri-settings-3-line text-xl" />
                   </button>
 
-                  {isSettingsOpen && renderSettingsControls(true)}
+                  {isMobileSettingsOpen && renderSettingsControls(true)}
                 </div>
               </div>
             </div>
