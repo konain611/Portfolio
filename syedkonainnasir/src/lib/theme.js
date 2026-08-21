@@ -20,7 +20,7 @@ export const backgroundOptions = [
 ];
 
 export const defaultTheme = {
-  accent: "red",
+  accent: "green",
   background: "black",
 };
 
