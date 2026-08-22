@@ -19,11 +19,11 @@ const socialLinks = [
     label: "X",
     icon: "ri-twitter-x-fill",
   },
-  {
-    href: "mailto:konain611@gmail.com",
-    label: "Email",
-    icon: "ri-mail-line",
-  },
+  // {
+  //   href: "mailto:konain611@gmail.com",
+  //   label: "Email",
+  //   icon: "ri-mail-line",
+  // },
   {
     href: "tel:+923333368339",
     label: "Contact",
