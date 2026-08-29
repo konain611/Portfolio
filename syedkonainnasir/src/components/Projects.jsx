@@ -44,7 +44,7 @@ export default function Projects() {
             Core Projects
           </div>
         </div>
-        <Link href="/projects">
+        <Link href="/detailed/projects">
           <button className="rounded-full cursor-pointer border border-(--border)/40 px-3 py-1 text-xs text-foreground transition hover:border-(--border)/60 hover:text-(--accent)">
             View All
           </button>
