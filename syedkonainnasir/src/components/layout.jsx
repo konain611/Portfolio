@@ -1,7 +1,4 @@
-import Footer from "./Footer";
-
-export default function HomepageLayout({
-  firstRow,
+export default function HomepageLayout({  firstRow,
   secondRowBig,
   secondRowSmall1,
   secondRowSmall2,
@@ -96,11 +93,7 @@ export default function HomepageLayout({
             )}
           </div>
         </div>
-      </div>
-
-      {/* <div>
-        <Footer />
-      </div> */}
+      </div>  
     </div>
   );
 }
