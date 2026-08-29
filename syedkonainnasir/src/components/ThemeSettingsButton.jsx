@@ -11,7 +11,7 @@ import {
   readTheme,
 } from "@/lib/theme";
 
-export default function ThemeSettingsButton() {
+export default function ThemeSettingsButton({ className = "" }) {
   const [isOpen, setIsOpen] = useState(false);
   const [theme, setTheme] = useState(readTheme);
   const settingsRef = useRef(null);
@@ -62,7 +62,7 @@ export default function ThemeSettingsButton() {
   };
 
   return (
-    <div ref={settingsRef} className="absolute right-4 top-4 z-50">
+    <div ref={settingsRef} className={className}>
       <button
         type="button"
         aria-label="Open settings"
