@@ -40,7 +40,7 @@ export default function Experience() {
             Experience
           </div>
         </div>
-        <Link href="/experience">
+        <Link href="/detailed/experience">
           <button className="rounded-full cursor-pointer border border-(--border)/40 px-3 py-1 text-xs text-foreground transition hover:border-(--border)/60 hover:text-(--accent)">
           View All
         </button>
