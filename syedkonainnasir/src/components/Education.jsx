@@ -57,7 +57,7 @@ export default function Education() {
             Education & Certifications
           </div>
         </div>
-        <Link href="/education">
+        <Link href="/detailed/education">
           <button className="rounded-full cursor-pointer border border-(--border)/40 px-3 py-1 text-xs text-foreground transition hover:border-(--border)/60 hover:text-(--accent)">
             View All
           </button>
