@@ -8,16 +8,24 @@ import { accentOptions, applyTheme, backgroundOptions, defaultTheme, persistThem
 
 const links = [
   // { href: "/", label: "Home", icon: "ri-home-3-line" },
-  { href: "/about", label: "About", icon: "ri-user-3-line" },
-  { href: "/skills", label: "Skills", icon: "ri-tools-line" },
-  { href: "/experience", label: "Experience", icon: "ri-briefcase-line" },
-  { href: "/projects", label: "Projects", icon: "ri-folder-4-line" },
-  { href: "/contact", label: "Contact", icon: "ri-mail-line" },
-  { href: "/playground", label: "Playground", icon: "ri-gamepad-line" },
+  { href: "/detailed/about", label: "About", icon: "ri-user-3-line" },
+  { href: "/detailed/skills", label: "Skills", icon: "ri-tools-line" },
+  { href: "/detailed/education", label: "Education", icon: "ri-graduation-cap-line" },
+  { href: "/detailed/experience", label: "Experience", icon: "ri-briefcase-line" },
+  { href: "/detailed/projects", label: "Projects", icon: "ri-folder-4-line" },
+  { href: "/detailed/contact", label: "Contact", icon: "ri-mail-line" },
+  // { href: "/detailed/playground", label: "Playground", icon: "ri-gamepad-line" },
+];
+
+const developerLinks = [
+  { href: "/dev", label: "Developer Home", icon: "ri-terminal-box-line" },
 ];
 
 export default function Footer() {
   const pathname = usePathname() || "/";
+  const isDeveloperRoute = pathname.startsWith("/dev");
+  const navigationLinks = isDeveloperRoute ? developerLinks : links;
+  const homeHref = isDeveloperRoute ? "/dev" : "/";
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isMobileSettingsOpen, setIsMobileSettingsOpen] = useState(false);
@@ -213,7 +221,7 @@ export default function Footer() {
         {/* Top: Home button (used to be settings) */}
         <div className="flex w-full justify-center md:justify-start md:pl-3">
           <Link
-            href="/"
+            href={homeHref}
             aria-label="Home"
             className="group relative flex h-8 w-8 items-center justify-center rounded-full border border-(--border) transition hover:text-(--accent) md:w-8 md:justify-center"
           >
@@ -222,7 +230,7 @@ export default function Footer() {
         </div>
 
         <nav className="flex w-full flex-col items-center gap-3 md:items-start md:pl-3">
-          {links.map((link) => {
+          {navigationLinks.map((link) => {
             const isActive = pathname === link.href || (link.href === "/" && pathname === "");
 
             return (
@@ -317,18 +325,18 @@ export default function Footer() {
 
                 <div className="mt-6 flex flex-col items-start gap-3">
                   <Link
-                    href="/"
+                    href={homeHref}
                     aria-label="Home"
                     onClick={() => setIsMobileOpen(false)}
                     className={`flex items-center gap-3 rounded-md px-2 py-2 ${
-                      pathname === "/" ? "text-(--accent)" : "text-(--foreground) hover:text-(--accent)"
+                      pathname === homeHref ? "text-(--accent)" : "text-(--foreground) hover:text-(--accent)"
                     }`}
                   >
                     <i className="ri-home-3-line text-2xl" />
                     <span className="text-sm">Home</span>
                   </Link>
 
-                  {links.map((link) => {
+                  {navigationLinks.map((link) => {
                     const isActive = pathname === link.href || (link.href === "/" && pathname === "");
 
                     return (
