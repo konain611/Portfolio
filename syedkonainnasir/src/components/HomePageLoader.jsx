@@ -1,97 +1,68 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import About from "@/components/About";
-import Header from "@/components/Header";
-import HomepageLayout from "@/components/layout";
-import Terminal from "@/components/Terminal";
-import Skills from "@/components/Skills";
-import Experience from "@/components/Experience";
-import GithubStats from "@/components/GithubStats";
-import Education from "@/components/Education";
-import Social from "./Social";
-import Footer from "./Footer";
-import Projects from "./Projects";
+import Link from "next/link";
+import ThemeSettingsButton from "./ThemeSettingsButton";
 
-const STORAGE_KEY = "portfolio-home-loaded";
-const LOADING_DURATION = 2000;
+const views = [
+  {
+    href: "/simple",
+    label: "Simple View",
+    description:
+      "Get the essential introduction and direct links without the extra detail.",
+    icon: "ri-user-smile-line",
+  },
+  {
+    href: "/detailed",
+    label: "Modern Detailed View",
+    description:
+      "Browse the portfolio as a polished website with detailed pages.",
+    icon: "ri-layout-4-line",
+  },
+  {
+    href: "/dev",
+    label: "Developer View",
+    description:
+      "Explore projects, skills, experience, and the interactive developer portfolio.",
+    icon: "ri-terminal-box-line",
+  },
+];
 
 export default function HomePageLoader() {
-  const [isLoading, setIsLoading] = useState(false);
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const hasSeenHome = window.localStorage.getItem(STORAGE_KEY) === "true";
-
-    if (hasSeenHome) {
-      setIsLoading(false);
-      return;
-    }
-
-    setIsLoading(true);
-    const startedAt = performance.now();
-
-    const tick = (now) => {
-      const elapsed = now - startedAt;
-      const nextProgress = Math.min(
-        100,
-        Math.round((elapsed / LOADING_DURATION) * 100),
-      );
-      setProgress(nextProgress);
-
-      if (elapsed < LOADING_DURATION) {
-        requestAnimationFrame(tick);
-      } else {
-        setProgress(100);
-        window.localStorage.setItem(STORAGE_KEY, "true");
-        setIsLoading(false);
-      }
-    };
-
-    const frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
-  }, []);
-
-  useEffect(() => {
-    if (!isLoading && typeof window !== "undefined") {
-      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-    }
-  }, [isLoading]);
-
-  if (isLoading) {
-    return (
-      <div className="fixed inset-0 z-999 flex min-h-screen items-center justify-center bg-background text-foreground">
-        <div className="w-full max-w-md px-6">
-          <div className="mb-4 flex items-center justify-between text-sm font-medium uppercase tracking-[0.35em] text-(--muted)">
-            <span>Preparing portfolio</span>
-            <span>{progress}%</span>
-          </div>
-          <div className="h-2 w-full overflow-hidden rounded-full bg-(--border)/30">
-            <div
-              className="h-full rounded-full bg-(--accent) transition-[width] duration-100 ease-out"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <>
-      <HomepageLayout
-        firstRow={<Header />}
-        secondRowBig={<About />}
-        secondRowSmall1={<Social />}
-        secondRowSmall2={<Skills />}
-        thirdRowMiddle={<Experience />}
-        thirdRowLeft={<Education />}
-        fourthRowRight={<GithubStats username="konain611" />}
-        fourthRowLeft={<Terminal />}
-        thirdRowRight={<Projects />}
-      />
-    </>
+    <main className="flex min-h-screen items-center justify-center px-5 py-12">
+      <section className="relative w-full max-w-3xl border border-(--border)/50 bg-background p-6 shadow-2xl sm:p-10">
+        <div className="absolute right-4 top-4 z-20">
+          <ThemeSettingsButton />
+        </div>
+        <p className="text-sm font-semibold uppercase tracking-[0.25em] text-(--accent)">
+          Welcome
+        </p>
+        <h1 className="mt-4 max-w-xl text-3xl font-bold uppercase tracking-tight text-foreground sm:text-5xl">
+          How would you like to explore?
+        </h1>
+        <p className="mt-4 text-foreground">
+          Choose the experience that fits your visit.
+        </p>
+
+        <div className="mt-8 grid gap-3 sm:grid-cols-2">
+          {views.map((view, index) => (
+            <Link
+              key={view.href}
+              href={view.href}
+              className={`group border border-(--border)/60 p-5 text-left transition hover:border-(--accent) hover:bg-(--accent) hover:text-background ${index === 2 ? "sm:col-span-2" : ""}`}
+            >
+              <i
+                className={`${view.icon} text-2xl text-(--accent) group-hover:text-background`}
+                aria-hidden="true"
+              />
+              <span className="mt-4 block text-lg font-bold">{view.label}</span>
+              <span className="mt-2 block text-sm text-foreground group-hover:text-background/80">
+                {view.description}
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }
