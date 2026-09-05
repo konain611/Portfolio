@@ -1,6 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
-import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,18 +16,14 @@ export const metadata = {
   description: "Developer • AI Engineer",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayoutDev({ children }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
       <head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" />
       </head>
-      <body className="min-h-full relative">
-        <div className="h-full">
-            <main className="grow md:ml-16">{children}
-              <Footer />
-            </main>
-        </div>
+      <body className="h-full overflow-hidden">
+        <main className="h-full w-full">{children}</main>
       </body>
     </html>
   );
