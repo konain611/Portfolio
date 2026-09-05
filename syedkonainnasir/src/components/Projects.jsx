@@ -23,13 +23,13 @@ const projects = [
     stack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma"],
     href: "https://dgmagazine.net",
   },
-  {
-    title: "Personal AI Employee",
-    description:
-      "Python automation agent that handles personal workflows like email and scheduling, using Obsidian as its knowledge and context layer.",
-    stack: ["Python", "Obsidian", "AI Driven", "Automation"],
-    href: "https://github.com/konain611/Personal-AI-Employee",
-  },
+  // {
+  //   title: "Personal AI Employee",
+  //   description:
+  //     "Python automation agent that handles personal workflows like email and scheduling, using Obsidian as its knowledge and context layer.",
+  //   stack: ["Python", "Obsidian", "AI Driven", "Automation"],
+  //   href: "https://github.com/konain611/Personal-AI-Employee",
+  // },
 ];
 
 export default function Projects() {
