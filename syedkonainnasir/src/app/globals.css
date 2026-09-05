@@ -32,6 +32,13 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+html.screen-minimizing body {
+  transform: scale(0.94) translateY(10px);
+  transform-origin: center bottom;
+  opacity: 0;
+  transition: transform 50ms ease-in, opacity 260ms ease-in;
+}
+
 * {
   box-sizing: border-box;
 }
