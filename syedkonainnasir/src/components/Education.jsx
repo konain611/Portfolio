@@ -14,12 +14,12 @@ export default function Education() {
       status: "in progress",
       duration: "Feb 2024 - Sep 2026",
     },
-    {
-      name: "PIAIC",
-      title: "Certified AI Engineer",
-      status: "in progress",
-      duration: "June 2026 - Present",
-    },
+    // {
+    //   name: "PIAIC",
+    //   title: "Certified AI Engineer",
+    //   status: "in progress",
+    //   duration: "June 2026 - Present",
+    // },
     {
       name: "Panaversity",
       title: "Agentic AI Architect Program",
@@ -32,12 +32,12 @@ export default function Education() {
       status: "completed",
       duration: "May 2026",
     },
-    {
-      name: "YoungDev",
-      title: "Tailwind CSS",
-      status: "completed",
-      duration: "Sep 2023",
-    },
+    // {
+    //   name: "YoungDev",
+    //   title: "Tailwind CSS",
+    //   status: "completed",
+    //   duration: "Sep 2023",
+    // },
     {
       name: "DGAcademy",
       title: "Secure Linux Training Program",
