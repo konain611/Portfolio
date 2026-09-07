@@ -1,5 +1,5 @@
-import DeveloperHome from "@/components/DeveloperHome";
+import VSCodeIDE from "@/components/dev/VSCodeIDE";
 
 export default function DeveloperPage() {
-  return <DeveloperHome />;
+  return <VSCodeIDE />;
 }
