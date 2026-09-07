@@ -7,18 +7,14 @@ import { createPortal } from "react-dom";
 import { accentOptions, applyTheme, backgroundOptions, defaultTheme, persistTheme, publishTheme, readTheme } from "@/lib/theme";
 
 const links = [
-  // { href: "/", label: "Home", icon: "ri-home-3-line" },
+  { href: "/detailed", label: "Homepage", icon: "ri-home-3-line" },
   { href: "/detailed/about", label: "About", icon: "ri-user-3-line" },
-  { href: "/detailed/skills", label: "Skills", icon: "ri-tools-line" },
   { href: "/detailed/education", label: "Education", icon: "ri-graduation-cap-line" },
+  { href: "/detailed/skills", label: "Skills", icon: "ri-tools-line" },
   { href: "/detailed/experience", label: "Experience", icon: "ri-briefcase-line" },
   { href: "/detailed/projects", label: "Projects", icon: "ri-folder-4-line" },
   { href: "/detailed/contact", label: "Contact", icon: "ri-mail-line" },
   // { href: "/detailed/playground", label: "Playground", icon: "ri-gamepad-line" },
-];
-
-const developerLinks = [
-  { href: "/dev", label: "Developer Home", icon: "ri-terminal-box-line" },
 ];
 
 export default function Footer() {
@@ -197,15 +193,6 @@ export default function Footer() {
 
   return (
     <>
-      {/* <style jsx global>{`
-        a,
-        button,
-        i {
-          transition: color 200ms ease, background-color 200ms ease, border-color 200ms ease,
-            fill 200ms ease;
-        }
-      `}</style> */}
-
       <button
         type="button"
         className="fixed right-3 top-3 z-50 flex h-10 w-10 items-center justify-center rounded-md border border-(--border) bg-background md:hidden"
@@ -215,17 +202,16 @@ export default function Footer() {
         <i className="ri-menu-line text-2xl" />
       </button>
 
-      {/* Desktop sidebar */}
       <aside className="hidden md:fixed md:left-0 md:top-0 md:z-40 md:h-screen md:w-15 md:overflow-hidden md:border-r-2 md:border-(--border)/40 md:bg-background md:py-4 md:transition-all md:duration-300 md:ease-out md:hover:w-48 md:flex md:flex-col md:items-center md:justify-between">
       <div className="flex h-full w-full flex-col items-center justify-between">
-        {/* Top: Home button (used to be settings) */}
+
         <div className="flex w-full justify-center md:justify-start md:pl-3">
           <Link
-            href={homeHref}
+            href="/"
             aria-label="Home"
             className="group relative flex h-8 w-8 items-center justify-center rounded-full border border-(--border) transition hover:text-(--accent) md:w-8 md:justify-center"
           >
-            <i className="ri-home-3-line text-xl" />
+            <i className="ri-arrow-left-line text-xl" />
           </Link>
         </div>
 
@@ -254,7 +240,6 @@ export default function Footer() {
             );
           })}
 
-          {/* Download resume button below Playground */}
           <Link
             href="/resume.pdf"
             download
@@ -272,7 +257,6 @@ export default function Footer() {
           </Link>
         </nav>
 
-        {/* Bottom: Settings button (used to be date/time) */}
         <div className="flex z-50 w-full justify-center md:justify-start md:pl-3" ref={settingsRef}>
           <button
             type="button"
@@ -286,9 +270,6 @@ export default function Footer() {
       </div>
       </aside>
 
-      {/* Desktop settings panel — portaled to <body> so the collapsed
-          60px sidebar (overflow-hidden) never clips it. Positioned via
-          the button's live bounding rect, fixed, and above everything. */}
       {mounted &&
         isSettingsOpen &&
         createPortal(
@@ -301,7 +282,6 @@ export default function Footer() {
           document.body
         )}
 
-      {/* Mobile slide-in panel */}
       {isMobileOpen && (
         <div className="fixed inset-0 z-50 flex justify-end">
           <div className="absolute inset-0 bg-black/40" onClick={() => setIsMobileOpen(false)} />
