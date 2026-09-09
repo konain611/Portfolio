@@ -34,23 +34,23 @@ const socialLinks = [
 const sections = [
   {
     eyebrow: "Education",
-    body: "Bachelor of Science in Computer Science, alongside continuous certifications and hands-on learning.",
+    body: "Bachelor of Science (B.S.) in Computer Science, complemented by multiple professional certifications in Full-Stack Development, Web3 and Metaverse Technologies, and AI Engineering.",
     href: "/detailed/education",
   },
   {
     eyebrow: "Experience",
-    body: "Full-stack software engineer with two-plus years of experience, including 1.5+ years in a full-time professional role — designing systems and shipping them end to end.",
+    body: "Full-Stack Software Engineer with 2+ years of experience, including 1.5+ years in a full-time professional role. Experienced in designing, developing, securing, deploying, and maintaining end-to-end software solutions, from concept and architecture to production release and ongoing improvements.",
     href: "/detailed/experience",
   },
   {
     eyebrow: "Skills",
-    body: "Comfortable across the stack: TypeScript/Java, Next.js, React, and PostgreSQL for building products; Nginx, REST APIs, WebSockets, and Redis for the systems behind them; Tailwind CSS, FastAPI, Docusaurus, Git, npm, Linux, and Vercel for everything in between — plus a working sense of how to design it all so it holds together.",
+    body: "Comfortable across the stack: TypeScript, JavaScript, Next.js, React, and PostgreSQL for building products; Nginx, REST APIs, WebSockets, and Redis for the systems behind them; Tailwind CSS, FastAPI, Docusaurus, Git, npm, Linux, Vercel, & Cloudflare for everything in between — plus a working sense of how to design it all so it holds together.",
     href: "/detailed/skills",
     className: "md:col-span-2 xl:col-span-1",
   },
   {
     eyebrow: "Current Focus",
-    body: "Deepening my DevSecOps skills while building AI agents and RAG-based systems — the two areas where I'm spending most of my learning time right now.",
+    body: "Currently focused on advancing my Full-Stack Development and DevSecOps expertise while building AI agents and RAG-based systems, with a strong emphasis on hands-on learning and practical implementation.",
     href: "/detailed",
   },
   {
