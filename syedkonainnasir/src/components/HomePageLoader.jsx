@@ -13,7 +13,7 @@ const views = [
   },
   {
     href: "/detailed",
-    label: "Modern Detailed View",
+    label: "Detailed View",
     description:
       "Browse the portfolio as a polished website with detailed pages.",
     icon: "ri-layout-4-line",
