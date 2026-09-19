@@ -106,7 +106,8 @@ export default function Header() {
           Syed Konain Nasir
         </h1>
         <p className="text-left text-sm font-semibold d mt-2 max-w-4xl text-(--foreground)">
-          CS Grad • Full-Stack Software Engineer • Learning DevSecOps • Agentic AI Development
+          CS Grad • Full-Stack Software Engineer • Learning DevSecOps • Agentic
+          AI Development
         </p>
       </div>
 
@@ -184,7 +185,7 @@ export default function Header() {
         ))} */}
 
         <a
-          href="/resume.pdf"
+          href="/Syed_Konain_Nasir_s_Resume.pdf"
           download
           aria-label="Download resume"
           className="flex h-10 px-3 py-1 items-center justify-center rounded-full border border-(--border)/60 text-(--accent) transition hover:bg-(--accent) hover:text-background"
