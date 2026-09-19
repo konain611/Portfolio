@@ -84,7 +84,7 @@ export default function SimpleView() {
 
       <div className="absolute right-5 top-5 z-20 flex items-center gap-3">
         <a
-          href="/resume.pdf"
+          href="/Syed_Konain_Nasir_s_Resume.pdf"
           download
           aria-label="Download CV"
           className="inline-flex items-center gap-2 rounded-md border border-(--border)/60 bg-background px-3 py-1.5 text-sm font-semibold text-(--accent) transition hover:bg-(--accent) hover:text-background"
