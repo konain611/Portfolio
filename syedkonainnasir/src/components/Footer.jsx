@@ -4,14 +4,30 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { accentOptions, applyTheme, backgroundOptions, defaultTheme, persistTheme, publishTheme, readTheme } from "@/lib/theme";
+import {
+  accentOptions,
+  applyTheme,
+  backgroundOptions,
+  defaultTheme,
+  persistTheme,
+  publishTheme,
+  readTheme,
+} from "@/lib/theme";
 
 const links = [
   { href: "/detailed", label: "Homepage", icon: "ri-home-3-line" },
   { href: "/detailed/about", label: "About", icon: "ri-user-3-line" },
-  { href: "/detailed/education", label: "Education", icon: "ri-graduation-cap-line" },
+  {
+    href: "/detailed/education",
+    label: "Education",
+    icon: "ri-graduation-cap-line",
+  },
   { href: "/detailed/skills", label: "Skills", icon: "ri-tools-line" },
-  { href: "/detailed/experience", label: "Experience", icon: "ri-briefcase-line" },
+  {
+    href: "/detailed/experience",
+    label: "Experience",
+    icon: "ri-briefcase-line",
+  },
   { href: "/detailed/projects", label: "Projects", icon: "ri-folder-4-line" },
   { href: "/detailed/contact", label: "Contact", icon: "ri-mail-line" },
   // { href: "/detailed/playground", label: "Playground", icon: "ri-gamepad-line" },
@@ -49,15 +65,19 @@ export default function Footer() {
     };
 
     window.addEventListener("portfolio-theme-change", handleThemeChange);
-    return () => window.removeEventListener("portfolio-theme-change", handleThemeChange);
+    return () =>
+      window.removeEventListener("portfolio-theme-change", handleThemeChange);
   }, []);
 
   useEffect(() => {
     if (!isSettingsOpen) return;
 
     const handleClickOutside = (event) => {
-      const clickedButton = settingsRef.current && settingsRef.current.contains(event.target);
-      const clickedPanel = settingsPanelRef.current && settingsPanelRef.current.contains(event.target);
+      const clickedButton =
+        settingsRef.current && settingsRef.current.contains(event.target);
+      const clickedPanel =
+        settingsPanelRef.current &&
+        settingsPanelRef.current.contains(event.target);
 
       if (!clickedButton && !clickedPanel) {
         setIsSettingsOpen(false);
@@ -79,7 +99,8 @@ export default function Footer() {
     };
 
     mediaQuery.addEventListener?.("change", handleSystemThemeChange);
-    return () => mediaQuery.removeEventListener?.("change", handleSystemThemeChange);
+    return () =>
+      mediaQuery.removeEventListener?.("change", handleSystemThemeChange);
   }, [theme]);
 
   // No date/time displayed — removed per design.
@@ -126,7 +147,9 @@ export default function Footer() {
         style={style || undefined}
         className={`${mobile ? "w-full mt-4" : "w-60"} rounded-xl border border-(--border)/40 bg-background p-3 shadow-2xl`}
       >
-        <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-(--foreground)">Dark</div>
+        <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-(--foreground)">
+          Dark
+        </div>
         <div className="mb-3 flex flex-wrap gap-2">
           {darkAccentOptions.map((option) => (
             <button
@@ -144,7 +167,9 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-(--foreground)">Neon</div>
+        <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-(--foreground)">
+          Neon
+        </div>
         <div className="mb-3 flex flex-wrap gap-2">
           {neonAccentOptions.map((option) => (
             <button
@@ -163,22 +188,22 @@ export default function Footer() {
         </div>
 
         <div className="mb-2 text-sm font-semibold">Theme</div>
-      <div className="mb-3 flex gap-2">
-        {backgroundOptions.map((option) => (
-          <button
-            key={option.name}
-            type="button"
-            onClick={() => applyBackgroundTheme(option.name)}
-            className={`rounded-full border px-3 py-1 text-xs transition ${
-              theme.background === option.name.toLowerCase()
-                ? "border-(--accent) bg-(--accent)/15"
-                : "border-(--border)/40"
-            }`}
-          >
-            {option.name}
-          </button>
-        ))}
-      </div>
+        <div className="mb-3 flex gap-2">
+          {backgroundOptions.map((option) => (
+            <button
+              key={option.name}
+              type="button"
+              onClick={() => applyBackgroundTheme(option.name)}
+              className={`rounded-full border px-3 py-1 text-xs transition ${
+                theme.background === option.name.toLowerCase()
+                  ? "border-(--accent) bg-(--accent)/15"
+                  : "border-(--border)/40"
+              }`}
+            >
+              {option.name}
+            </button>
+          ))}
+        </div>
 
         <button
           type="button"
@@ -203,71 +228,81 @@ export default function Footer() {
       </button>
 
       <aside className="hidden md:fixed md:left-0 md:top-0 md:z-40 md:h-screen md:w-15 md:overflow-hidden md:border-r-2 md:border-(--border)/40 md:bg-background md:py-4 md:transition-all md:duration-300 md:ease-out md:hover:w-48 md:flex md:flex-col md:items-center md:justify-between">
-      <div className="flex h-full w-full flex-col items-center justify-between">
+        <div className="flex h-full w-full flex-col items-center justify-between">
+          <div className="flex w-full justify-center md:justify-start md:pl-3">
+            <Link
+              href="/"
+              aria-label="Home"
+              className="group relative flex h-8 w-8 items-center justify-center rounded-full border border-(--border) transition hover:text-(--accent) md:w-8 md:justify-center"
+            >
+              <i className="ri-arrow-left-line text-xl" />
+            </Link>
+          </div>
 
-        <div className="flex w-full justify-center md:justify-start md:pl-3">
-          <Link
-            href="/"
-            aria-label="Home"
-            className="group relative flex h-8 w-8 items-center justify-center rounded-full border border-(--border) transition hover:text-(--accent) md:w-8 md:justify-center"
+          <nav className="flex w-full flex-col items-center gap-3 md:items-start md:pl-3">
+            {navigationLinks.map((link) => {
+              const isActive =
+                pathname === link.href ||
+                (link.href === "/" && pathname === "");
+
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-label={link.label}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`group relative flex h-10 items-center justify-start transition ${
+                    isActive
+                      ? " text-(--accent)"
+                      : "text-(--foreground) hover:text-(--accent)"
+                  }`}
+                >
+                  <i className={`${link.icon} text-2xl`} />
+                  <span className="relative ml-6 hidden whitespace-nowrap text-[10px] uppercase tracking-[0.2em] text-(--foreground) md:inline-block md:group-hover:inline-block md:group-hover:text-(--accent)">
+                    {link.label}
+                    <span
+                      className="absolute left-0 top-full mt-1 h-px origin-left scale-x-0 bg-(--accent) transition-transform duration-300 ease-out md:group-hover:scale-x-100"
+                      style={{ width: "100%" }}
+                    />
+                  </span>
+                </Link>
+              );
+            })}
+
+            <Link
+              href="/Syed_Konain_Nasir_s_Resume.pdf"
+              download
+              aria-label="Download Resume"
+              className="group relative flex h-10 items-center justify-start text-(--foreground) transition hover:text-(--accent)"
+            >
+              <i
+                className="ri-download-line text-2xl no-bg resume-icon"
+                style={{ animation: "resumeAccent 2s ease-in-out infinite" }}
+              />
+              <span className="relative ml-6 hidden whitespace-nowrap text-[10px] uppercase tracking-[0.2em] text-(--foreground) md:inline-block md:group-hover:inline-block md:group-hover:text-(--accent)">
+                Download
+                <span
+                  className="absolute left-0 top-full mt-1 h-px origin-left scale-x-0 bg-(--accent) transition-transform duration-300 ease-out md:group-hover:scale-x-100"
+                  style={{ width: "100%" }}
+                />
+              </span>
+            </Link>
+          </nav>
+
+          <div
+            className="flex z-50 w-full justify-center md:justify-start md:pl-3"
+            ref={settingsRef}
           >
-            <i className="ri-arrow-left-line text-xl" />
-          </Link>
+            <button
+              type="button"
+              aria-label="Settings"
+              onClick={toggleDesktopSettings}
+              className="flex h-8 w-8 items-center justify-center rounded-full border border-(--border) transition hover:text-(--accent)"
+            >
+              <i className="ri-settings-3-line text-xl" />
+            </button>
+          </div>
         </div>
-
-        <nav className="flex w-full flex-col items-center gap-3 md:items-start md:pl-3">
-          {navigationLinks.map((link) => {
-            const isActive = pathname === link.href || (link.href === "/" && pathname === "");
-
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                aria-label={link.label}
-                aria-current={isActive ? "page" : undefined}
-                className={`group relative flex h-10 items-center justify-start transition ${
-                  isActive
-                    ? " text-(--accent)"
-                    : "text-(--foreground) hover:text-(--accent)"
-                }`}
-              >
-                <i className={`${link.icon} text-2xl`} />
-                <span className="relative ml-6 hidden whitespace-nowrap text-[10px] uppercase tracking-[0.2em] text-(--foreground) md:inline-block md:group-hover:inline-block md:group-hover:text-(--accent)">
-                  {link.label}
-                  <span className="absolute left-0 top-full mt-1 h-px origin-left scale-x-0 bg-(--accent) transition-transform duration-300 ease-out md:group-hover:scale-x-100" style={{ width: "100%" }} />
-                </span>
-              </Link>
-            );
-          })}
-
-          <Link
-            href="/resume.pdf"
-            download
-            aria-label="Download Resume"
-            className="group relative flex h-10 items-center justify-start text-(--foreground) transition hover:text-(--accent)"
-          >
-            <i
-              className="ri-download-line text-2xl no-bg resume-icon"
-              style={{ animation: "resumeAccent 2s ease-in-out infinite" }}
-            />
-            <span className="relative ml-6 hidden whitespace-nowrap text-[10px] uppercase tracking-[0.2em] text-(--foreground) md:inline-block md:group-hover:inline-block md:group-hover:text-(--accent)">
-              Download
-              <span className="absolute left-0 top-full mt-1 h-px origin-left scale-x-0 bg-(--accent) transition-transform duration-300 ease-out md:group-hover:scale-x-100" style={{ width: "100%" }} />
-            </span>
-          </Link>
-        </nav>
-
-        <div className="flex z-50 w-full justify-center md:justify-start md:pl-3" ref={settingsRef}>
-          <button
-            type="button"
-            aria-label="Settings"
-            onClick={toggleDesktopSettings}
-            className="flex h-8 w-8 items-center justify-center rounded-full border border-(--border) transition hover:text-(--accent)"
-          >
-            <i className="ri-settings-3-line text-xl" />
-          </button>
-        </div>
-      </div>
       </aside>
 
       {mounted &&
@@ -279,12 +314,15 @@ export default function Footer() {
             bottom: settingsPos.bottom,
             zIndex: 9999,
           }),
-          document.body
+          document.body,
         )}
 
       {isMobileOpen && (
         <div className="fixed inset-0 z-50 flex justify-end">
-          <div className="absolute inset-0 bg-black/40" onClick={() => setIsMobileOpen(false)} />
+          <div
+            className="absolute inset-0 bg-black/40"
+            onClick={() => setIsMobileOpen(false)}
+          />
           <aside className="relative z-50 w-64 max-w-full translate-x-0 border-l-2 border-(--border)/40 bg-background py-6 transition-transform duration-300 ease-out animate-in slide-in-from-right-full">
             <div className="flex h-full flex-col items-start justify-between px-4">
               <div className="w-full">
@@ -309,7 +347,9 @@ export default function Footer() {
                     aria-label="Home"
                     onClick={() => setIsMobileOpen(false)}
                     className={`flex items-center gap-3 rounded-md px-2 py-2 ${
-                      pathname === homeHref ? "text-(--accent)" : "text-(--foreground) hover:text-(--accent)"
+                      pathname === homeHref
+                        ? "text-(--accent)"
+                        : "text-(--foreground) hover:text-(--accent)"
                     }`}
                   >
                     <i className="ri-home-3-line text-2xl" />
@@ -317,7 +357,9 @@ export default function Footer() {
                   </Link>
 
                   {navigationLinks.map((link) => {
-                    const isActive = pathname === link.href || (link.href === "/" && pathname === "");
+                    const isActive =
+                      pathname === link.href ||
+                      (link.href === "/" && pathname === "");
 
                     return (
                       <Link
@@ -327,7 +369,9 @@ export default function Footer() {
                         aria-current={isActive ? "page" : undefined}
                         onClick={() => setIsMobileOpen(false)}
                         className={`flex items-center gap-3 rounded-md px-2 py-2 ${
-                          isActive ? "text-(--accent)" : "text-(--foreground) hover:text-(--accent)"
+                          isActive
+                            ? "text-(--accent)"
+                            : "text-(--foreground) hover:text-(--accent)"
                         }`}
                       >
                         <i className={`${link.icon} text-2xl`} />
@@ -337,7 +381,7 @@ export default function Footer() {
                   })}
 
                   <Link
-                    href="/resume.pdf"
+                    href="/Syed_Konain_Nasir_s_Resume.pdf"
                     download
                     onClick={() => setIsMobileOpen(false)}
                     className="flex items-center gap-3 rounded-md px-2 py-2 text-(--foreground) hover:text-(--accent)"
