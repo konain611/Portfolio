@@ -13,7 +13,7 @@ const experienceItems = [
     ],
   },
   {
-    role: "Software Developer",
+    role: "Full-Stack Developer",
     company: "NS Engineering Works",
     period: "2025 – Present",
     location: "Freelance / Contract - Remote",
@@ -23,6 +23,17 @@ const experienceItems = [
       "Built and deployed client web apps on Vercel, managing hosting, domains, and CI/CD via GitHub.",
       "Audited a Maldives-based staffing agency's site and delivered a rebuild proposal on Next.js, TypeScript, Prisma, and PostgreSQL.",
       "Own ongoing maintenance and feature updates for deployed client projects.",
+    ],
+  },
+  {
+    role: "Full-Stack Developer",
+    company: "Intellecta Solutions",
+    period: "2026 – Present",
+    location: "Freelance / Contract - Remote",
+    summary:
+      "",
+    highlights: [
+        
     ],
   },
   {
