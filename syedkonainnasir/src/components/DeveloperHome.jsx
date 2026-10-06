@@ -20,9 +20,9 @@ export default function DeveloperHome() {
       secondRowSmall2={<Skills />}
       thirdRowMiddle={<Experience />}
       thirdRowLeft={<Education />}
-      fourthRowRight={<GithubStats username="konain611" />}
-      fourthRowLeft={<Terminal />}
       thirdRowRight={<Projects />}
+      fourthRowLeft={<GithubStats username="konain611" />}
+      // fourthRowLeft={<Terminal />}
     />
   );
 }
