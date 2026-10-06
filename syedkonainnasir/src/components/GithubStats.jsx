@@ -33,7 +33,7 @@ const STEP = CELL + GAP;
 
 const REFRESH_INTERVAL_MS = 6 * 60 * 60 * 1000; // auto-refresh every 6 hours
 const MIN_REFETCH_GAP_MS = 5 * 60 * 1000; // ignore extra focus/visibility triggers within 5 min
-const MONTHS_TO_SHOW = 7;
+const MONTHS_TO_SHOW = 10;
 const MIN_LABEL_GAP_WEEKS = 3; // minimum spacing so month labels never overlap
 
 function levelFromCount(count) {
