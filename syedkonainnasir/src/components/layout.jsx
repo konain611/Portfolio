@@ -69,7 +69,7 @@ export default function HomepageLayout({  firstRow,
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-2 w-full md:grid-cols-[40%_24%_35%]">
+      <div className="grid grid-cols-1 gap-2 w-full md:grid-cols-[45%_35%]">
         <div className="border border-(--border)/40 rounded-md hover:border-(--border)/60 min-h-30">
           <div className="w-full text-center">
             {fourthRowLeft || (
@@ -78,13 +78,13 @@ export default function HomepageLayout({  firstRow,
           </div>
         </div>
 
-        <div className="border border-(--border)/40 rounded-md hover:border-(--border)/60 min-h-30">
+        {/* <div className="border border-(--border)/40 rounded-md hover:border-(--border)/60 min-h-30">
           <div className="w-full text-center">
             {fourthRowMiddle || (
               <div className="text-sm sm:text-base">Fourth Row - Middle Block</div>
             )}
           </div>
-        </div>
+        </div> */}
 
         <div className="border border-(--border)/40 rounded-md hover:border-(--border)/60 min-h-30">
           <div className="w-full text-center">
