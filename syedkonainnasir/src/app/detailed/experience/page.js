@@ -12,7 +12,7 @@ const experienceItems = [
       "Explored a Turborepo/pnpm monorepo architecture to unify the product suite (DGMagazine, DGEnterprise, DGCloud).",
     ],
   },
-    {
+  {
     role: "Full-Stack Developer",
     company: "Intellecta Solutions",
     period: "2026 – Present",
@@ -20,7 +20,7 @@ const experienceItems = [
     summary:
       "",
     highlights: [
-        
+
     ],
   },
   {
