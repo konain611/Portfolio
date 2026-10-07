@@ -18,13 +18,13 @@ const views = [
       "Browse the portfolio as a polished website with detailed pages.",
     icon: "ri-layout-4-line",
   },
-  {
-    href: "/dev",
-    label: "Developer View",
-    description:
-      "Explore projects, skills, experience, and the interactive developer portfolio.",
-    icon: "ri-terminal-box-line",
-  },
+  // {
+  //   href: "/dev",
+  //   label: "Developer View",
+  //   description:
+  //     "Explore projects, skills, experience, and the interactive developer portfolio.",
+  //   icon: "ri-terminal-box-line",
+  // },
 ];
 
 export default function HomePageLoader() {
