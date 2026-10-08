@@ -21,13 +21,14 @@ export default function About() {
 
       <div className="text-sm leading-6 max-w-2xl text-left">
         <p className="mb-3">
-          Full-Stack Developer specializing in Next.js, TypeScript, and Node.js,
-          focused on building scalable, production-ready web applications. I
-          currently work as a Full-Stack Software Engineer at &nbsp;
-          <span className="italic">Digital Information Systems Pvt Ltd</span>, where I
-          build enterprise dashboards, e-commerce platforms, and AI-powered
-          solutions, end to end, from frontend to backend to deployment. Always
-          learning, always experimenting with new tools.
+          Full-Stack Software Engineer with 2+ years of experience building
+          production-grade websites, SaaS platforms, and business applications.
+          Built corporate websites for 5+ companies and complete SaaS solutions
+          with dashboards, APIs, authentication, and payments. Experienced
+          across system design, development, deployment, security, and
+          monitoring, with Next.js, React, TypeScript, Node.js, PostgreSQL,
+          Linux, Docker, Kubernetes, and Nginx. Currently specializing in AI
+          agents and automation.
         </p>
 
         <div className="flex flex-wrap items-center gap-6 mt-4 text-sm">
