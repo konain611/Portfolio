@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Education() {
@@ -7,12 +8,16 @@ export default function Education() {
       title: "Bs Computer Science",
       status: "completed",
       duration: "Spring 2022 - Spring 2026",
+      logo: "/logo/iu.jpg",
+      monogram: "IU",
     },
     {
       name: "GIAIC",
-      title: "Web 3.0 & Metaverse",
+      title: "Certified Cloud Applied Agentic AI Engineer & Solopreneur",
       status: "in progress",
-      duration: "Feb 2024 - Sep 2026",
+      duration: "Feb 2024 - Present",
+      logo: "/logo/giaic.png",
+      monogram: "GA",
     },
     // {
     //   name: "PIAIC",
@@ -24,14 +29,16 @@ export default function Education() {
       name: "Panaversity",
       title: "Agentic AI Architect Program",
       status: "in progress",
-      duration: "Aug 2026 - Sep 2026",
+      duration: "Aug 2026 - Present",
+      logo: "/logo/pana.webp",
+      monogram: "P",
     },
-    {
-      name: "Panaversity",
-      title: "OpenClaw For Business Professionals",
-      status: "completed",
-      duration: "May 2026",
-    },
+    // {
+    //   name: "Panaversity",
+    //   title: "OpenClaw For Business Professionals",
+    //   status: "completed",
+    //   duration: "May 2026",
+    // },
     // {
     //   name: "YoungDev",
     //   title: "Tailwind CSS",
@@ -43,6 +50,7 @@ export default function Education() {
       title: "Secure Linux Training Program",
       status: "completed",
       duration: "Jan 2024",
+      monogram: "DG",
     },
   ];
 
@@ -64,25 +72,30 @@ export default function Education() {
         </Link>
       </div>
 
-      <div className="relative py-4 px-2">
-        <div className="absolute left-3.5 top-1.5 bottom-1.5 w-px bg-(--border)/40" />
-
+      <div className="py-4 px-2">
         {educationItems.map((item) => (
-          <div key={`${item.title}-${item.name}`} className="relative flex items-start pb-6 last:pb-0">
-            <span className="absolute left-0 top-0 flex h-3.5 w-3.5 items-center justify-center">
-              {item.status === "in progress" && (
-                <span className="absolute h-3.5 w-3.5 animate-ping rounded-full bg-(--accent)/40" />
+          <div key={`${item.title}-${item.name}`} className="flex items-start gap-3 pb-6 last:pb-0">
+            <div className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-md ">
+              {item.logo ? (
+                <Image
+                  src={item.logo}
+                  alt={`${item.name} logo`}
+                  width={40}
+                  height={40}
+                  className="h-full w-full object-contain p-1 rounded-xl"
+                />
+              ) : (
+                <span className="text-xs font-semibold text-(--accent)">{item.monogram}</span>
               )}
-              <span
-                className={`relative h-2 w-2 rounded-full ${
-                  item.status === "in progress"
-                    ? "bg-(--accent)"
-                    : "bg-(--accent)/70 ring-2 ring-(--accent)/20"
-                }`}
-              />
-            </span>
+              {item.status === "in progress" && (
+                <>
+                  <span className="absolute bottom-0 right-0 h-2.5 w-2.5 animate-ping rounded-full bg-(--accent)/40" />
+                  <span className="absolute bottom-0 right-0 h-2 w-2 rounded-full bg-(--accent) ring-2 ring-background" />
+                </>
+              )}
+            </div>
 
-            <div className="flex w-full flex-col pl-6">
+            <div className="flex min-w-0 w-full flex-col">
               <div className="flex items-center justify-between gap-4">
                 <h3 className="text-sm font-semibold leading-5 text-foreground">
                   {item.title}
@@ -94,10 +107,10 @@ export default function Education() {
 
               <div className="flex flex-wrap items-center gap-2 text-[12px] text-foreground/60">
                 <span>{item.duration}</span>
-                <span>•</span>
+                {/* <span>•</span>
                 <span className="font-medium text-foreground/80">
                   {item.status === "in progress" ? "In progress" : "Completed"}
-                </span>
+                </span> */}
               </div>
             </div>
           </div>
