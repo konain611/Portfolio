@@ -75,14 +75,14 @@ export default function Education() {
       <div className="py-4 px-2">
         {educationItems.map((item) => (
           <div key={`${item.title}-${item.name}`} className="flex items-start gap-3 pb-6 last:pb-0">
-            <div className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-md ">
+            <div className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-md ">
               {item.logo ? (
                 <Image
                   src={item.logo}
                   alt={`${item.name} logo`}
-                  width={40}
-                  height={40}
-                  className="h-full w-full object-contain p-1 rounded-xl"
+                  width={50}
+                  height={50}
+                  className="h-full w-full object-contain p-1 rounded-md"
                 />
               ) : (
                 <span className="text-xs font-semibold text-(--accent)">{item.monogram}</span>
