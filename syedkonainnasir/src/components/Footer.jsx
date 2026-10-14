@@ -270,7 +270,7 @@ export default function Footer() {
             })}
 
             <Link
-              href="/Syed_Konain_Nasir_s_Resume.pdf"
+              href="/Syed_Konain_Resume.pdf"
               download
               aria-label="Download Resume"
               className="group relative flex h-10 items-center justify-start text-(--foreground) transition hover:text-(--accent)"

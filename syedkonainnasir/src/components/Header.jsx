@@ -185,7 +185,7 @@ export default function Header() {
         ))} */}
 
         <a
-          href="/Syed_Konain_Nasir_s_Resume.pdf"
+          href="/Syed_Konain_Resume.pdf"
           download
           aria-label="Download resume"
           className="flex h-10 px-3 py-1 items-center justify-center rounded-full border border-(--border)/60 text-(--accent) transition hover:bg-(--accent) hover:text-background"

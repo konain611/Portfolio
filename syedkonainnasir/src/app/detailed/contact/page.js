@@ -97,7 +97,7 @@ export default function ContactPage() {
 
             <div className="py-5 border-y border-(--border)/35 mt-10 text-center">
               <a
-                href="/resume.pdf"
+                href="/Syed_Konain_Resume.pdf"
                 download
                 className="inline-flex items-center justify-center gap-2 text-sm font-medium text-(--accent) transition hover:text-(--foreground)"
               >

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Education() {
@@ -8,7 +7,6 @@ export default function Education() {
       title: "Bs Computer Science",
       status: "completed",
       duration: "Spring 2022 - Spring 2026",
-      logo: "/logo/iu.jpg",
       monogram: "IU",
     },
     {
@@ -16,7 +14,6 @@ export default function Education() {
       title: "Certified Cloud Applied Agentic AI Engineer & Solopreneur",
       status: "in progress",
       duration: "Feb 2024 - Present",
-      logo: "/logo/giaic.png",
       monogram: "GA",
     },
     // {
@@ -30,7 +27,6 @@ export default function Education() {
       title: "Agentic AI Architect Program",
       status: "in progress",
       duration: "Aug 2026 - Present",
-      logo: "/logo/pana.webp",
       monogram: "P",
     },
     // {
@@ -75,25 +71,15 @@ export default function Education() {
       <div className="py-4 px-2">
         {educationItems.map((item) => (
           <div key={`${item.title}-${item.name}`} className="flex items-start gap-3 pb-6 last:pb-0">
-            <div className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-md ">
-              {item.logo ? (
-                <Image
-                  src={item.logo}
-                  alt={`${item.name} logo`}
-                  width={50}
-                  height={50}
-                  className="h-full w-full object-contain p-1 rounded-md"
-                />
-              ) : (
-                <span className="text-xs font-semibold text-(--accent)">{item.monogram}</span>
-              )}
+            {/* <div className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-md bg-(--accent)/8">
+              <span className="text-xs font-semibold text-(--accent)">{item.monogram}</span>
               {item.status === "in progress" && (
                 <>
                   <span className="absolute bottom-0 right-0 h-2.5 w-2.5 animate-ping rounded-full bg-(--accent)/40" />
                   <span className="absolute bottom-0 right-0 h-2 w-2 rounded-full bg-(--accent) ring-2 ring-background" />
                 </>
               )}
-            </div>
+            </div> */}
 
             <div className="flex min-w-0 w-full flex-col">
               <div className="flex items-center justify-between gap-4">
