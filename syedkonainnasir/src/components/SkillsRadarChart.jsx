@@ -168,7 +168,7 @@ export default function SkillsRadarChart() {
     .join(" ");
 
   return (
-    <div className="w-[80%] mx-auto my-5 rounded-2xl border border-(--border)/40 bg-background p-4 md:p-6">
+    <div className="w-[85%] mx-auto my-5 border border-(--border)/40 bg-background p-4 md:p-6">
       <div className="mb-4 flex items-center justify-between gap-3">
         <div>
           <p className="text-[10px] uppercase tracking-[0.35em] text-(--muted)">
@@ -178,16 +178,16 @@ export default function SkillsRadarChart() {
             {profile.title}
           </h2>
         </div>
-        <div className="rounded-full border border-(--border)/40 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-(--muted)">
+        {/* <div className="border border-(--border)/40 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-(--muted)">
           Interactive
-        </div>
+        </div> */}
       </div>
 
       <div className="grid gap-6 xl:grid-cols-[2fr_1fr] xl:items-start">
-        <div className="rounded-2xl border border-(--border)/35 bg-background/50 p-3 md:p-4">
+        <div className="border border-(--border)/35 bg-background/50 p-3 md:p-4">
           <svg
             viewBox="0 0 320 320"
-            className="mx-auto aspect-square max-h-90 w-full max-w-120"
+            className="mx-auto aspect-square max-h-97 w-full max-w-120"
           >
             {[...Array(levels)].map((_, level) => (
               <polygon
@@ -270,7 +270,7 @@ export default function SkillsRadarChart() {
                 key={item.key}
                 type="button"
                 onClick={() => setActiveProfile(item.key)}
-                className={`w-full rounded-xl border px-3 py-3 text-left transition ${
+                className={`w-full  border px-3 py-3 text-left transition ${
                   active
                     ? "border-(--accent) bg-(--accent)/10 text-foreground"
                     : "border-(--border)/35 bg-background/50 text-(--muted) hover:border-(--accent)/50 hover:text-foreground cursor-pointer"
