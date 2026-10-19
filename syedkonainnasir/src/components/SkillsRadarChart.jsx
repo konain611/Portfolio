@@ -1,106 +1,101 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
 const skillProfiles = {
   languages: {
-    title: 'Languages',
-    description: 'Core programming languages used in development work.',
+    title: "Languages",
+    description: "Core programming languages used in development work.",
     axes: [
-      { label: 'HTML', value: 4.5 },
-      { label: 'CSS', value: 4 },
-      { label: 'TypeScript', value: 4 },
-      { label: 'JavaScript', value: 4.5 },
-      { label: 'Python', value: 3.5 },
-      { label: 'SQL', value: 4 },
-      { label: 'C', value: 3 },
+      { label: "TypeScript", value: 4 },
+      { label: "JavaScript", value: 4.5 },
+      { label: "Python", value: 3.5 },
+      { label: "SQL", value: 4 },
+      { label: "C", value: 3 },
     ],
   },
   frontend: {
-    title: 'Frontend',
-    description: 'Modern interface build and UI engineering strengths.',
+    title: "Frontend",
+    description: "Modern interface build and UI engineering strengths.",
     axes: [
-      { label: 'Next.js', value: 4.5 },
-      { label: 'React', value: 4 },
-      { label: 'HTML', value: 4.5 },
-      { label: 'CSS', value: 3 },
-      { label: 'Tailwind CSS', value: 4.5 },
-      { label: 'Bootstrap', value: 3.5 },
-      { label: 'Shadcn', value: 4.5 },
+      { label: "Next.js", value: 4.8 },
+      { label: "React", value: 4 },
+      { label: "HTML", value: 4.5 },
+      { label: "Tailwind CSS", value: 4.5 },
+      { label: "Bootstrap", value: 4 },
+      { label: "Shadcn", value: 4.5 },
     ],
   },
   backend: {
-    title: 'Backend',
-    description: 'Server-side systems, APIs, and application logic.',
+    title: "Backend",
+    description: "Server-side systems, APIs, and application logic.",
     axes: [
-      { label: 'Node.js', value: 4 },
-      { label: 'Express', value: 4 },
-      { label: 'REST APIs', value: 4.8 },
-      { label: 'Auth', value: 4 },
-      { label: 'WebSockets', value: 3 },
+      { label: "Node.js", value: 4 },
+      { label: "Nestjs", value: 4 },
+      { label: "ORMs", value: 4.5 },
+      { label: "Auth", value: 4 },
+      { label: "WebSockets", value: 3 },
+      { label: "Rate Limiting", value: 3.8 },
     ],
   },
   database: {
-    title: 'Database',
-    description: 'Data modeling, persistence, and database tooling.',
+    title: "Database",
+    description: "Data modeling, persistence, and database tooling.",
     axes: [
-      { label: 'PostgreSQL', value: 4.5 },
-      { label: 'MySQL', value: 3 },
-      { label: 'Supabase', value: 4 },
-      { label: 'Schema Design', value: 4 },
-      { label: 'Queries', value: 4 },
-      { label: 'Redis', value: 3.5 },
+      { label: "PostgreSQL", value: 4.5 },
+      { label: "MySQL", value: 3 },
+      { label: "Supabase", value: 4 },
+      { label: "Redis", value: 3.5 },
     ],
   },
   tools: {
-    title: 'Tools',
-    description: 'Developer utilities and delivery workflows.',
+    title: "Tools",
+    description: "Developer utilities and delivery workflows.",
     axes: [
-      { label: 'Docusaurus', value: 4 },
-      { label: 'Git', value: 4.5 },
-      { label: 'Postman', value: 4 },
-      { label: 'Nginx', value: 3.5 },
-      { label: 'npm', value: 4.7 },
-      { label: 'Yarn', value: 3 },
-
+      { label: "Git", value: 4.5 },
+      { label: "GitHub", value: 4.2 },
+      { label: "Postman", value: 4 },
+      { label: "Nginx", value: 3.5 },
+      { label: "npm", value: 4.7 },
+      { label: "bun", value: 3.5 },
+      { label: "Docusaurus", value: 4 },
+      { label: "Obsidian", value: 4 },
     ],
   },
   cloud: {
-    title: 'Cloud & DevOps',
-    description: 'Deployment, hosting, and automation practices.',
+    title: "Cloud & DevOps",
+    description: "Deployment, hosting, and automation practices.",
     axes: [
-      { label: 'Cloudflare', value: 4 },
-      { label: 'Vercel', value: 4 },
-      { label: 'SSL', value: 4 },
-      { label: 'Linux', value: 4 },
-      { label: 'CI/CD', value: 3.5 },
-      { label: 'Docker', value: 3 },
-      // { label: 'Vercel', value: 3.5 },
+      { label: "Linux", value: 4 },
+      { label: "CI/CD", value: 3.5 },
+      { label: "Docker", value: 3 },
+      { label: "Vercel", value: 4 },
+      { label: "Cloudflare", value: 4 },
     ],
   },
   concepts: {
-    title: 'Concepts',
-    description: 'Product engineering focus areas and architecture knowledge.',
+    title: "Concepts",
+    description: "Product engineering focus areas and architecture knowledge.",
     axes: [
-      { label: 'AI Agents', value: 3 },
-      { label: 'Prompt Eng.', value: 4.5 },
-      { label: 'RAG', value: 4 },
-      { label: 'System Design', value: 4 },
-      { label: 'Monorepo', value: 4 },
-      { label: 'Microservices', value: 4.5 },
-      { label: 'Security', value: 4 },
+      { label: "AI Agents", value: 3 },
+      { label: "Prompt Eng.", value: 4.5 },
+      { label: "RAG", value: 4 },
+      { label: "System Design", value: 4 },
+      { label: "Monorepo", value: 4 },
+      { label: "Microservices", value: 4.5 },
+      { label: "Security", value: 4 },
     ],
   },
 };
 
 const profileOrder = [
-  { key: 'languages', label: 'Languages' },
-  { key: 'frontend', label: 'Frontend' },
-  { key: 'backend', label: 'Backend' },
-  { key: 'database', label: 'Database' },
-  { key: 'tools', label: 'Tools' },
-  { key: 'cloud', label: 'Cloud' },
-  { key: 'concepts', label: 'Concepts' },
+  { key: "languages", label: "Languages" },
+  { key: "frontend", label: "Frontend" },
+  { key: "backend", label: "Backend" },
+  { key: "database", label: "Database" },
+  { key: "tools", label: "Tools" },
+  { key: "cloud", label: "Cloud" },
+  { key: "concepts", label: "Concepts" },
 ];
 
 const maxValue = 5;
@@ -127,11 +122,11 @@ function buildGridPolygon(axes, level) {
     };
   });
 
-  return points.map((point) => `${point.x},${point.y}`).join(' ');
+  return points.map((point) => `${point.x},${point.y}`).join(" ");
 }
 
 export default function SkillsRadarChart() {
-  const [activeProfile, setActiveProfile] = useState('languages');
+  const [activeProfile, setActiveProfile] = useState("languages");
   const profile = skillProfiles[activeProfile];
   const angleStep = (Math.PI * 2) / profile.axes.length;
 
@@ -140,13 +135,17 @@ export default function SkillsRadarChart() {
     return polarToCartesian(angle, axis.value);
   });
 
-  const polygonPoints = points.map((point) => `${point.x},${point.y}`).join(' ');
+  const polygonPoints = points
+    .map((point) => `${point.x},${point.y}`)
+    .join(" ");
 
   return (
     <div className="w-[80%] mx-auto my-5 rounded-2xl border border-(--border)/40 bg-background p-4 md:p-6">
       <div className="mb-4 flex items-center justify-between gap-3">
         <div>
-          <p className="text-[10px] uppercase tracking-[0.35em] text-(--muted)">Skill profile</p>
+          <p className="text-[10px] uppercase tracking-[0.35em] text-(--muted)">
+            Skill profile
+          </p>
           <h2 className="text-lg font-semibold text-(--accent)">
             {profile.title}
           </h2>
@@ -158,7 +157,10 @@ export default function SkillsRadarChart() {
 
       <div className="grid gap-6 xl:grid-cols-[2fr_1fr] xl:items-start">
         <div className="rounded-2xl border border-(--border)/35 bg-background/50 p-3 md:p-4">
-          <svg viewBox="0 0 320 320" className="mx-auto aspect-square max-h-90 w-full max-w-120">
+          <svg
+            viewBox="0 0 320 320"
+            className="mx-auto aspect-square max-h-90 w-full max-w-120"
+          >
             {[...Array(levels)].map((_, level) => (
               <polygon
                 key={level}
@@ -176,11 +178,23 @@ export default function SkillsRadarChart() {
               const labelRadius = radius + 28;
               const labelX = center + Math.cos(angle) * labelRadius;
               const labelY = center + Math.sin(angle) * labelRadius;
-              const textAnchor = labelX < center - 4 ? 'end' : labelX > center + 4 ? 'start' : 'middle';
+              const textAnchor =
+                labelX < center - 4
+                  ? "end"
+                  : labelX > center + 4
+                    ? "start"
+                    : "middle";
 
               return (
                 <g key={axis.label}>
-                  <line x1={center} y1={center} x2={endX} y2={endY} stroke="color-mix(in srgb, var(--foreground) 24%, transparent)" strokeWidth="1.5" />
+                  <line
+                    x1={center}
+                    y1={center}
+                    x2={endX}
+                    y2={endY}
+                    stroke="color-mix(in srgb, var(--foreground) 24%, transparent)"
+                    strokeWidth="1.5"
+                  />
                   <text
                     x={labelX}
                     y={labelY}
@@ -230,8 +244,8 @@ export default function SkillsRadarChart() {
                 onClick={() => setActiveProfile(item.key)}
                 className={`w-full rounded-xl border px-3 py-3 text-left transition ${
                   active
-                    ? 'border-(--accent) bg-(--accent)/10 text-foreground'
-                    : 'border-(--border)/35 bg-background/50 text-(--muted) hover:border-(--accent)/50 hover:text-foreground cursor-pointer'
+                    ? "border-(--accent) bg-(--accent)/10 text-foreground"
+                    : "border-(--border)/35 bg-background/50 text-(--muted) hover:border-(--accent)/50 hover:text-foreground cursor-pointer"
                 }`}
               >
                 <div className="flex items-center justify-between gap-3">
