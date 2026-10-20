@@ -8,18 +8,24 @@ export default function Experience() {
       duration: "March 2025 - Present",
       type: "Full-time",
     },
-   {
-      title: "Full-Stack Developer",
-      institution: "NS Engineering Works",
-      duration: "Freelance",
-      type: "remote",
-   },
+  //  {
+  //     title: "Full-Stack Developer",
+  //     institution: "NS Engineering Works",
+  //     duration: "Freelance",
+  //     type: "remote",
+  //  },
   //  {
   //     title: "Full-Stack Developer",
   //     institution: "Intellecta Genius Fest",
   //     duration: "Freelance",
   //     type: "remote",
   //  },
+   {
+      title: "Web Developer",
+      institution: "Upwork",
+      duration: "November 2023 - June 2025",
+      type: "Freelance",
+   },
    {
       title: "Front-End Developer",
       institution: "YoungDev Interns",
