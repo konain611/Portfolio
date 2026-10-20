@@ -11,7 +11,7 @@ export default function HomepageLayout({  firstRow,
 }) {
   return (
     <div className="flex flex-col items-start gap-2 p-1 min-h-screen">
-      <div className="w-full flex-1">
+      <div className="w-full">
         <div className="w-full text-center">
           {firstRow || (
             <div className="text-sm sm:text-base">First Row (Full Width)</div>
@@ -69,7 +69,7 @@ export default function HomepageLayout({  firstRow,
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-2 w-full md:grid-cols-[45%_35%]">
+      {/* <div className="grid grid-cols-1 gap-2 w-full md:grid-cols-[45%_35%]">
         <div className="border border-(--border)/40 rounded-md hover:border-(--border)/60 min-h-30">
           <div className="w-full text-center">
             {fourthRowLeft || (
@@ -78,13 +78,13 @@ export default function HomepageLayout({  firstRow,
           </div>
         </div>
 
-        {/* <div className="border border-(--border)/40 rounded-md hover:border-(--border)/60 min-h-30">
+        <div className="border border-(--border)/40 rounded-md hover:border-(--border)/60 min-h-30">
           <div className="w-full text-center">
             {fourthRowMiddle || (
               <div className="text-sm sm:text-base">Fourth Row - Middle Block</div>
             )}
           </div>
-        </div> */}
+        </div>
 
         <div className="border border-(--border)/40 rounded-md hover:border-(--border)/60 min-h-30">
           <div className="w-full text-center">
@@ -93,7 +93,7 @@ export default function HomepageLayout({  firstRow,
             )}
           </div>
         </div>
-      </div>  
+      </div>   */}
     </div>
   );
 }
