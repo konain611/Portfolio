@@ -38,11 +38,24 @@ const projects = [
     stack: ["JavaScript", "Next.js", "React", "nginx", "VPS"],
   },
   {
+    name: "Intellecta Study Abroad",
+    description: "",
+    url: "https://intellectastudyabroad.vercel.app/",
+    stack: ["JavaScript", "Next.js", "React", "Tailwind CSS", "Vercel"],
+  },
+  {
     name: "Hameed & Azra Award",
     description: "An awards platform built to honor the memory of the late Azra Hameed and Syed Abdul Hameed, established by their family to recognize and encourage excellence in academic research. Includes a dedicated story page, eligibility details (open to lecturers and assistant professors at public-sector universities in Sindh and Balochistan, for papers published or accepted from July 2023 onward), an online application flow, and an awardees showcase.",
     url: "https://aha2.vercel.app/",
     stack: ["JavaScript", "Next.js", "React", "Tailwind CSS", "Vercel"],
   },
+  {
+    name: "Intellecta Genius Fest",
+    description: "",
+    url: "https://www.intellectageniusfest.com/",
+    stack: ["JavaScript", "Next.js", "React", "Tailwind CSS", "Vercel"],
+  },
+
   {
     name: "NS Engineering Works",
     description: "A corporate website I built for a client's generator business, serving industrial, home, and office power needs. Showcases their full service range — sales, rentals, maintenance, and overhaul — for diesel, petrol, and gas generators from 10KVA up to megawatt scale, backed by 500+ delivered projects, 30+ years of experience, and 24/7 support.",
@@ -75,7 +88,7 @@ export default async function ProjectsPage() {
         {projectsWithPreviews.map((project) => (
           <div
             key={project.name}
-            className="flex flex-col overflow-hidden rounded-2xl border border-(--border)/50 bg-(--surface) md:flex-row"
+            className="flex flex-col overflow-hidden border border-(--border)/50 bg-(--surface) md:flex-row"
           >
             <div className="hidden md:block md:w-[40%] border-b border-(--border)/35 p-3 md:border-b-0 md:border-r">
               <div className="overflow-hidden">
@@ -133,7 +146,7 @@ export default async function ProjectsPage() {
                     href={project.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1 rounded-lg border border-(--accent)/50 bg-(--accent)/10 px-3 py-2 text-xs font-semibold uppercase tracking-[0.15em] text-(--accent) transition hover:border-(--accent) hover:bg-(--accent)/15"
+                    className="inline-flex items-center gap-1 border border-(--accent)/50 bg-(--accent)/10 px-3 py-2 text-xs font-semibold uppercase tracking-[0.15em] text-(--accent) transition hover:border-(--accent) hover:bg-(--accent)/15"
                   >
                     View
                     <span aria-hidden="true" className="font-bold">↗</span>
