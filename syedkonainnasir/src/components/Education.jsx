@@ -68,18 +68,17 @@ export default function Education() {
         </Link>
       </div>
 
-      <div className="py-4 px-2">
+      <div className="relative py-4 px-2">
+        <div
+          aria-hidden="true"
+          className="absolute bottom-6 left-3 top-6 w-px bg-(--accent)/30"
+        />
         {educationItems.map((item) => (
-          <div key={`${item.title}-${item.name}`} className="flex items-start gap-3 pb-6 last:pb-0">
-            {/* <div className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-md bg-(--accent)/8">
-              <span className="text-xs font-semibold text-(--accent)">{item.monogram}</span>
-              {item.status === "in progress" && (
-                <>
-                  <span className="absolute bottom-0 right-0 h-2.5 w-2.5 animate-ping rounded-full bg-(--accent)/40" />
-                  <span className="absolute bottom-0 right-0 h-2 w-2 rounded-full bg-(--accent) ring-2 ring-background" />
-                </>
-              )}
-            </div> */}
+          <div key={`${item.title}-${item.name}`} className="group flex items-start gap-3 pb-6 last:pb-0">
+            <span
+              aria-hidden="true"
+              className="mt-1.5 z-40 h-2 w-2 shrink-0 rounded-full bg-(--accent)/70 ring-4 ring-background group-hover:bg-(--accent)"
+            />
 
             <div className="flex min-w-0 w-full flex-col">
               <div className="flex items-center justify-between gap-4">
@@ -93,10 +92,6 @@ export default function Education() {
 
               <div className="flex flex-wrap items-center gap-2 text-[12px] text-foreground/60">
                 <span>{item.duration}</span>
-                {/* <span>•</span>
-                <span className="font-medium text-foreground/80">
-                  {item.status === "in progress" ? "In progress" : "Completed"}
-                </span> */}
               </div>
             </div>
           </div>
