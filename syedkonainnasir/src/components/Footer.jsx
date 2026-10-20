@@ -5,10 +5,10 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import {
-  accentOptions,
   applyTheme,
   backgroundOptions,
   defaultTheme,
+  getAccentOptionsForBackground,
   persistTheme,
   publishTheme,
   readTheme,
@@ -138,8 +138,7 @@ export default function Footer() {
   };
 
   const renderSettingsControls = (mobile = false, ref = null, style = null) => {
-    const darkAccentOptions = accentOptions.slice(0, 5);
-    const neonAccentOptions = accentOptions.slice(5);
+    const darkAccentOptions = getAccentOptionsForBackground(theme.background).slice(0, 6);
 
     return (
       <div
@@ -147,9 +146,9 @@ export default function Footer() {
         style={style || undefined}
         className={`${mobile ? "w-full mt-4" : "w-60"} rounded-xl border border-(--border)/40 bg-background p-3 shadow-2xl`}
       >
-        <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-(--foreground)">
+        {/* <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-(--foreground)">
           Dark
-        </div>
+        </div> */}
         <div className="mb-3 flex flex-wrap gap-2">
           {darkAccentOptions.map((option) => (
             <button
@@ -167,7 +166,7 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-(--foreground)">
+        {/* <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-(--foreground)">
           Neon
         </div>
         <div className="mb-3 flex flex-wrap gap-2">
@@ -185,7 +184,7 @@ export default function Footer() {
               />
             </button>
           ))}
-        </div>
+        </div> */}
 
         <div className="mb-2 text-sm font-semibold">Theme</div>
         <div className="mb-3 flex gap-2">
