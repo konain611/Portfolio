@@ -101,7 +101,7 @@ export default function ContactPage() {
                 download
                 className="inline-flex items-center justify-center gap-2 text-sm font-medium text-(--accent) transition hover:text-(--foreground)"
               >
-                <i className="ri-download-line text-base" />
+                <i className="ri-download-line text-base text-(--muted)" />
                 Download Resume
               </a>
             </div>
