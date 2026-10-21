@@ -1,16 +1,18 @@
 export const THEME_STORAGE_KEY = "portfolio-theme-settings";
 
 export const accentOptions = [
-  { name: "Red", value: "#d10e2f", accent: "#d10e2f", border: "#a30a24" },
-  { name: "Green", value: "#39ff14", accent: "#39ff14", border: "#1ecc00" },
+  { name: "Blue", value: "#2f6bff", accent: "#2f6bff", border: "#224db8" },
+  { name: "Emerald", value: "#10b981", accent: "#10b981", border: "#0c855d" },
+  { name: "Amber", value: "#f59e0b", accent: "#f59e0b", border: "#b07208" },
+  { name: "Violet", value: "#7c5cff", accent: "#7c5cff", border: "#5942b8" },
+  { name: "Crimson", value: "#ef4444", accent: "#ef4444", border: "#ac3131" },
+  { name: "Black", value: "#000000", accent: "#000000", border: "#333333" },
   { name: "White", value: "#eaf7ff", accent: "#eaf7ff", border: "#cfe8ff" },
-  { name: "Blue", value: "#2541b2", accent: "#2541b2", border: "#1b2f80" },
-  { name: "Yellow", value: "#ffd400", accent: "#ffd400", border: "#e0b800" },
-  { name: "Cyan", value: "#1ef2ff", accent: "#1ef2ff", border: "#00c6d9" },
-  { name: "Magenta", value: "#ff4fd8", accent: "#ff4fd8", border: "#d700b7" },
-  { name: "Violet", value: "#b56dff", accent: "#b56dff", border: "#8b42f7" },
-  { name: "Orange", value: "#ff8f1f", accent: "#ff8f1f", border: "#ff6a00" },
-  { name: "Lime", value: "#b6ff00", accent: "#b6ff00", border: "#8ad100" },
+  // { name: "Cyan", value: "#1ef2ff", accent: "#1ef2ff", border: "#00c6d9" },
+  // { name: "Magenta", value: "#ff4fd8", accent: "#ff4fd8", border: "#d700b7" },
+  // { name: "Violet", value: "#b56dff", accent: "#b56dff", border: "#8b42f7" },
+  // { name: "Orange", value: "#ff8f1f", accent: "#ff8f1f", border: "#ff6a00" },
+  // { name: "Lime", value: "#b6ff00", accent: "#b6ff00", border: "#8ad100" },
 ];
 
 export const backgroundOptions = [
@@ -20,7 +22,7 @@ export const backgroundOptions = [
 ];
 
 export const defaultTheme = {
-  accent: "green",
+  accent: "blue",
   background: "black",
 };
 
@@ -49,12 +51,28 @@ function resolveBackgroundPreference(backgroundPreference) {
   return backgroundPreference || defaultTheme.background;
 }
 
+export function getAccentOptionsForBackground(backgroundPreference) {
+  const resolvedBackground = resolveBackgroundPreference(backgroundPreference);
+  const hiddenAccent = resolvedBackground === "black" ? "Black" : "White";
+
+  return accentOptions.filter((option) => option.name !== hiddenAccent);
+}
+
 export function applyTheme(theme = defaultTheme) {
   if (typeof document === "undefined") return;
 
-  const selectedAccent = accentOptions.find(
+  const resolvedBackground = resolveBackgroundPreference(theme.background || defaultTheme.background);
+  const isDarkBackground = resolvedBackground === "black";
+  const requestedAccent = accentOptions.find(
     (option) => option.name.toLowerCase() === (theme.accent || defaultTheme.accent)
   );
+  const fallbackAccentName =
+    (!isDarkBackground && requestedAccent?.name === "White")
+      ? "Black"
+      : (isDarkBackground && requestedAccent?.name === "Black")
+        ? "White"
+        : requestedAccent?.name;
+  const selectedAccent = accentOptions.find((option) => option.name === fallbackAccentName);
 
   const root = document.documentElement;
 
@@ -63,9 +81,6 @@ export function applyTheme(theme = defaultTheme) {
     root.style.setProperty("--accent-strong", selectedAccent.accent);
     root.style.setProperty("--border", selectedAccent.border);
   }
-
-  const resolvedBackground = resolveBackgroundPreference(theme.background || defaultTheme.background);
-  const isDarkBackground = resolvedBackground === "black";
 
   root.style.setProperty("--background", isDarkBackground ? "#06080d" : "#f5f5f5");
   root.style.setProperty("--text", isDarkBackground ? "#ebebeb" : "#111827");
