@@ -2,10 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import {
-  accentOptions,
   applyTheme,
   backgroundOptions,
   defaultTheme,
+  getAccentOptionsForBackground,
   persistTheme,
   publishTheme,
   readTheme,
@@ -79,7 +79,7 @@ export default function ThemeSettingsButton({ className = "" }) {
             Accent
           </div>
           <div className="mb-4 flex flex-wrap gap-2">
-            {accentOptions.map((option) => (
+            {getAccentOptionsForBackground(theme.background).map((option) => (
               <button
                 key={option.name}
                 type="button"
