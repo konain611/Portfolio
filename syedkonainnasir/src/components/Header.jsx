@@ -105,10 +105,10 @@ export default function Header() {
         <h1 className="text-left text-4xl font-bold uppercase">
           Syed Konain Nasir
         </h1>
-        <p className="text-left text-sm font-semibold d mt-2 max-w-4xl text-(--foreground)">
+        {/* <p className="text-left text-sm font-semibold d mt-2 max-w-4xl text-(--foreground)">
           CS Grad • Full-Stack Software Engineer • Learning DevSecOps • Agentic
           AI Development
-        </p>
+        </p> */}
       </div>
 
       <div className="flex items-center gap-2">
