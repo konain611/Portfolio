@@ -21,7 +21,7 @@ export default function DeveloperHome() {
       thirdRowMiddle={<Experience />}
       thirdRowLeft={<Education />}
       thirdRowRight={<Projects />}
-      fourthRowLeft={<GithubStats username="konain611" />}
+      // fourthRowLeft={<GithubStats username="konain611" />}
       // fourthRowLeft={<Terminal />}
     />
   );
