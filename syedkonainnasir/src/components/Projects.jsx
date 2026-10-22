@@ -1,28 +1,28 @@
 import Link from "next/link";
 
 const projects = [
-  {
-    title: "Autoverse",
-    description:
-      "AI-powered conversational shopping assistant that understands natural-language queries, retrieves and compares products via vector search, and walks users through checkout.",
-    stack: [
-      "Javascript",
-      "Python",
-      "Cohere",
-      "Quadrant",
-      "ChromaDB",
-      "Next.js",
-      "TypeScript",
-    ],
-    href: "https://github.com/konain611/autoverse-npm",
-  },
-  {
-    title: "DGMAGAZINE",
-    description:
-      "Full-fledged cyber intelligence web platform — publishes news, articles, and awareness content, with user interactions, dashboards, and backend APIs, built and maintained solo at Diginfo.",
-    stack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma"],
-    href: "https://dgmagazine.net",
-  },
+{
+  title: "Autoverse",
+  description:
+    "AI-powered shopping assistant for natural-language product search, comparison, and checkout.",
+  stack: [
+    "Javascript",
+    "Python",
+    "Cohere",
+    "Quadrant",
+    "ChromaDB",
+    "Next.js",
+    "TypeScript",
+  ],
+  href: "https://github.com/konain611/autoverse-npm",
+},
+{
+  title: "DGMAGAZINE",
+  description:
+    "Cyber intelligence platform for news, awareness content, user interactions, and dashboards.",
+  stack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma"],
+  href: "https://dgmagazine.net",
+},
   // {
   //   title: "Personal AI Employee",
   //   description:
